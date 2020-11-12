@@ -2,3 +2,16 @@
 
 // @import "plugins/numbered";
 // @import "plugins/scrollbars";
+
+$font-size-base: 18px !default;
+
+.book-brand {
+  margin-top: 0;
+
+  img {
+    height: auto;
+    width: 10em;
+    vertical-align: middle;
+    margin-inline-end: $padding-8;
+  }
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Traitement des Données</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Pascal Houba" />
+    <link href="Data72_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+    <link rel="stylesheet" href="custom-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, title-slide
+
+# Traitement des Données
+## 2020-2021
+### Pascal Houba
+
+---
+
+class:middle
+
+### **Introduction : L’intelligence artificielle et les données**
+### Chapitre 1 : Les probabilités simples
+### Fiche 1 : Les tableurs
+### **Chapitre 2 : Les probabilités conditionnelles**
+
+---
+
+## **Chapitre 1 : Les probabilités simples**
+### 1.1. La notion de probabilité
+La probabilité d'un événement caractérise la possibilité qu'il se produise.
+--
+`$$\textrm{Probabilité d'un événement} = \frac{\textrm{nombre d'éventualités de l'événement}}{\textrm{nombre total d'éventualités}}$$`
+--
+Attention : on suppose que toutes les éventualités sont équiprobables (ont la même probabilité d’arriver).
+On appelle _Univers_ l’ensemble de toutes les éventualités et on le note `\(\Omega\)`￼.
+
+Le _cardinal_ d’un ensemble est le nombre de ses éléments.
+
+Si A est le nom d‘un l’événement (qui peut regrouper plusieurs éventualités), la probabilité que A se réalise est donnée par la formule suivante :
+`$$P(A) = \frac{card(A)}{card(\Omega)}$$`
+
+La probabilité d'un événement est un nombre compris entre 0 et 1 et peut s'écrire sous forme de pourcentage.
+
+---
+
+## **Fiche 1 : Les tableurs**
+### f1.1. Généralités
+Un **tableur** (ie. Microsoft Excel, Google Sheets, Apple Numbers, …) organise les données en cellules (**cells**) disposées en lignes (**rows**) et colonnes (**columns**) qui peuvent être réparties sur plusieurs feuilles (**sheets**).
+
+Chaque cellule peut contenir une **valeur** de **type** numérique, devise (€, $, …), alphanumérique, date, etc.
+
+Cette valeur peut résulter de l’évaluation d’une **formule** qui utilisent des **fonctions** (mathématiques ou autres).
+
+Chaque cellule possède une **adresse** correspondant aux lettres de sa ligne suivie de son numéro de colonne.
+Par exemple : `\(A6\)` ou `\(AQ18\)`. &lt;br&gt;Celles-ci peuvent être utilisées dans les formules.
+
+Chaque indice (lettre de ligne ou numéro de colonne) de ces adresses peut être, soit **relatif**, soit **absolu** (indiquée par un signe $ avant l’indice), par rapport à l’adresse de la cellule où se fait l’évaluation de la formule.
+
+Chaque cellule (ou ensemble de cellules) peut être **mise en forme** selon divers styles graphiques.
+
+On peut facilement continuer une **numérotation automatique** en faisant glisser le curseur pour agrandir la **plage** (_range_ ; ensemble de cellules) contenant un début de numérotation.
+
+On peut garder certaines lignes et/ou colonnes fixes même quand on déplace la vue de la fenêtre en positionnant des **volets** horizontaux et/ou verticaux.
+
+---
+
+## **Fiche 1 : Les tableurs**
+### f1.2. Quelques fonctions courantes
+
+**SUM, MIN, MAX, AVERAGE, MOD, COUNT** : Calcule respectivement la somme, le minimum, le maximum, la moyenne, le modulo, le compte des valeurs numériques d’une plage de cellules.
+
+**RANDBETWEEN **_(début, fin)_ : Calcule un nombre aléatoire compris entre les valeurs _début_ et _fin_.
+Attention : A chaque changement du fichier, les valeurs de toutes les cellules liées à cette fonction sont recalculées.
+
+**ROW, COLUMN** : Calcule le numéro de la ligne ou de la colonne de la cellule passée en paramètre.
+
+**IF** _(condition; siVrai; siFaux)_ : renvoie la valeur _siVrai_ si la _condition_ est remplie, et _siFaux_ sinon.
+
+**RANK.EQ** _(cellule; plage)_ : renvoie le rang (numéro d’ordre) du la valeur de la _cellule_ au sein de la liste ordonnée _plage_.
+
+**CONCAT** _(texte1; texte2)_ : la concaténation est la fusion de deux ou plusieurs chaînes de caractères (textes).
+
+**COUNTIF** _(plage; cellule)_ : compte le nombre de cellules qui répondent à un critère donné dans une plage.
+
+**SUMIF** _(plage1; condition; plage2)_ : calcule la somme des valeurs de la _plage2_ correspondant aux valeurs de la _plage1_ répondant à la _condition_.
+
+---
+
+## **Fiche 1 : Les tableurs**
+### f1.3. Défauts des tableurs par rapport aux alternatives
+
+**Difficile à relire**, surtout par quelqu’un qui n’a pas créé le document.
+
+Le nom des cellules sont obscures comparé à des **noms de variables ou de champs**.
+
+Les valeurs en entrée, en sortie et les formules sont toutes contenues dans des cellules et il n’est pas toujours facile de les identifier rapidement.
+&lt;br&gt;Dans un programme, on peut **séparer clairement les données, les résultats et les procédures de calcul**.
+
+Un code peut facilement produire des documents en **différents formats** (_HTML_, _PDF_, _EXCEL_, …).
+C’est moins facile à partir d’un tableur.
+
+Les langages de programmation sont **extensibles** et peuvent étendre fortement leurs fonctionnalités. Les tableurs ont des fonctionnalités limitées à celles prévues par leurs éditeurs.
+
+Les langages de programmation comme _Java_, _Python_, _R_ sont **Open Source** et gratuits, ce qui n’est pas le cas des tableurs (certains sont gratuits mais pas _Open Source_).
+
+Il est très difficile de gérer les versions et de suivre les changements des documents créés avec les tableurs.
+C’est très facile avec les fichiers de code (cf. _Github_, la plateforme la plus connue de **gestion de versions**).
+
+---
+class:middle
+
+### **Introduction : L’intelligence artificielle et les données**
+### **Chapitre 1 : Les probabilités simples**
+### **Fiche 1 : Les tableurs**
+### Chapitre 2 : Les probabilités conditionnelles
+
+---
+
+## **Chapitre 2 : Les probabilités conditionnelles**
+### 2.1. La notion de probabilité conditionnelle
+
+Mathématiquement, deux événements `\(A\)` et `\(B\)` sont **indépendants** si `$$P(A \cap B) = P(A) . P(B)$$`
+
+Dans ce cas, on peut utiliser les formules des **probabilités simples**. Sinon, on doit utiliser les formules des **probabilités conditionnelles**.
+
+Une **probabilité conditionnelle** est la probabilité d'un événement **sachant** qu'un autre événement a eu lieu.
+
+On note `\(P(A|B)\)` la probabilité conditionnelle que A se réalise sachant que B a eu lieu. Attention, l’ordre est important : `\(P(A|B) \neq P(B|A)\)`.
+
+La **formule** de la probabilité conditionnelle de `\(A\)` sachant `\(B\)` est : `$$P(A|B) = \frac{P(A \cap B)}{P(B)}$$`
+
+On peut donc calculer `\(P(A \cap B)\)` de deux manières : `$$P(A \cap B) = P(A|B).P(B) = P(B|A).P(A)$$`
+
+Cela donne le **théorème de Bayes** : `\(P(A|B) = \frac{P(B|A).P(A)}{P(B)}\)`.
+
+---
+
+## **Fiche 2 : Visualisation des probabilités conditionnelles**
+### f2.1. La représentation en arbre
+
+---
+
+## **Fiche 2 : Visualisation des probabilités conditionnelles**
+### f2.2. La représentation en tableau
+
+---
+
+## **Fiche 2 : Visualisation des probabilités conditionnelles**
+### f2.3. La représentation en diagramme de Venn
+
+---
+
+## **Chapitre 3 : Les tests d’hypothèses**
+### 3.1. Lady Tasting Tea
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
