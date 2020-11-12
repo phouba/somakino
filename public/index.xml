@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Accueil on somakino</title>
+    <link>https://somakino.netlify.app/</link>
+    <description>Recent content in Accueil on somakino</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://somakino.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quantum Mechanics and Reality</title>
+      <link>https://somakino.netlify.app/posts/2020-11-06-quantum-mechanics-and-reality/</link>
+      <pubDate>Tue, 06 Nov 1990 00:00:00 +0000</pubDate>
+      
+      <guid>https://somakino.netlify.app/posts/2020-11-06-quantum-mechanics-and-reality/</guid>
+      <description>Introduction #  Quantum mechanics is one of the most remarkable achievements of the twentieth century. It is one of the few theories that has stood the test of time. In fact, it has never been shown to fail, although some specific applications may be beyond our calculational ability. However, as far as understanding is concerned, little progress has been made since the foundations. The fact that quantum mechanics mainly deals with microscopic phenomena, remote from our common experience, is certainly one of the reasons for this difficulty of interpretation.</description>
+    </item>
+    
+    <item>
+      <title>Notes de cours</title>
+      <link>https://somakino.netlify.app/docs/informatique/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://somakino.netlify.app/docs/informatique/notes/</guid>
+      <description>Notes de cours #  Présentation pour le cours de Traitement des Données #   </description>
+    </item>
+    
+  </channel>
+</rss>

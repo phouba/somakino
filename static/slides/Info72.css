@@ -1,0 +1,75 @@
+.remark-slide-content {
+  background-color: #fff;
+  color: #000;
+  font-size: 20px;
+}
+
+p {
+  margin-top: 0.6em ;
+  margin-bottom: 0.6em ;
+}
+
+strong {
+  font-weight: 900;
+}
+
+.remark-slide-content h1 {
+  font-size: 40px;
+}
+
+.remark-slide-content h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: 0em ;
+  margin-bottom: 0em ;
+  color: #000;
+}
+
+.remark-slide-content h3 {
+  font-size: 28px;
+  font-weight: 900;
+  margin-top: 0em ;
+  margin-bottom: 0.5em ;
+  color: #000;
+}
+
+h2 strong, h3 strong {
+  opacity: 0.4;
+  font-weight: 700;
+}
+
+.title-slide {
+  background-color: #fff;
+  color:background-color: #background-color: #
+}
+
+.title-slide h1, .title-slide h2 {
+  font-size: 48px;
+  color: #000;
+}
+
+.title-slide h2 {
+  font-size: 24px;
+}
+
+.title-slide h3 {
+  color: #000;
+  font-size: 32px;
+  margin-top: 0.5em ;
+}
+
+a, a > code {
+  color: #add9f1;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 10px;
+}

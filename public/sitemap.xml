@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://somakino.netlify.app/docs/informatique/</loc>
+    <lastmod>2020-11-12T16:55:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://somakino.netlify.app/categories/</loc>
+    <lastmod>2020-11-12T16:55:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://somakino.netlify.app/categories/Physics/</loc>
+    <lastmod>2020-11-12T16:55:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://somakino.netlify.app/posts/2020-11-06-quantum-mechanics-and-reality/</loc>
+    <lastmod>2020-11-12T16:55:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://somakino.netlify.app/</loc>
+    <lastmod>2020-11-12T16:55:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://somakino.netlify.app/posts/</loc>
+    <lastmod>2020-11-12T16:55:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://somakino.netlify.app/docs/</loc>
+    <lastmod>2020-11-12T16:55:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://somakino.netlify.app/docs/informatique/notes/</loc>
+    <lastmod>2020-11-12T16:55:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://somakino.netlify.app/tags/</loc>
+  </url>
+  
+</urlset>

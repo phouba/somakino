@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>somakino</title>
+    <link>https://somakino.netlify.app/docs/informatique/</link>
+    <description>Recent content on somakino</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://somakino.netlify.app/docs/informatique/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Notes de cours</title>
+      <link>https://somakino.netlify.app/docs/informatique/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://somakino.netlify.app/docs/informatique/notes/</guid>
+      <description>Notes de cours #  Présentation pour le cours de Traitement des Données #   </description>
+    </item>
+    
+  </channel>
+</rss>
