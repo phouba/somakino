@@ -5,6 +5,15 @@
     <meta charset="utf-8" />
     <meta name="author" content="Pascal Houba" />
     <link href="Data72_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="Data72_files/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+    <script src="Data72_files/d3-3.3.8/d3.min.js"></script>
+    <script src="Data72_files/dagre-0.4.0/dagre-d3.min.js"></script>
+    <link href="Data72_files/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+    <script src="Data72_files/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+    <link href="Data72_files/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="Data72_files/chromatography-0.1/chromatography.js"></script>
+    <script src="Data72_files/DiagrammeR-binding-1.0.6.9000/DiagrammeR.js"></script>
+    <script src="Data72_files/pymjs-1.3.2/pym.v1.min.js"></script>
     <link rel="stylesheet" href="Data72.css" type="text/css" />
     <link rel="stylesheet" href="Data72-fonts.css" type="text/css" />
   </head>
@@ -139,6 +148,49 @@ Cela donne le **théorème de Bayes** : `\(P(A|B) = \frac{P(B|A).P(A)}{P(B)}\)`.
 
 ## **Fiche 2 : Visualisation des probabilités conditionnelles**
 ### f2.1. La représentation en arbre
+.center[
+<div id="htmlwidget-1a6319cb94204a84feeb" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-1a6319cb94204a84feeb">{"x":{"diagram":"\n  graph LR;\n\n  P(P) -- \"P(A)\" --> A(A);\n  P -- \"P(&not;A)\" --> NA(\"&not;A\");\n  \n  A -- \"P(B|A)\" --> AB(B);\n  A -- \"P(&not;B|A)\" --> ANB(\"&not;B\");\n  NA -- \"P(B|&not;A)\" --> NAB(B);\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"&not;B\");\n  \n  AB --- IAB(\"P(A&cap;B) = P(A).P(B|A)\");\n  ANB --- IANB(\"P(A&cap;&not;B) = P(A).P(&not;B|A)\");\n  NAB --- INAB(\"P(&not;A&cap;B) = P(&not;A).P(B|&not;A)\");\n  NANB --- INANB(\"P(&not;A&cap;&not;B) = P(&not;A).P(&not;B|&not;A)\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 7 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 8 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 9 stroke:#0AD, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  style IAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style IANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
+]
+
+.pull-left[
+Verticalement,&lt;br&gt;on __additionne__ les probabilités :
+`$$P(A) + P( \neg A) = 1$$`
+`$$P(B|A) + P( \neg B| A) = 1$$`
+`$$P(B|\neg A) + P( \neg B| \neg A) = 1$$`
+
+]
+
+.pull-right[
+Horizontalement,&lt;br&gt;on __multiplie__ les probabilités :
+`$$P(A \cap B) = P(A).P(B|A)$$`
+]
+
+---
+
+## **Fiche 2 : Visualisation des probabilités conditionnelles**
+### f2.1. La représentation en arbre
+.pull-left[
+<div id="htmlwidget-6348381423c8180866df" style="width:360px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-6348381423c8180866df">{"x":{"diagram":"\n  graph LR;\n  \n  P(P) -- \"P(A)\" --> A(A);\n  P -- \"P(&not;A)\" --> NA(\"&not;A\");\n  \n  A -- \"P(B|A)\" --> AB(B);\n  A -- \"P(&not;B|A)\" --> ANB(\"&not;B\");\n  NA -- \"P(B|&not;A)\" --> NAB(B);\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"&not;B\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+]
+.pull-right[
+<div id="htmlwidget-88875fc0b09e5be87ff9" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-88875fc0b09e5be87ff9">{"x":{"diagram":"\n  graph RL;\n  %%{config: { \"fontFamily\": \"Roboto\", \"fontSize\": 24, \"fontWeight\": 900} }%%\n  \n  P(P) -- \"P(B)\" --> B(B);\n  P -- \"P(&not;B)\" --> NB(\"&not;B\");\n  \n  B -- \"P(A|B)\" --> BA(A);\n  B -- \"P(&not;A|B)\" --> BNA(\"&not;A\");\n  NB -- \"P(A|&not;B)\" --> NBA(A);\n  NB -- \"P(&not;A|&not;B)\" --> NBNA(\"&not;A\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style B fill:#fA0, stroke-width:2, stroke:#000;\n  style NB fill:#fA0, stroke-width:2, stroke:#000; \n  style BA fill:#ff0, stroke-width:2, stroke:#000;\n  style BNA fill:#ff0, stroke-width:2, stroke:#000;\n  style NBA fill:#ff0, stroke-width:2, stroke:#000;\n  style NBNA fill:#ff0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+]
+
+On peut calculer `\(P(A \cap B)\)` de deux manières : `$$P(A \cap B) = P(A|B).P(B) = P(B|A).P(A)$$`
+
+Cela donne le **théorème de Bayes** : `\(P(A|B) = \frac{P(B|A).P(A)}{P(B)}\)`.
 
 ---
 
