@@ -109,9 +109,9 @@ Les erreurs de programmation s’appellent des «&amp;nbsp;**bugs**&amp;nbsp;» 
 Il peut exister dans un programme **trois types d’erreurs** assez différentes :
 
  - les **erreurs de syntaxe** produisent un arrêt de fonctionnement (un «&amp;nbsp;**plantage**&amp;nbsp;») ainsi que l’affichage d’un **message d’erreur**. La syntaxe sont les règles établies pour la structure du programme. En particulier, la **casse** (c’est-à-dire l’emploi des majuscules et des minuscules) et la **ponctuation** sont importantes.
-	
+
  - les **erreurs sémantiques ou logiques** ne provoque pas d’arrêt dans l’exécution du programme ni de message d’erreur, mais conduisent à des résultats qui ne sont pas ceux attendus. En réalité, le programme fait exactement ce que vous lui avez dit de faire. Le problème est que ce que vous lui avez dit de faire ne correspond pas à ce que vous vouliez qu’il fasse.
-	
+
  - les **erreurs à l’exécution** (_run-time errors_) ou **exceptions** provoquées par un événement imprévu.
 
 ---
@@ -124,11 +124,11 @@ Un **environnement de développement intégré** (_Integrated Development Enviro
 Il comporte :
 
  - un **éditeur de texte** destiné à la programmation,
- 
+
  - des fonctions qui permettent de démarrer le **compilateur**
- 
+
  - ainsi qu'un **débogueur**, qui permet d'exécuter ligne par ligne le programme en cours de construction.
- 
+
  - Ils peuvent consister en un logiciel spécifique installé sur la machine de développement (par exemple Microsoft Visual Studio, Eclipse, RStudio, …), ou s’exécuter dans un navigateur (_cloud-based IDE_).
 
 ---
@@ -139,10 +139,23 @@ Il comporte :
 Plus récemment, un nouveau format hybride de code appelé **notebook** est devenu très populaire, notamment pour les **data science**.
 
 Il est composé de **cellules** pouvant chacune contenir :
- 
+
  - soit du code source dans un langage de programmation traditionnel comme **Python**;
- 
+
  - soit du texte dont la mise en forme est encodée dans un langage spécifique, le **Markdown**.
+
+ ***
+
+#### Liens utiles pour le Markdown
+
+ - Un guide pour bien commencer avec markdown :
+
+ https://blog.wax-o.com/2014/04/tutoriel-un-guide-pour-bien-commencer-avec-markdown/
+
+ - Écrire tout simplement – Introduction à Markdown :
+
+ http://www.boiteaoutils.info/2013/02/ecrire-tout-simplement-introduction/
+
 
 ---
 
@@ -253,7 +266,7 @@ L’affectation a pour effet de réaliser plusieurs opérations dans la mémoire
 
  - créer et mémoriser un **nom** de variable ;
 
- - créer et mémoriser une **valeur** particulière ; 
+ - créer et mémoriser une **valeur** particulière ;
 
  - établir un lien entre le nom de la variable et l’**emplacement mémoire** de la valeur correspondante ;
 
@@ -267,9 +280,9 @@ L’affectation a pour effet de réaliser plusieurs opérations dans la mémoire
 Pour afficher leur valeur à l’écran, il existe deux possibilités :
 
  - La première consiste à entrer au clavier le nom de la variable, puis &lt; Enter &gt;.
- 
+
  Python répond en affichant la valeur correspondante.
- 
+
  Il s’agit cependant là d’une fonctionnalité secondaire de l’interpréteur, qui est destinée à vous faciliter la vie lorsque vous faites de simples exercices à la ligne de commande.
 
  - À l’intérieur d’un programme, il faut utiliser la fonction `print()`.
@@ -290,7 +303,7 @@ La fonction `id()` permet de vérifier l’identité d’une variable, c’est-�
 ## **Chapitre 2 : Premiers pas en Python**
 ### 2.8. Les chaînes de caractères
 
-Une **chaînes de caractères** (_string_) consiste en une série de caractères - lettres, chiffres, symboles.
+Une **chaînes de caractères** (le type `string`) consiste en une série de caractères - lettres, chiffres, symboles.
 
 Pour définir les chaînes de caractères **litérales**, on peut utiliser comme délimiteurs
 des guillemets `"..."` ou des apostrophes `'...'`.
@@ -305,10 +318,106 @@ Si la chaîne `salut` contient `'Hello'`, `salut[1]` vaut `'e’` car la numéro
  - On peut utiliser des nombres négatifs pour commencer par la fin : `salut[-1]` vaut `'o`.
 On peut aussi accéder à une partie de la chaîne : `salut[0:3]` vaut `'Hell'`.
 
-La fonction `len()` renvoie longueur d’une chaîne.
+La fonction `len()` renvoit longueur d’une chaîne.
 
 L’opération de **concaténation** consiste à mettre deux ou plusieurs chaînes bout à bout.
-L’opérateur correspondant est le + qui est aussi utilisé pour l’addition.
+L’opérateur correspondant est le `+` qui est aussi utilisé pour l’addition.
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.9. Conversions entre types
+
+La fonction `int()` convertit une variable, numérique ou alphanumérique, en nombre entier.
+
+La fonction `float()` convertit une variable, numérique ou alphanumérique, en nombre flottant.
+
+La fonction `str()` convertit une variable numérique en une chaîne de caractères.
+
+--
+
+***
+
+### 2.10. La fonction `input()`
+
+La fonction `input()` permet à l'utilisateur d'__entrer une valeur pendant l'exécution du programme__.
+
+--
+
+Cette fonction provoque une interruption dans le programme courant. L’utilisateur est invité à entrer des caractères au clavier et à terminer avec `Entrée`.
+
+--
+
+La fonction fournit en retour une __chaîne de caractères correspondant à ce que l'utilisateur a saisi__. Cette chaîne peut être assignée à une variable.
+
+--
+
+_Si vous souhaitez que l’utilisateur entre une valeur numérique, vous devrez donc __convertir la valeur entrée__ (qui sera donc de toute façon de type `string`) en une valeur numérique du type qui vous convient, par l’intermédiaire des fonctions `int()` (si vous attendez un entier) ou `float()` (si vous attendez un réel)._
+
+--
+
+On peut invoquer la fonction `input()` en laissant les parenthèses vides. On peut aussi y placer en argument un __message explicatif destiné à l’utilisateur__.
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.11. Importer un module de fonctions
+
+Les fonctions intégrées au langage sont relativement peu nombreuses : ce sont seulement celles qui sont susceptibles d’être utilisées très fréquemment.
+
+--
+
+Les autres sont regroupées dans des fichiers séparés que l’on appelle des __modules__.
+
+--
+
+Le module `math`, par exemple, contient les définitions de nombreuses __fonctions mathématiques__ telles que sinus, cosinus, tangente, racine carrée, etc.
+
+--
+
+Pour pouvoir utiliser ces fonctions, il vous suffit d’incorporer la ligne suivante au début de votre script :
+
+```python
+from math import *
+```
+
+Cette ligne indique à _Python_ qu’il lui faut inclure dans le programme courant __toutes les fonctions__ (c’est là la signification du symbole « joker » : `*`) du module `math`, lequel contient une bibliothèque de fonctions mathématiques pré-programmées.
+
+--
+
+Dans le corps du script lui-même, vous écrirez par exemple :
+
+.pull-left[
+
+```python
+racine = sqrt(nombre)
+```
+pour assigner à la variable `racine` la racine carrée de `nombre`
+]
+.pull-right[
+
+```python
+sinus = sin(angle)
+```
+pour assigner à la variable `sinus` le sinus de `angle` (en radians!)
+]
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.12. Exercices
+
+1. Ecrire un programme qui, à l'aide de deux variables `x` et `y`, additionne deux nombres entiers et affiche l'addition des deux termes et leur somme :
+
+  par exemple `18 + 7 = 25`.
+
+2. Écrivez un programme qui convertisse en mètres par seconde et en km/h une vitesse fournie
+par l’utilisateur en miles/heure. _(Rappel : 1 mile = 1609 mètres)_
+
+3. Écrivez un programme qui calcule la période d’un pendule simple de longueur donnée.
+
+  La formule qui permet de calculer la période d’un pendule simple est `\(T=2 \pi \sqrt{l/g}\)`,
+`\(l\)` représentant la longueur du pendule et `\(g\)` la valeur de l’accélération de la pesanteur.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
