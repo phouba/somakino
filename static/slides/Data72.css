@@ -4,6 +4,11 @@
   font-size: 20px;
 }
 
+.pull-right {
+  float: right;
+  width: 50%;
+}
+
 p {
   margin-top: 0.6em ;
   margin-bottom: 0.6em ;
