@@ -24,7 +24,7 @@ class:middle
 ### **Prologue : Les systèmes de numération**
 ### Chapitre 1 : Introduction aux langages de programmation
 ### **Chapitre 2 : Premiers pas en Python**
-### **Chapitre 3 : Instructions conditionnelles**
+### **Chapitre 3 : Structures conditionnelles**
 ### **Chapitre 4 : Boucles**
 ### **Chapitre 5 : Tableaux**
 ### **Chapitre 6 : Interactions**
@@ -177,7 +177,7 @@ class:middle
 ### **Prologue : Les systèmes de numération**
 ### **Chapitre 1 : Introduction aux langages de programmation**
 ### Chapitre 2 : Premiers pas en _Python_
-### **Chapitre 3 : Instructions conditionnelles**
+### **Chapitre 3 : Structures conditionnelles**
 ### **Chapitre 4 : Boucles**
 ### **Chapitre 5 : Tableaux**
 ### **Chapitre 6 : Interactions**
@@ -315,7 +315,7 @@ On peut accéder aux caractères d’une chaîne en utilisant les crochets.
  - Par exemple :
 Si la chaîne `salut` contient `'Hello'`, `salut[1]` vaut `'e’` car la numérotation des caractères commence par 0.
 
- - On peut utiliser des nombres négatifs pour commencer par la fin : `salut[-1]` vaut `'o`.
+ - On peut utiliser des nombres négatifs pour commencer par la fin : `salut[-1]` vaut `'o'`.
 On peut aussi accéder à une partie de la chaîne : `salut[0:3]` vaut `'Hell'`.
 
 La fonction `len()` renvoit longueur d’une chaîne.
@@ -411,18 +411,243 @@ pour assigner à la variable `sinus` le sinus de `angle` (en radians!)
 ## **Chapitre 2 : Premiers pas en Python**
 ### 2.12. Exercices
 
-1. Ecrire un programme qui, à l'aide de deux variables `x` et `y`, additionne deux nombres entiers et affiche l'addition des deux termes et leur somme :
+__Ex. 1. a)__ Ecrire un programme qui, à l'aide de deux variables `x` et `y`, additionne deux nombres entiers et affiche l'addition des deux termes et leur somme :
 
   par exemple `18 + 7 = 25`.
+  
+  __b)__ Ecrire une nouvelle version du programme où les deux nombres sont entrés par l'utilisateur.
 
-2. Écrivez un programme qui convertisse en mètres par seconde et en km/h une vitesse fournie
+***
+
+__Ex. 2.__ Écrivez un programme qui convertisse en mètres par seconde et en km/h une vitesse fournie
 par l’utilisateur en miles/heure. _(Rappel : 1 mile = 1609 mètres)_
 
-3. Écrivez un programme qui calcule la période d’un pendule simple de longueur donnée.
+***
+
+__Ex. 3.__ Écrivez un programme qui calcule la période d’un pendule simple de longueur donnée.
 
   La formule qui permet de calculer la période d’un pendule simple est
   `$$T=2 \pi \sqrt{l/g}$$`
   `\(l\)` représentant la longueur du pendule et `\(g\)` la valeur de l’accélération de la pesanteur.
+
+***
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.12. Correctifs des exercices
+
+__Ex. 1. a)__ Ecrire un programme qui, à l'aide de deux variables `x` et `y`, additionne deux nombres entiers et affiche l'addition des deux termes et leur somme.
+
+
+```python
+x = 18
+y = 7
+print(str(x) + "+" + str(y) + "=" + str(x+y))
+```
+
+
+&gt; Il faut bien garder en tête le __type des variables ou expressions__ :
+  - __Nombre entier__, c'est-à-dire `int`, pour `x` et `y`,
+  - __Chaîne de caractères__, c'est-à-dire `str`, pour le paramètre de la fonction `print()`.
+
+&gt; Il faut bien faire attention aux __différentes significations de l'opérateur `+`__ selon le contexte (ce qui est généralement mis en évidence par le code couleur de votre IDE) :
+ - __Symbole__ dans une chaîne de caractère : `"+"` .
+ - __Addition__ entre deux nombres : `x+y` ;
+ - __Concaténation__ entre deux chaînes : `str(y) + "="` ;
+ - En _Python_, on ne peut pas concaténer directement un nombre et une chaîne de caractères : il faut convertir explicitement le nombre en chaîne de caractères avec la fonction `str()`.
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.12. Correctifs des exercices
+
+__Ex. 1. b)__ Ecrire une nouvelle version du programme où les deux nombres sont entrés par l'utilisateur.
+
+
+```python
+saisie = input("Entrez un nombre entier :")
+x = int(saisie)
+
+saisie = input("Entrez un deuxième nombre entier :")
+y = int(saisie)
+
+print(str(x) + "+" + str(y) + "=" + str(x+y))
+```
+&gt; De nouveau, il faut bien garder en tête le __type des variables ou expressions__ :
+
+&gt; - La fonction `input()` retourne une __chaîne de caractères (`str`)__.
+
+&gt; - La variable `saisie` est donc également du type `str`.
+  
+&gt; - Pour pouvoir effectuer un calcul avec les valeurs entrées par l'utilisateur, il faut __convertir vers un type numérique__ grâce à la fonction `int()` (ou `float()` si on voulait travailler dans les réels).
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.12. Correctifs des exercices
+
+__Ex. 2.__ Écrivez un programme qui convertisse en mètres par seconde et en km/h une vitesse fournie
+par l’utilisateur en miles/heure. _(Rappel : 1 mile = 1609 mètres)_
+
+
+```python
+saisie = input("Entrez la vitesse en miles par heure : ")
+vMph = int(saisie)
+
+vkmph = vMph*1.609
+vmps = vkmph*1000/3600
+
+print("Vitesse en miles par heure : " + str(vMph) + " MPH")
+print("Vitesse en km par heure : " + str(vkmph) + " km/h")
+print("Vitesse en m par seconde : " + str(vmps) + " m/s")
+```
+***
+
+__Ex. 3.__ Écrivez un programme qui calcule la période d’un pendule simple de longueur donnée.
+
+
+```python
+from math import *
+
+saisie1 = input("Entrez la longueur du pendule (en m) : ")
+l = float(saisie1)
+
+g = 9.81
+T = 2*pi*sqrt(l/g)
+
+print("La période du pendule est de " + str(T) + " secondes")
+```
+
+
+---
+class:middle
+
+### **Introduction : Une brève histoire de l’informatique**
+### **Prologue : Les systèmes de numération**
+### **Chapitre 1 : Introduction aux langages de programmation**
+### **Chapitre 2 : Premiers pas en _Python_**
+### Chapitre 3 : Structures conditionnelles
+### **Chapitre 4 : Boucles**
+### **Chapitre 5 : Tableaux**
+### **Chapitre 6 : Interactions**
+
+---
+
+## **Chapitre 3 : Structures conditionnelles**
+### 3.1. Les expressions booléennes
+
+Normalement, un programme s'exécute __séquentiellement__, c'est-à-dire ligne par ligne dans l'ordre dans lequel elles se succèdent.
+
+Les __structures conditionnelles__ permettent d'exécuter certaines parties d'un programme selon qu'une ou plusieurs conditions, exprimées sous la forme d'__expressions booléennes__, sont évaluées à `True` ou `False`.
+
+Les expressions booléennes sont formées à l'aide d'__opérateurs relationnels__ ou de fonctions qui renvoient une valeur booléenne, `True` ou `False`.
+
+|Type |Comparaison| Expression booléenne |
+|:--|--:|--:|
+|Numérique|Egalité |`a == b`|
+| |Différence |`a != b`|
+| |Inférieur à |`a &lt; b`|
+| |Inférieur ou égal à |`a &lt;= b`|
+| |Supérieur à |`a &gt; b`|
+| |Supérieur ou égal à |`a &gt;= b`|
+|Alphanumérique| Egalité |`s1 == s2`|
+| | Egalité |`s1.__eq__(s2)`|
+| | Ne contient que des chiffres |`s1.isnumeric()`|
+
+---
+
+## **Chapitre 3 : Structures conditionnelles**
+### 3.2. Les structures conditionnelles simples
+
+
+```python
+# Début du code séquentiel
+# (pas indenté)
+```
+__Structure `if`__
+
+
+```python
+if condition:
+  # Bloc de code à exécuter si l'expression booléenne condition est vraie (True).
+  # Attention, l'indentation doit être respectée.
+```
+.pull-left[
+__Structure `if-else` __
+
+
+```python
+if condition:
+  # Bloc de code à exécuter si
+  # l'expression booléenne
+  # condition est vraie (True).
+else:
+  # Bloc de code à exécuter sinon.
+```
+]
+.pull-right[
+__Structure `if-elif-else`__ 
+
+
+```python
+if condition1:
+  # Bloc de code à exécuter si
+  # l'expression booléenne
+  # condition1 est vraie (True).
+elif condition2:
+  # Bloc de code à exécuter si
+  # l'expression booléenne
+  # condition2 est vraie (True).
+else:
+  # Bloc de code à exécuter sinon.
+```
+]
+
+```python
+# Suite du code séquentiel
+# (pas indenté)
+```
+
+---
+
+## **Chapitre 3 : Structures conditionnelles**
+### 3.3. Les structures conditionnelles complexes
+
+__Structure imbriquée__
+
+
+```python
+# Début du code séquentiel
+# (pas indenté)
+
+if condition1:
+  # Bloc de code à exécuter si condition1 est vraie.
+  # Indentation de premier niveau.
+  
+  if condition2:
+    # Bloc de code à exécuter si condition2 est vraie
+    # (et condition1 est vraie)
+    # Indentation de deuxième niveau.
+  else:
+    # Bloc de code à exécuter si condition2 est fausse
+    # (mais condition1 est vraie)
+    # Indentation de deuxième niveau.
+    
+  # Suite du bloc de code à exécuter si condition1 est vraie.
+  # Retour à l'indentation de premier niveau.
+else:
+  # Bloc de code à exécuter si condition1 est fausse
+  # Indentation de premier niveau.
+
+# Suite du code séquentiel
+# (pas indenté)
+```
+
+---
+
+## **Chapitre 3 : Structures conditionnelles**
+### 3.4. Les opérateurs booléens
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
