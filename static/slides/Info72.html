@@ -647,7 +647,67 @@ else:
 ---
 
 ## **Chapitre 3 : Structures conditionnelles**
-### 3.4. Les opérateurs booléens
+### 3.4. Les opérateurs logiques booléens
+
+Lorsque l'on veut combiner plusieurs conditions, il est parfois plus simple d'utiliser des __opérateurs logiques__ plutôt qu'une structure conditionnelle complexe.
+
+Ceux-ci correspondent aux __opérations logiques__ introduites par Boole : __ET, OU, NON__.
+
+En Python, on utilise les mots-clés `and`, `or`, `not` correspondants.
+
+Il est utile de connaître leurs tables d'évaluation :
+
+.pull-left[
+|  |Résultat|
+|:--|:--:|
+| Vrai ET Vrai | Vrai|
+| Vrai ET Faux | Faux|
+| Faux ET Vrai | Faux|
+| Faux ET Faux | Faux|
+]
+.pull-right[
+|  |Résultat|
+|:--|:--:|
+| Vrai OU Vrai | Vrai|
+| Vrai OU Faux | Vrai|
+| Faux OU Vrai | Vrai|
+| Faux OU Faux | Faux|
+]
+
+et :
+
+|  |Résultat|
+|:--|:--:|
+| NON Vrai | Faux|
+| NON Faux | Vrai|
+
+
+---
+
+## **Chapitre 3 : Structures conditionnelles**
+### 3.5. Exercices
+
+__Ex 1.__ Demander à l’utilisateur son nom et son sexe (M ou F). En fonction de ces données, afficher « Cher Monsieur » ou « Chère Mademoiselle » suivi du nom de la personne.
+
+***
+
+__Ex. 2__ Demander à l’utilisateur qu’il entre un nombre. Afficher ensuite : soit la racine carrée de ce nombre, soit un message indiquant que la racine carrée de ce nombre ne peut être calculée.
+
+***
+
+__Ex. 3.__ Déterminer si une année (dont le millésime est introduit par l’utilisateur) est bissextile ou non. Une année A est bissextile si A est divisible par 4. Elle ne l’est cependant pas si A est un multiple de 100, à moins que A ne soit multiple de 400.
+
+***
+
+__Ex. 4.__ Convertir une note scolaire N quelconque, entrée par l’utilisateur sous forme de points (par exemple 27 sur 85), en une note standardisée suivant le code suivant :
+
+|Note |Appréciation|
+|:--|--:|
+|N &gt;= 80%|A |
+|80% &gt; N &gt;= 60% |B |
+|60% &gt; N &gt;= 50% |C |
+|50% &gt; N &gt;= 40% |D |
+|N &lt; 40%|E |
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
