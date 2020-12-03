@@ -774,6 +774,7 @@ else:
 
 __Ex. 3.__ Déterminer si une année (dont le millésime est introduit par l’utilisateur) est bissextile ou non. Une année A est bissextile si A est divisible par 4. Elle ne l’est cependant pas si A est un multiple de 100, à moins que A ne soit multiple de 400.
 
+__Version avec structure imbriquée__
 
 ```python
 a = int(input("Entrez le millésime de l'année (AAAA) : "))
@@ -792,6 +793,55 @@ if a % 4 == 0:
 else:
    # a n'est pas divisible par 4
    print(str(a) + " n'est pas bissextile")
+```
+---
+
+## **Chapitre 3 : Structures conditionnelles**
+### 3.5. Correctifs des exercices
+
+__Ex. 3.__ Déterminer si une année (dont le millésime est introduit par l’utilisateur) est bissextile ou non. Une année A est bissextile si A est divisible par 4. Elle ne l’est cependant pas si A est un multiple de 100, à moins que A ne soit multiple de 400.
+
+__Version avec opérateurs logiques__
+
+
+```python
+a = int(input("Entrez le millésime de l'année (AAAA) : "))
+
+if a%4 == 0 and a%100 == 0 and a%400 == 0:
+    print(str(a) + " est bissextile") 
+elif a%4 == 0 and a%100 != 0:
+    print(str(a) + " est bissextile")
+else:
+   print(str(a) + " n'est pas bissextile")
+```
+---
+
+## **Chapitre 3 : Structures conditionnelles**
+### 3.5. Correctifs des exercices
+
+__Ex. 4.__ Convertir une note scolaire N quelconque, entrée par l’utilisateur sous forme de points (par exemple 27 sur 85), en une note standardisée.
+
+
+```python
+points = float(input("Entrez votre note chiffrée : "))
+total = int(input("Entrez le total sur lequel vous êtes noté : "))
+
+pourcentage = points/total*100
+
+# Traduction du pourcentage en une appréciation A-E selon un barême
+if pourcentage &gt;= 80:
+    cote = "A"
+elif pourcentage &gt;= 60 and pourcentage &lt; 80:
+    cote = "B"
+elif pourcentage &gt;= 50 and pourcentage &lt; 60:
+    cote = "C"
+elif pourcentage &gt;= 40 and pourcentage &lt; 50:
+    cote = "D"
+elif pourcentage &lt; 40:
+    cote = "E"
+    
+print("Vous avez obtenu le pourcentage de "+str(pourcentage)+" %.")
+print("Cela correspond à une cote de "+cote+".")
 ```
 ---
 class:middle
@@ -888,6 +938,41 @@ Exemple de fonctionnement :
 &gt;Veuillez entrer une valeur : `&lt;Enter&gt;`
 
 &gt;25, 18, 6284
+
+
+---
+
+## **Chapitre 4 : Structures répétitives (1)**
+### 4.2. Correctifs des exercices
+
+__Ex 1. a)__ Écrivez un programme qui affiche les 20 premiers termes de la table de multiplication par 7.
+
+
+```python
+n = 20 # Nombre de lignes de la table
+mult = 7 # Table de 7
+i = 0 # Compteur
+while i&lt;=n:
+    prod = i*mult
+    print(str(i) + " fois " + str(mult) + " égale " + str(prod))
+    i = i + 1 # Incrémentation du compteur
+```
+
+__b)__ Indiquer ceux qui sont multiples de 3 en les entourant de parenthèses.
+
+
+```python
+n = 20 # Nombre de lignes de la table
+mult = 7 # Table de 7
+i = 0 # Compteur
+while i&lt;=n:
+    prod = i*mult
+    if prod % 3 == 0:
+        print(str(i) + " fois " + str(mult) + " égale (" + str(prod) + ")")
+    else:
+        print(str(i) + " fois " + str(mult) + " égale " + str(prod))
+    i = i + 1 # Incrémentation du compteur
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
