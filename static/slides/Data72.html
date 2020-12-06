@@ -31,6 +31,96 @@ class: left, middle, title-slide
 
 class:middle
 
+### Introduction : L’intelligence artificielle et les données
+### **Chapitre 1 : Les probabilités simples**
+### **Fiche 1 : Les tableurs**
+### **Chapitre 2 : Les probabilités conditionnelles**
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.1. Quelques repères dans l'histoire de l'IA
+
+__Les fondations__
+
+__1936__ - Alan Turing publie l'article où il décrit la __machine de Turing__.
+
+__1943__ - Le premier article à la base de l'approche des __réseaux de neurones artificiels__ est publié, initiant ___l'approche connexionniste___.
+
+__1948__ - Alan Turing décrit, sur la base du modèle des réseaux de neurones, une __machine inorganisée__ capable d'apprendre par elle-même.
+
+__1950__ - Alan Turing publie l'article où il décrit le __test de Turing__, censé ne pouvoir être réussi que par une machine intelligente imitant un être humain.
+
+__1951__ - Marvin Minsky et Dean Edmonds construisent une première machine à réseau neuronal.
+
+__1956__ - La __conférence de Dartmouth__, a été le moment-clé où l'intelligence artificielle a été appelée comme telle, a défini ses objectifs, a concrétisé ses premières réussites et a réuni ses acteurs importants. Cette conférence est largement considérée comme le __moment fondateur de l'intelligence artificielle__ en tant que domaine de recherche autonome.
+
+Un premier programme capable de démontrer automatiquement des théorèmes mathématiques y est présenté, marquant le début de ___l'approche symbolique___.
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.1. Quelques repères dans l'histoire de l'IA
+
+__1956−1974__ - Les années qui suivent la conférence de Dartmouth sont une ère de découverte, de conquêtes effrénées de nouvelles contrées du savoir. Les programmes développés à l'époque sont considérés par la plupart des gens comme simplement « extraordinaires » : des ordinateurs résolvent des problèmes algébriques, démontrent des théorèmes et apprennent à parler anglais. Les chercheurs font preuve alors d'un optimisme intense : ils prédisent qu'une machine complètement intelligente sera construite dans les 20 ans à venir. Les agences gouvernementales investissent massivement dans ce nouveau domaine.
+
+__1974-1980 : le premier hiver de l'IA__ - Dans les années 1970, l'intelligence artificielle subit critiques et revers budgétaires, car les chercheurs en intelligence artificielle n'ont pas une vision claire des difficultés des problèmes auxquels ils sont confrontés. Leur immense optimisme a engendré une attente excessive et quand les résultats promis ne se matérialisent pas, les investissements consacrés à l'intelligence artificielle s'étiolent.
+
+__1980-1987__ - Dans les années 1980, des programmes d'IA appelés « __systèmes experts__ » sont adoptés par les entreprises et la connaissance devient le sujet central de la recherche en IA. Un système expert est un programme qui répond à des questions ou résout des problèmes dans un domaine de connaissance donné, à l'aide de règles logiques dérivées de la connaissance des experts humains de ce domaine.
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.1. Quelques repères dans l'histoire de l'IA
+
+__1987−1993 : le second hiver de l'IA__ - Finalement, les premiers systèmes experts ont un coût de maintenance trop élevé. Ils sont difficiles à mettre à jour, ils ne peuvent pas apprendre, ils sont trop « fragiles » (ainsi, ils peuvent faire des erreurs grotesques quand les paramètres sortent des valeurs habituelles), et s'empêtrent dans des problèmes. Les systèmes experts se sont révélés utiles, mais uniquement dans des contextes très spécifiques.
+
+__Au même moment, l'IA progresse vers l'« orthodoxie scientifique ».__
+
+Les chercheurs en intelligence artificielle développent et utilisent des outils mathématiques sophistiqués comme jamais auparavant. Ils prennent conscience que de nombreux problèmes que l'intelligence artificielle doit résoudre ont déjà été traités dans d'autres domaines. 
+
+Le livre-charnière de __1988__ de Judea Pearl intègre les probabilités et la théorie de la décision avec les __réseaux bayésiens__.
+
+__Dès 1985__, des algorithmes dits de __rétro-propagation (backpropagation)__, essentiels pour le développement du __machine learning__ dans les années 2000, sont mis au points.
+
+__Le 11 mai 1997__, _Deep Blue_ est devenu le premier système informatique de jeu d'échecs à battre le champion du monde en titre, Garry Kasparov. Ces succès ne reposent pas sur de nouveaux paradigmes révolutionnaires, mais sur une application minutieuse des techniques d'ingénierie et sur la puissance phénoménale des ordinateurs.
+
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.1. Quelques repères dans l'histoire de l'IA
+
+__2011-actuellement__ - L'accès à de grandes quantités de données (__big data__) ainsi qu'à de grandes capacités de stockage et de puissance de calcul se généralise.
+
+Parallèlement, de nouveaux algorithmes d'apprentissage de type connexioniste sont développés sous le nom de __machine learning (ML)__ et ensuite de __deep learning (DL)__.
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.2. Glossaire
+
+__Machine de Turing__
+
+__Test de Turing__
+
+__Approche connexionniste__
+
+__Approche symbolique__
+
+__Système expert__
+
+__Réseau de neurones artificiels - Neural Network__
+
+__Apprentissage automatique - Machine Learning__
+
+__Apprentissage profond - Deep Learning__
+
+__Big Data__
+
+---
+class:middle
+
 ### **Introduction : L’intelligence artificielle et les données**
 ### Chapitre 1 : Les probabilités simples
 ### Fiche 1 : Les tableurs
@@ -149,24 +239,26 @@ Cela donne le **théorème de Bayes** : `\(P(A|B) = \frac{P(B|A).P(A)}{P(B)}\)`.
 ---
 
 ## **Chapitre 2 : Les probabilités conditionnelles**
-### 2.2. La loi des probabilités totales
+### 2.2. La représentation en diagramme de Venn
 
 Partition de l'univers (ou de la population) en fonction de deux événements `A` et `B` :
 
 ![](partitions.png)
 
+__La loi des probabilités totales : __
+
 `$$P(B) = P(B \cap A) + P(B \cap \neg A)$$`
 
 ---
 
-## **Fiche 2 : Visualisation des probabilités conditionnelles**
-### f2.1. La représentation en arbre
+## **Chapitre 2 : Visualisation des probabilités conditionnelles**
+### 2.3. La représentation en arbre
 .center[
-<div id="htmlwidget-fc638ec92dd36d25e46c" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-77ed4c2d7c4d7764302c" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-fc638ec92dd36d25e46c">{"x":{"diagram":"\n  graph LR;\n\n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n  \n  AB --- IAB(\"<b>P(A&cap;B) = P(A).P(B|A)<\/b>\");\n  ANB --- IANB(\"<b>P(A&cap;&not;B) = P(A).P(&not;B|A)<\/b>\");\n  NAB --- INAB(\"<b>P(&not;A&cap;B) = P(&not;A).P(B|&not;A)<\/b>\");\n  NANB --- INANB(\"<b>P(&not;A&cap;&not;B) = P(&not;A).P(&not;B|&not;A)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 7 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 8 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 9 stroke:#0AD, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  style IAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style IANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-77ed4c2d7c4d7764302c">{"x":{"diagram":"\n  graph LR;\n\n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n  \n  AB --- IAB(\"<b>P(A&cap;B) = P(A).P(B|A)<\/b>\");\n  ANB --- IANB(\"<b>P(A&cap;&not;B) = P(A).P(&not;B|A)<\/b>\");\n  NAB --- INAB(\"<b>P(&not;A&cap;B) = P(&not;A).P(B|&not;A)<\/b>\");\n  NANB --- INANB(\"<b>P(&not;A&cap;&not;B) = P(&not;A).P(&not;B|&not;A)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 7 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 8 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 9 stroke:#0AD, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  style IAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style IANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
 ]
 
 .pull-left[
@@ -184,21 +276,21 @@ Horizontalement,&lt;br&gt;on __multiplie__ les probabilités :
 
 ---
 
-## **Fiche 2 : Visualisation des probabilités conditionnelles**
-### f2.1. La représentation en arbre
+## **Chapitre 2 : Visualisation des probabilités conditionnelles**
+### 2.3. La représentation en arbre
 .pull-left[
-<div id="htmlwidget-d50d9b795b3753948615" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-2c90461dfca2b56e7820" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-d50d9b795b3753948615">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-2c90461dfca2b56e7820">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
 ]
 .pull-right[
-<div id="htmlwidget-4d1f351e3945fdc53040" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-c1e6c9f7f7def5ce75b4" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-4d1f351e3945fdc53040">{"x":{"diagram":"\n  graph RL;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(B)\" --> B(\"<b>B<\/b>\");\n  P -- \"P(&not;B)\" --> NB(\"<b>&not;B<\/b>\");\n  \n  B -- \"P(A|B)\" --> BA(\"<b>A<\/b>\");\n  B -- \"P(&not;A|B)\" --> BNA(\"<b>&not;A<\/b>\");\n  NB -- \"P(A|&not;B)\" --> NBA(\"<b>A<\/b>\");\n  NB -- \"P(&not;A|&not;B)\" --> NBNA(\"<b>&not;A<\/b>\");\n\n  BA --- IBA(\"<b>P(A&cap;B)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, anything;\n  \n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style B fill:#fA0, stroke-width:2, stroke:#000;\n  style NB fill:#fA0, stroke-width:2, stroke:#000; \n  style BA fill:#ff0, stroke-width:2, stroke:#000;\n  style BNA fill:#ff0, stroke-width:2, stroke:#000;\n  style NBA fill:#ff0, stroke-width:2, stroke:#000;\n  style NBNA fill:#ff0, stroke-width:2, stroke:#000;\n  style IBA fill:#0AD, stroke:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-c1e6c9f7f7def5ce75b4">{"x":{"diagram":"\n  graph RL;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(B)\" --> B(\"<b>B<\/b>\");\n  P -- \"P(&not;B)\" --> NB(\"<b>&not;B<\/b>\");\n  \n  B -- \"P(A|B)\" --> BA(\"<b>A<\/b>\");\n  B -- \"P(&not;A|B)\" --> BNA(\"<b>&not;A<\/b>\");\n  NB -- \"P(A|&not;B)\" --> NBA(\"<b>A<\/b>\");\n  NB -- \"P(&not;A|&not;B)\" --> NBNA(\"<b>&not;A<\/b>\");\n\n  BA --- IBA(\"<b>P(A&cap;B)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, anything;\n  \n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style B fill:#fA0, stroke-width:2, stroke:#000;\n  style NB fill:#fA0, stroke-width:2, stroke:#000; \n  style BA fill:#ff0, stroke-width:2, stroke:#000;\n  style BNA fill:#ff0, stroke-width:2, stroke:#000;\n  style NBA fill:#ff0, stroke-width:2, stroke:#000;\n  style NBNA fill:#ff0, stroke-width:2, stroke:#000;\n  style IBA fill:#0AD, stroke:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
 ]
 
 On peut calculer `\(P(A \cap B)\)` de deux manières : `$$P(A \cap B) = P(A|B).P(B) = P(B|A).P(A)$$`
@@ -207,23 +299,26 @@ Cela donne le **théorème de Bayes** : `\(P(A|B) = \frac{P(B|A).P(A)}{P(B)}\)`.
 
 ---
 
-## **Fiche 2 : Visualisation des probabilités conditionnelles**
-### f2.2. La représentation en tableau à double entrée
-.pull-left[
-<div id="htmlwidget-8d9f707b48ffc55ad5c9" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+## **Chapitre 2 : Visualisation des probabilités conditionnelles**
+### 2.4. La représentation en tableau à double entrée
+
+<div id="htmlwidget-e969ca406be13a8657d3" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-8d9f707b48ffc55ad5c9">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
-]
-.pull-right[
-&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+<script type="application/json" data-for="htmlwidget-e969ca406be13a8657d3">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+
+.pull-left[
+
+
+__Tableau à double entrée :__
+&lt;table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(\Omega\) &lt;/th&gt;
-   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;font-weight: bold;color: black !important;background-color: white !important;"&gt; A &lt;/th&gt;
-   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(\neg\)A &lt;/th&gt;
-   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;font-weight: bold;color: black !important;background-color: white !important;"&gt; Total &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; \(\Omega\) &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; A &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; \(\neg\)A &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Total &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
@@ -248,19 +343,394 @@ Cela donne le **théorème de Bayes** : `\(P(A|B) = \frac{P(B|A).P(A)}{P(B)}\)`.
 &lt;/tbody&gt;
 &lt;/table&gt;
 
+]
+.pull-right[
+
 `$$P(B|A) = \frac{card(A \cap B)}{card(A)}$$`
 
 ]
 
 ---
 
-## **Fiche 2 : Visualisation des probabilités conditionnelles**
-### f2.3. La représentation en diagramme de Venn
+### Fiche 2 : Performances d'un test de dépistage
+
+Nous nous baserons sur cette vidéo de Thierry Ancelle :
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/t3R96Kpm2mw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+Plus particulièrement,
+
+- de 9:06 à 12:14 pour la f2.1.
+
+- de 28:40 à 37:30 et de 44:30 à 45:50 pour la f2.2.
+
+- de 37:30 à 41:25 pour la f2.3 et f.2.4.
+
+- de 56:06 à 59:48 pour une conclusion et un épilogue.
 
 ---
 
-## **Chapitre 3 : Les tests d’hypothèses**
-### 3.1. Lady Tasting Tea
+## **Fiche 2 : Performances d'un test de dépistage**
+### f2.1. En situation expérimentale
+
+Lors de la mise au point du test, le but de l'expérience est de déterminer les paramètres du test, sa __sensibilité__ et sa __spécificité__, sachant qui est malade ou non.
+
+.pull-left[
+
+<div id="htmlwidget-dbf6d1c7111bf531ed71" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-dbf6d1c7111bf531ed71">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>N<\/b>\") --> A(\"<b>Malades<\/b>\");\n  P --> NA(\"<b>Sains<\/b>\");\n  \n  A --> AB(\"<b>T+<\/b>\");\n  A --> ANB(\"<b>T-<\/b>\");\n  NA --> NAB(\"<b>T+<\/b>\");\n  NA --> NANB(\"<b>T-<\/b>\");\n  AB --- IAB(\"<b>VP<\/b>\");\n  ANB --- IANB(\"<b>FN<\/b>\");\n  NAB --- INAB(\"<b>FP<\/b>\");\n  NANB --- INANB(\"<b>VN<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 7 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 8 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 9 stroke:#0AD, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  style IAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style IANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Malades &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Sains &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Total &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T+ &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP+FP &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T- &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN+VN &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP+FN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP+VN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+.pull-right[
+
+__Vrais Positifs :__ malades pour lesquels le test est positif.
+
+__Faux Négatifs :__ malades pour lesquels le test est négatif.
+
+__Sensibilité :__ capacité du test à identifier les malades.
+`$$Se = P(T+|Malade) = \frac{VP}{VP+FN}$$`
+
+__Faux Positifs :__ non-malades pour lesquels le test est positif.
+
+__Vrais Négatifs :__ non-malades pour lesquels le test est négatif.
+
+__Spécificité :__ capacité du test à identifier les non-malades
+
+`$$Sp = P(T-|Sain) = \frac{VN}{FP+VN}$$`
+]
+---
+
+## **Fiche 2 : Performances d'un test de dépistage**
+### f2.1. En situation de terrain
+
+On ne connaît pas à l'avance (a priori) qui est malade ou non : c'est la raison pour laquelle on effectue le test.
+
+Ce que l'on connaît, en principe, c'est la __prévalence de la maladie__ dans la population considérée, c'est-à-dire la probabilité d'avoir la maladie sachant que l'on appartient à une certaine population.
+
+Il y a deux situations d'application distinctes :
+
+- le médecin qui effectue un __diagnostic__ pour un patient avec certains symptômes
+
+- l'épidémiologiste qui effectue un __dépistage__ dans une certaine population.
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Objectifs &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Diagnostic &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Dépistage &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Acteurs &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Praticien &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Epidémiologiste &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Cible &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Individu &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Population &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Etat de santé &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Symptomatiques &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Symptomatiques, asymptomatiques et sains &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Données sur le patient &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Nombreuses &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Limitées &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Prévalence de la maladie &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Elevée &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Faible &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+
+## **Fiche 2 : Performances d'un test de dépistage**
+### f2.1. En situation de terrain
+
+.pull-left[
+__Si le résultat du test est positif :__
+
+__- diagnostic :__ quelle est la __probabilité__ pour que le sujet soit malade ?
+
+__- dépistage :__ parmi l'ensemble des tests positifs, quelle est la __proportion__ qui correspond à de vrais malades ?
+
+]
+.pull-right[
+__Si le résultat du test est négatif :__
+
+__- diagnostic :__ quelle est la __probabilité__ pour que le sujet ne soit
+pas malade ?
+
+__- dépistage :__ parmi I'ensemble des tests négatifs, quelle est la
+__proportion__ qui correspond à des sujets non-malades ?
+
+]
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Malades &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Sains &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Total &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T+ &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP+FP &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T- &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN+VN &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP+FN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP+VN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+.pull-left[
+Quelle est la __Valeur Prédictive Positive (VPP)__, la probabilité d'être malade sachant que le test est positif ?
+
+`$$\begin{align}
+VPP &amp;= P(malade|T+) \\
+ &amp;= \frac{VP}{VP+FP}
+\end{align}$$`
+]
+.pull-right[
+Quelle est la __Valeur Prédictive Négative (VPN)__, la probabilité d'être sain sachant que le test est négatif ?
+
+`$$\begin{align}
+VPN &amp;= P(sain|T-) \\
+ &amp;= \frac{VN}{VN+FN}
+\end{align}$$`
+]
+
+Mais ces dernières formules ne sont pas applicables en situation de terrain, car on ne connaît pas le nombre de malades dans la population considérée.
+
+---
+
+## **Fiche 2 : Performances d'un test de dépistage**
+### f2.1. En situation de terrain
+
+Ce que l'on connaît en situation de terrain, ce sont :
+
+- le __nombre d'individu__ dans la population considérée, `\(N\)`.
+
+- la __prévalence__ de la maladie, `\(P\)`.
+
+- les paramètres du test utilisé, sa __sensibilité__ `\(Se\)` et sa __spécificité__ `\(Sp\)`.
+
+On peut dès lors calculer les `\(VP\)`, `\(FP\)`, `\(FN\)`, `\(VN\)`, et finalement les `\(VPP\)` et `\(VPN\)` :
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Malades &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Sains &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Total &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T+ &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP = Se.N.P &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP = (1-Sp).N.(1-P) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP+FP &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T- &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN = (1-Se).N.P &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VN = Sp.N.(1-P) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN+VN &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N.P &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N.(1-P) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+.pull-left[
+`$$\begin{align}
+VPP &amp;= P(malade|T+) \\
+ &amp;= \frac{VP}{VP+FP} \\
+ &amp;= \frac{SeP}{SeP+(1-Sp)(1-P)}
+\end{align}$$`
+]
+.pull-right[
+`$$\begin{align}
+VPN &amp;= P(sain|T-) \\
+ &amp;= \frac{VN}{VN+FN} \\
+ &amp;= \frac{Sp(1-P)}{Sp(1-P)+(1-Se)P}
+\end{align}$$`
+]
+
+On remarque que __les valeurs prédictives dépendent de la prévalence__.
+
+---
+
+## **Fiche 2 : Performances d'un test de dépistage**
+### f2.3. Exemple de diagnostic : Mammographie chez une gynécologue
+
+__Données :__
+
+Pour une série de 500 femmes venues consulter pour une "boule" dans le sein, la prévalence du cancer du sein chez cette gynécologue était de 20%.
+
+La mammographie utilisée a une sensibilité de 98% et une spécificité de 90%.
+
+__Question :__ Quelles sont les valeurs prédictives de cette mammographie ?
+
+__Calculs :__
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Malades &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Sains &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Total &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Valeurs prédictives &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T+ &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP = 98%.100 = 98 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP = 400 - 360 = 40 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 138 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VPP = 98/138 = 71,0% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T- &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN = 100 - 98 = 2 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VN = 90%.400 = 360 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 362 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VPN = 360/362 = 99,4% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 20%.500 = 100 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 500 - 100 = 400 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N = 500 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+__Interprétations :__
+
+Si une femme a une mammographie positive, elle a une probabilité de 71% d'avoir un cancer du sein.
+
+Si une femme a une mammographie négative, elle a une probabilité de 99,4% de ne pas avoir un cancer du sein.
+---
+
+## **Fiche 2 : Performances d'un test de dépistage**
+### f2.4. Exemple de dépistage : dépistage du cancer du sein
+
+__Données :__
+
+Pour une population générale de 5000 femmes âgées de 50 à 69 ans, la prévalence du cancer du sein est de 1%.
+
+La mammographie utilisée a toujours une sensibilité de 98% et une spécificité de 90%.
+
+__Question :__ Quelles sont les valeurs prédictives ?
+
+__Calculs :__
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Malades &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Sains &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Total &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Valeurs prédictives &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T+ &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP = 98%.50 = 49 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP = 4950 - 4455 = 495 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 544 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VPP = 49/544 = 9,0% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T- &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN = 50 - 49 = 1 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VN = 90%.4950 = 4455 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 4456 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VPN = 4455/4456 = 99,98% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 1%.5000 = 50 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 5000 - 50 = 4950 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N = 5000 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+__Interprétations :__
+
+Si une femme a une mammographie positive, elle a une probabilité de 9% d'avoir un cancer du sein.
+
+Si une femme a une mammographie négative, elle a une probabilité de 99,98% de ne pas avoir un cancer du sein.
+
+__Conclusion :__ On remarque que __la VPP dépend fortement de la prévalence__ de la maladie dans la population considérée.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
