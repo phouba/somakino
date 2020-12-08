@@ -928,18 +928,31 @@ comme dans l’exemple ci-dessous :
 __Ex 3.__ Écrivez un programme qui permette d’encoder des valeurs dans une liste. Ce programme devrait fonctionner en boucle, l’utilisateur étant invité à entrer sans cesse de nouvelles valeurs, jusqu’à ce qu’il décide de terminer en frappant `&lt;Enter&gt;` en guise d’entrée. Le programme se terminerait alors par l’affichage de la liste.
 
 Exemple de fonctionnement :
+```
+Veuillez entrer une valeur : 25 &lt;Enter&gt;
 
-&gt;Veuillez entrer une valeur : 25 `&lt;Enter&gt;`
+Veuillez entrer une valeur : 6284 &lt;Enter&gt;
 
-&gt;Veuillez entrer une valeur : 18 `&lt;Enter&gt;`
+Veuillez entrer une valeur : &lt;Enter&gt;
 
-&gt;Veuillez entrer une valeur : 6284 `&lt;Enter&gt;`
+25, 6284
+```
+***
 
-&gt;Veuillez entrer une valeur : `&lt;Enter&gt;`
-
-&gt;25, 18, 6284
-
-
+__Ex 4.__ Écrivez un programme qui dessine le sapin ci-dessous en utilisant une boucle.
+```
+    *
+    *
+   ***
+   ***
+  *****
+  *****
+ *******
+ *******
+    *
+    *
+   ***
+```
 ---
 
 ## **Chapitre 4 : Structures répétitives (1)**
@@ -972,6 +985,128 @@ while i&lt;=n:
     else:
         print(str(i) + " fois " + str(mult) + " égale " + str(prod))
     i = i + 1 # Incrémentation du compteur
+```
+
+---
+
+## **Chapitre 4 : Structures répétitives (1)**
+### 4.2. Correctifs des exercices
+
+__Ex 2.__ Écrivez un programme qui affiche une table de conversion de sommes d’argent exprimées en
+euros, en dollars canadiens. La progression des sommes de la table sera « géométrique ».
+
+
+```python
+n = 16384 # Valeur limite
+mult = 1.65 # Facteur de conversion euros-dollars
+i = 1 # Initialisation du compteur
+while i&lt;=n:
+    prod = i*mult
+    print(str(i) + " euro(s) = " + str(prod) + " dollar(s)")
+    i = i * 2 # Progression géométrique
+```
+
+***
+
+__Ex 3.__ Écrivez un programme qui permette d’encoder des valeurs dans une liste.
+
+
+```python
+liste = ""
+saisie = "pas vide"
+while saisie != "":
+    saisie = input("Veuillez entrer une valeur : ")
+    if saisie != "":
+        valeur = int(saisie)
+        if liste == "":
+            liste = liste + saisie
+        else:
+            liste = liste + ", " + saisie
+print(liste)
+```
+---
+
+## **Chapitre 4 : Structures répétitives (1)**
+### 4.2. Correctifs des exercices
+
+__Ex 4.__ Écrivez un programme qui dessine un sapin en utilisant une boucle.
+
+__Version 1 avec des opérateurs logiques :__
+
+```python
+n = 11
+i = 0
+while i&lt;n:
+    if i == 0 or i == 1 or i == 8 or i == 9:
+        print("   *")
+    elif i == 2 or i == 3 or i == 10:
+        print("  ***")
+    elif i == 4 or i == 5:
+        print(" *****")
+    elif i == 6 or i == 7:
+        print("*******")
+    i = i + 1
+```
+---
+
+## **Chapitre 4 : Structures répétitives (1)**
+### 4.2. Correctifs des exercices
+
+__Ex 4.__ Écrivez un programme qui dessine un sapin en utilisant une boucle.
+
+__Version 2 avec des opérations sur les chaînes de caractères :__
+
+```python
+n = 11
+i = 0
+e = "   " # 3 espaces
+s = "*" # 1 étoile
+while i&lt;n:
+    if i != 0 and i % 2 == 0: # On change une ligne sur deux sauf au début
+        if e != "": # Avant le tronc
+            e = e[0:-1] # On enlève le dernier espace
+            s = s + "**" # On ajoute deux étoiles
+        else: # Début du tronc
+            e = "   " # 3 espaces
+            s = "*" # 1 étoile
+    print(e+s)
+    i = i + 1
+```
+---
+
+## **Chapitre 4 : Structures répétitives (1)**
+### 4.2. Correctifs des exercices
+
+__Ex 4.__ Écrivez un programme qui dessine un sapin en utilisant une boucle.
+
+__Version 3 avec des boucles imbriquées :__
+
+
+```python
+n = 11 # Nombre de lignes
+i = 0 # Initialisation du compteur
+ne = 3 # Nombre d'espaces
+ns = 1 # Nombre d'étoiles
+while i&lt;n:
+    if i != 0 and i % 2 == 0: # On change une ligne sur deux sauf au début
+        if ne != 0: # Avant le tronc
+            ne = ne - 1 # On enlève le dernier espace
+            ns = ns + 2 # On ajoute deux étoiles
+        else: # Début du tronc
+            ne = 3 # 3 espaces
+            ns = 1 # 1 étoile
+    j = 0 # Compteur d'espaces
+    e = ""
+    while j&lt;ne:
+        e = e + " "
+        j = j + 1
+    j = 0 # Compteur d'étoiles
+    s = ""
+    while j&lt;ns:
+        s = s + "*"
+        j = j + 1
+    print(e+s)
+    i = i + 1
 ```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
