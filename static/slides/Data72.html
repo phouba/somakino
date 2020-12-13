@@ -35,13 +35,67 @@ class:middle
 ### **Chapitre 1 : Les probabilités simples**
 ### **Fiche 1 : Les tableurs**
 ### **Chapitre 2 : Les probabilités conditionnelles**
+### **Fiche 2 : Performances d'un test de dépistage**
 
 ---
 
 ## **Introduction : L’intelligence artificielle et les données**
-### Intro.1. Quelques repères dans l'histoire de l'IA
+### Intro.1. Qui a peur de l'IA ?
 
-__Les fondations__
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/oZUWa1rf1fY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+Il y a toujours un malentendu sur le terme d'intelligence artificielle.
+
+Beaucoup de gens imaginent que c’est une espèce de fantasmagorie : l’idée qu’une machine va tout d'un coup être animée d’intelligence mais ce n'est pas ça !
+
+L’intelligence artificielle c’est une discipline scientifique.
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.2. Qu'est-ce que l'IA ?
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/s76oTtyw8Q8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+L'informatique a pour objet le traitement de l'**infor**mation de manière auto**matique**.
+
+Elle s'appuie sur des **machines** capables de **traiter des données** grâce à des **algorithmes**.
+
+Un **algorithme** est une série d'instructions à suive dans un certain ordre pour effectuer une tâche de manière __automatique__ (sans avoir besoin de comprendre ou de réfléchir).
+
+Une fois cet algorithme traduit dans un langage compréhensible par l'ordinateur, on obtient un __programme informatique__.
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.2. Qu'est-ce que l'IA ?
+
+Pour simuler l'intelligence humaine, il faut pouvoir reproduire les différentes __fonctions cognitives__ à l'oeuvre dans le fonctionnement de la pensée (la perception, le langage, la motricité, la  mémoire, le raisonnement, l'abstraction, et la créativité).
+
+Pour y arriver, il y a __deux approches complémentaires__ :
+  - __L'approche symbolique__ essaie d'imiter comment l'humain raisonne logiquement en utilisant un ensemble de connaissances, de règles, de procédures.
+
+  Cette approche a donné les __systèmes experts__ qui tentent de reproduire le raisonnement d'un spécialiste, comme un médecin ou un juriste, pour résoudre un problème.
+
+- __L'approche numérique ou connexionniste__ tente d'imiter comment l'humain apprend par essais et erreurs à partir de ses expériences, pour lesquels il est beaucoup plus difficile d'expliquer comment on s'y prend (faire du vélo, reconnaître un chat).
+
+  Cette approche est à l'oeuvre dans l'__apprentissage machine (machine learning)__ et les __réseaux de neurones (neural networks)__.
+
+La spécificité de l'intelligence humaine est d'être une __intelligence générale__, alors que les intelligences artificielles sont techniques et spécifiques : elles ne peuvent effectuer que la tâche pour laquelle elles ont été programmées ou paramétrées.
+
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.3. Quelques repères dans l'histoire de l'IA
+
+***
+
+__Référence :__ Russell, Stuart J., Peter Norvig, et Ernest Davis. __Artificial Intelligence: A Modern Approach__ (3rd ed.), Prentice Hall, 2010.
+
+***
+
+__I. Les fondations__
 
 __1936__ - Alan Turing publie l'article où il décrit la __machine de Turing__.
 
@@ -60,61 +114,71 @@ Un premier programme capable de démontrer automatiquement des théorèmes math�
 ---
 
 ## **Introduction : L’intelligence artificielle et les données**
-### Intro.1. Quelques repères dans l'histoire de l'IA
+### Intro.3. Quelques repères dans l'histoire de l'IA
 
-__1956−1974__ - Les années qui suivent la conférence de Dartmouth sont une ère de découverte, de conquêtes effrénées de nouvelles contrées du savoir. Les programmes développés à l'époque sont considérés par la plupart des gens comme simplement « extraordinaires » : des ordinateurs résolvent des problèmes algébriques, démontrent des théorèmes et apprennent à parler anglais. Les chercheurs font preuve alors d'un optimisme intense : ils prédisent qu'une machine complètement intelligente sera construite dans les 20 ans à venir. Les agences gouvernementales investissent massivement dans ce nouveau domaine.
+__II. Des hauts et des bas__
 
-__1974-1980 : le premier hiver de l'IA__ - Dans les années 1970, l'intelligence artificielle subit critiques et revers budgétaires, car les chercheurs en intelligence artificielle n'ont pas une vision claire des difficultés des problèmes auxquels ils sont confrontés. Leur immense optimisme a engendré une attente excessive et quand les résultats promis ne se matérialisent pas, les investissements consacrés à l'intelligence artificielle s'étiolent.
+__1956−1974__ - Les années qui suivent la conférence de Dartmouth sont une ère de découverte : des ordinateurs résolvent des problèmes algébriques, démontrent des théorèmes et apprennent à parler anglais. Les chercheurs font preuve alors d'un optimisme intense : ils prédisent qu'une machine complètement intelligente sera construite dans les 20 ans à venir. Les agences gouvernementales investissent massivement dans ce nouveau domaine.
 
-__1980-1987__ - Dans les années 1980, des programmes d'IA appelés « __systèmes experts__ » sont adoptés par les entreprises et la connaissance devient le sujet central de la recherche en IA. Un système expert est un programme qui répond à des questions ou résout des problèmes dans un domaine de connaissance donné, à l'aide de règles logiques dérivées de la connaissance des experts humains de ce domaine.
+__1974-1980 : le premier hiver de l'IA__ - L'intelligence artificielle subit critiques et revers budgétaires, car les chercheurs en intelligence artificielle n'ont pas une vision claire des difficultés des problèmes auxquels ils sont confrontés. Leur immense optimisme a engendré une attente excessive et quand les résultats promis ne se matérialisent pas, les investissements consacrés à l'intelligence artificielle s'étiolent.
 
+__1980-1987__ - Des programmes d'IA appelés « __systèmes experts__ » sont adoptés par les entreprises et la connaissance devient le sujet central de la recherche en IA. Un système expert est un programme qui répond à des questions ou résout des problèmes dans un domaine de connaissance donné, à l'aide de règles logiques dérivées de la connaissance des experts humains de ce domaine.
+
+__1987−1993 : le second hiver de l'IA__ - Finalement, les premiers systèmes experts ont un coût de maintenance trop élevé, sont difficiles à mettre à jour, ne peuvent pas apprendre, peuvent faire des erreurs grotesques quand les paramètres sortent des valeurs habituelles, et s'empêtrent dans des problèmes. Les systèmes experts se sont révélés utiles, mais uniquement dans des contextes très spécifiques.
 ---
 
 ## **Introduction : L’intelligence artificielle et les données**
-### Intro.1. Quelques repères dans l'histoire de l'IA
+### Intro.3. Quelques repères dans l'histoire de l'IA
 
-__1987−1993 : le second hiver de l'IA__ - Finalement, les premiers systèmes experts ont un coût de maintenance trop élevé. Ils sont difficiles à mettre à jour, ils ne peuvent pas apprendre, ils sont trop « fragiles » (ainsi, ils peuvent faire des erreurs grotesques quand les paramètres sortent des valeurs habituelles), et s'empêtrent dans des problèmes. Les systèmes experts se sont révélés utiles, mais uniquement dans des contextes très spécifiques.
+__III. Vers l'orthodoxie scientifique__
 
-__Au même moment, l'IA progresse vers l'« orthodoxie scientifique ».__
+Les chercheurs en intelligence artificielle développent et utilisent des outils mathématiques sophistiqués comme jamais auparavant.
 
-Les chercheurs en intelligence artificielle développent et utilisent des outils mathématiques sophistiqués comme jamais auparavant. Ils prennent conscience que de nombreux problèmes que l'intelligence artificielle doit résoudre ont déjà été traités dans d'autres domaines. 
+__Dès 1985,__ des algorithmes dits de __rétro-propagation (backpropagation)__, essentiels pour le développement du __machine learning__ dans les années 2000, sont mis au points.
 
-Le livre-charnière de __1988__ de Judea Pearl intègre les probabilités et la théorie de la décision avec les __réseaux bayésiens__.
+__En 1988,__ le livre-charnière de Judea Pearl intègre les probabilités et la théorie de la décision avec les __réseaux bayésiens__.
 
-__Dès 1985__, des algorithmes dits de __rétro-propagation (backpropagation)__, essentiels pour le développement du __machine learning__ dans les années 2000, sont mis au points.
+__Le 11 mai 1997__, _Deep Blue_ est devenu le premier système informatique de jeu d'échecs à battre le champion du monde en titre, Garry Kasparov.
 
-__Le 11 mai 1997__, _Deep Blue_ est devenu le premier système informatique de jeu d'échecs à battre le champion du monde en titre, Garry Kasparov. Ces succès ne reposent pas sur de nouveaux paradigmes révolutionnaires, mais sur une application minutieuse des techniques d'ingénierie et sur la puissance phénoménale des ordinateurs.
+__Le 15 mars 2016__, le programme _AlphaGo_ développé par Google remporte un tournoi de go face au champion Lee Sedol, marquant une avancée significative des techniques d'apprentissage automatique.
 
-
----
-
-## **Introduction : L’intelligence artificielle et les données**
-### Intro.1. Quelques repères dans l'histoire de l'IA
-
-__2011-actuellement__ - L'accès à de grandes quantités de données (__big data__) ainsi qu'à de grandes capacités de stockage et de puissance de calcul se généralise.
+__A partir de 2011__ - L'accès à de grandes quantités de données (__big data__) ainsi qu'à de grandes capacités de stockage et de puissance de calcul se généralise.
 
 Parallèlement, de nouveaux algorithmes d'apprentissage de type connexioniste sont développés sous le nom de __machine learning (ML)__ et ensuite de __deep learning (DL)__.
 
 ---
 
 ## **Introduction : L’intelligence artificielle et les données**
-### Intro.2. Glossaire
+### Intro.4. Du machine learning et des données
 
-__Machine de Turing__
+&lt;iframe width="500" height="240" src="https://www.youtube.com/embed/wPiMSsz_Dnw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
-__Test de Turing__
+Le but de __l'apprentissage automatique (machine learning)__ est de développer des algorithmes qui peuvent apprendre à apprendre.
 
-__Approche connexionniste__
+Il y a deux techniques d'apprentissage principales :
 
-__Approche symbolique__
+  - __L'apprentissage supervisé__ qui procède en deux phases :
+  
+  Dans la __phase d'entraînement__, les données sont étiquetées par des humains.
 
-__Système expert__
+  Dans la __phase de prédiction__, l'algorithme effectue une prédiction sur la base de données qu'il n'a jamais vues.
 
-__Réseau de neurones artificiels - Neural Network__
+  - __L'apprentissage par renforcement__ où l'algorithme apprend en étant plongé dans un environnement, et où il va ajuster ses paramètres en fonction de la réaction positive ou négative qui suit chacune de ses actions.
 
-__Apprentissage automatique - Machine Learning__
+---
 
-__Apprentissage profond - Deep Learning__
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.4. Du machine learning et des données
+
+__L'apprentissage profond (deep learning)__ est une méthode d'apprentissage machine qui s'appuie sur des __réseaux de neurones artificiels__.
+
+Les neurones biologiques sont des cellules connectées les unes aux autres.
+
+Quand un neurone reçoit des signaux d'autres neurones, il les combine et peut alors transmettre ou non le signal à d'autres.
+
+Les neurones artificiels imitent le fonctionnement des neurones biologiques sur la base d'un modèle mathématique.
+
+Cette méthode date des années 50 mais ce n'est que récemment que la puissance de calcul, l'augmentation des volumes de données et le perfectionnement des algorithmes ont permis d'atteindre une nouvelle étape, appelée apprentissage profond (deep learning), caractérisée par une répartition du réseau en plusieurs couches hiérarchisées, ce qui signifie que les entrées d'une couche sont fonction des sorties de la couche précédente.
 
 __Big Data__
 
@@ -125,6 +189,7 @@ class:middle
 ### Chapitre 1 : Les probabilités simples
 ### Fiche 1 : Les tableurs
 ### **Chapitre 2 : Les probabilités conditionnelles**
+### **Fiche 2 : Performances d'un test de dépistage**
 
 ---
 
@@ -147,7 +212,14 @@ La probabilité d'un événement est un nombre compris entre 0 et 1 et peut s'é
 ---
 
 ## **Fiche 1 : Les tableurs**
-### f1.1. Généralités
+### f1.1. La signification statistique d'une expérience
+&lt;iframe width="640" height="320" src="https://www.youtube.com/embed/m1v8xecyM6A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+## **Fiche 1 : Les tableurs**
+### f1.2. Généralités
+
 Un **tableur** (ie. Microsoft Excel, Google Sheets, Apple Numbers, …) organise les données en cellules (**cells**) disposées en lignes (**rows**) et colonnes (**columns**) qui peuvent être réparties sur plusieurs feuilles (**sheets**).
 
 Chaque cellule peut contenir une **valeur** de **type** numérique, devise (€, $, …), alphanumérique, date, etc.
@@ -168,11 +240,11 @@ On peut garder certaines lignes et/ou colonnes fixes même quand on déplace la 
 ---
 
 ## **Fiche 1 : Les tableurs**
-### f1.2. Quelques fonctions courantes
+### f1.3. Quelques fonctions courantes
 
 **SUM, MIN, MAX, AVERAGE, MOD, COUNT** : Calcule respectivement la somme, le minimum, le maximum, la moyenne, le modulo, le compte des valeurs numériques d’une plage de cellules.
 
-**RANDBETWEEN **_(début, fin)_ : Calcule un nombre aléatoire compris entre les valeurs _début_ et _fin_.
+**RANDBETWEEN**_(début, fin)_ : Calcule un nombre aléatoire compris entre les valeurs _début_ et _fin_.
 Attention : A chaque changement du fichier, les valeurs de toutes les cellules liées à cette fonction sont recalculées.
 
 **ROW, COLUMN** : Calcule le numéro de la ligne ou de la colonne de la cellule passée en paramètre.
@@ -190,7 +262,7 @@ Attention : A chaque changement du fichier, les valeurs de toutes les cellules l
 ---
 
 ## **Fiche 1 : Les tableurs**
-### f1.3. Défauts des tableurs par rapport aux alternatives
+### f1.4. Défauts des tableurs par rapport aux alternatives
 
 **Difficile à relire**, surtout par quelqu’un qui n’a pas créé le document.
 
@@ -216,6 +288,7 @@ class:middle
 ### **Chapitre 1 : Les probabilités simples**
 ### **Fiche 1 : Les tableurs**
 ### Chapitre 2 : Les probabilités conditionnelles
+### Fiche 2 : Performances d'un test de dépistage
 
 ---
 
@@ -239,26 +312,51 @@ Cela donne le **théorème de Bayes** : `\(P(A|B) = \frac{P(B|A).P(A)}{P(B)}\)`.
 ---
 
 ## **Chapitre 2 : Les probabilités conditionnelles**
-### 2.2. La représentation en diagramme de Venn
+### 2.2. Le théorème de Bayes
+
+.pull-left[
+&lt;iframe width="400" height="250" src="https://www.youtube.com/embed/U_85TaXbeIo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+.pull-right[
+&lt;iframe width="400" height="250" src="https://www.youtube.com/embed/HZGCoVF3YvM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+.pull-left[
+&lt;iframe width="400" height="250" src="https://www.youtube.com/embed/x-2uVNze56s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+.pull-right[
+&lt;iframe width="400" height="250" src="https://www.youtube.com/embed/3FOrWMDL8CY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+---
+
+## **Chapitre 2 : Les probabilités conditionnelles**
+### 2.3. La représentation en diagramme de Venn
 
 Partition de l'univers (ou de la population) en fonction de deux événements `A` et `B` :
 
-![](partitions.png)
+.center[
+&lt;img src="partitions.png" style="width: 80%" /&gt;
+]
 
+.pull-left[
 __La loi des probabilités totales : __
 
 `$$P(B) = P(B \cap A) + P(B \cap \neg A)$$`
+]
+.pull-right[
+&lt;iframe width="400" height="200" src="https://www.youtube.com/embed/lMhk3pzmuYo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
 
 ---
 
 ## **Chapitre 2 : Visualisation des probabilités conditionnelles**
-### 2.3. La représentation en arbre
+### 2.4. La représentation en arbre
 .center[
-<div id="htmlwidget-77ed4c2d7c4d7764302c" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-62fc5bea878ee382ae62" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-77ed4c2d7c4d7764302c">{"x":{"diagram":"\n  graph LR;\n\n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n  \n  AB --- IAB(\"<b>P(A&cap;B) = P(A).P(B|A)<\/b>\");\n  ANB --- IANB(\"<b>P(A&cap;&not;B) = P(A).P(&not;B|A)<\/b>\");\n  NAB --- INAB(\"<b>P(&not;A&cap;B) = P(&not;A).P(B|&not;A)<\/b>\");\n  NANB --- INANB(\"<b>P(&not;A&cap;&not;B) = P(&not;A).P(&not;B|&not;A)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 7 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 8 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 9 stroke:#0AD, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  style IAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style IANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-62fc5bea878ee382ae62">{"x":{"diagram":"\n  graph LR;\n\n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n  \n  AB --- IAB(\"<b>P(A&cap;B) = P(A).P(B|A)<\/b>\");\n  ANB --- IANB(\"<b>P(A&cap;&not;B) = P(A).P(&not;B|A)<\/b>\");\n  NAB --- INAB(\"<b>P(&not;A&cap;B) = P(&not;A).P(B|&not;A)<\/b>\");\n  NANB --- INANB(\"<b>P(&not;A&cap;&not;B) = P(&not;A).P(&not;B|&not;A)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 7 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 8 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 9 stroke:#0AD, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  style IAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style IANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
 ]
 
 .pull-left[
@@ -277,20 +375,20 @@ Horizontalement,&lt;br&gt;on __multiplie__ les probabilités :
 ---
 
 ## **Chapitre 2 : Visualisation des probabilités conditionnelles**
-### 2.3. La représentation en arbre
+### 2.4. La représentation en arbre
 .pull-left[
-<div id="htmlwidget-2c90461dfca2b56e7820" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-59506bd65368617f6796" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-2c90461dfca2b56e7820">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-59506bd65368617f6796">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
 ]
 .pull-right[
-<div id="htmlwidget-c1e6c9f7f7def5ce75b4" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-c780921fa95d88fe411c" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-c1e6c9f7f7def5ce75b4">{"x":{"diagram":"\n  graph RL;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(B)\" --> B(\"<b>B<\/b>\");\n  P -- \"P(&not;B)\" --> NB(\"<b>&not;B<\/b>\");\n  \n  B -- \"P(A|B)\" --> BA(\"<b>A<\/b>\");\n  B -- \"P(&not;A|B)\" --> BNA(\"<b>&not;A<\/b>\");\n  NB -- \"P(A|&not;B)\" --> NBA(\"<b>A<\/b>\");\n  NB -- \"P(&not;A|&not;B)\" --> NBNA(\"<b>&not;A<\/b>\");\n\n  BA --- IBA(\"<b>P(A&cap;B)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, anything;\n  \n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style B fill:#fA0, stroke-width:2, stroke:#000;\n  style NB fill:#fA0, stroke-width:2, stroke:#000; \n  style BA fill:#ff0, stroke-width:2, stroke:#000;\n  style BNA fill:#ff0, stroke-width:2, stroke:#000;\n  style NBA fill:#ff0, stroke-width:2, stroke:#000;\n  style NBNA fill:#ff0, stroke-width:2, stroke:#000;\n  style IBA fill:#0AD, stroke:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-c780921fa95d88fe411c">{"x":{"diagram":"\n  graph RL;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(B)\" --> B(\"<b>B<\/b>\");\n  P -- \"P(&not;B)\" --> NB(\"<b>&not;B<\/b>\");\n  \n  B -- \"P(A|B)\" --> BA(\"<b>A<\/b>\");\n  B -- \"P(&not;A|B)\" --> BNA(\"<b>&not;A<\/b>\");\n  NB -- \"P(A|&not;B)\" --> NBA(\"<b>A<\/b>\");\n  NB -- \"P(&not;A|&not;B)\" --> NBNA(\"<b>&not;A<\/b>\");\n\n  BA --- IBA(\"<b>P(A&cap;B)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, anything;\n  \n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style B fill:#fA0, stroke-width:2, stroke:#000;\n  style NB fill:#fA0, stroke-width:2, stroke:#000; \n  style BA fill:#ff0, stroke-width:2, stroke:#000;\n  style BNA fill:#ff0, stroke-width:2, stroke:#000;\n  style NBA fill:#ff0, stroke-width:2, stroke:#000;\n  style NBNA fill:#ff0, stroke-width:2, stroke:#000;\n  style IBA fill:#0AD, stroke:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
 ]
 
 On peut calculer `\(P(A \cap B)\)` de deux manières : `$$P(A \cap B) = P(A|B).P(B) = P(B|A).P(A)$$`
@@ -300,13 +398,13 @@ Cela donne le **théorème de Bayes** : `\(P(A|B) = \frac{P(B|A).P(A)}{P(B)}\)`.
 ---
 
 ## **Chapitre 2 : Visualisation des probabilités conditionnelles**
-### 2.4. La représentation en tableau à double entrée
+### 2.5. La représentation en tableau à double entrée
 
-<div id="htmlwidget-e969ca406be13a8657d3" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-ffc6f4f052bbd878c42f" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-e969ca406be13a8657d3">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-ffc6f4f052bbd878c42f">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
 
 .pull-left[
 
@@ -377,11 +475,11 @@ Lors de la mise au point du test, le but de l'expérience est de déterminer les
 
 .pull-left[
 
-<div id="htmlwidget-dbf6d1c7111bf531ed71" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-10475bda47845b2ddb2a" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-dbf6d1c7111bf531ed71">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>N<\/b>\") --> A(\"<b>Malades<\/b>\");\n  P --> NA(\"<b>Sains<\/b>\");\n  \n  A --> AB(\"<b>T+<\/b>\");\n  A --> ANB(\"<b>T-<\/b>\");\n  NA --> NAB(\"<b>T+<\/b>\");\n  NA --> NANB(\"<b>T-<\/b>\");\n  AB --- IAB(\"<b>VP<\/b>\");\n  ANB --- IANB(\"<b>FN<\/b>\");\n  NAB --- INAB(\"<b>FP<\/b>\");\n  NANB --- INANB(\"<b>VN<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 7 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 8 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 9 stroke:#0AD, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  style IAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style IANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-10475bda47845b2ddb2a">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>N<\/b>\") --> A(\"<b>Malades<\/b>\");\n  P --> NA(\"<b>Sains<\/b>\");\n  \n  A --> AB(\"<b>T+<\/b>\");\n  A --> ANB(\"<b>T-<\/b>\");\n  NA --> NAB(\"<b>T+<\/b>\");\n  NA --> NANB(\"<b>T-<\/b>\");\n  AB --- IAB(\"<b>VP<\/b>\");\n  ANB --- IANB(\"<b>FN<\/b>\");\n  NAB --- INAB(\"<b>FP<\/b>\");\n  NANB --- INANB(\"<b>VN<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 7 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 8 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 9 stroke:#0AD, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  style IAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style IANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
 
 &lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
