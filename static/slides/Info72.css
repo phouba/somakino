@@ -4,6 +4,12 @@
   font-size: 20px;
 }
 
+.right-column {
+  padding-top: 0;
+  float: right;
+  width: 65%;
+}
+
 p {
   margin-top: 0.6em ;
   margin-bottom: 0.6em ;
