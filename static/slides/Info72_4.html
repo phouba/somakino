@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Informatique</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Pascal Houba" />
+    <link href="Info72_4_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Info72.css" type="text/css" />
+    <link rel="stylesheet" href="Info72-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, title-slide
+
+# Informatique
+## 2020-2021
+### Pascal Houba
+### <strong>Chapitre 4 : Structures répétitives (1)</strong>
+
+---
+
+class:middle
+
+### **Introduction : Une brève histoire de l’informatique**
+### **Prologue : Les systèmes de numération**
+### **Chapitre 1 : Introduction aux langages de programmation**
+### **Chapitre 2 : Premiers pas en _Python_**
+### **Chapitre 3 : Structures conditionnelles**
+### Chapitre 4 : Structures répétitives (1)
+### **Chapitre 5 : Données composites**
+### **Chapitre 6 : Structures répétitives (2)**
+
+---
+
+## **Chapitre 4 : Structures répétitives (1)**
+### 4.1. La boucle `while`
+
+En programmation, on appelle __boucle__ un système d’instructions qui permet de répéter un certain nombre de fois (voire indéfiniment) toute une série d’opérations.
+
+_Python_ propose deux instructions particulières pour construire des boucles:
+ - l’instruction `for ... in ...`
+ - l’instruction `while`.
+ 
+La syntaxe de la boucle `for` en _Python_ est différente de celle de la plupart des autres langages. Nous l'étudierons au chapitre 6.
+
+Le mot `while` signifie « tant que » en anglais. Cette instruction indique à _Python_ qu’il lui faut répéter continuellement le bloc d’instructions qui suit, tant que la condition est vraie.
+
+__Structure de la boucle `while` :__
+.pull-left[
+Forme générale
+
+```python
+while condition:
+    # bloc de code à répéter
+    # tant que la condition est vraie
+```
+]
+.pull-right[
+Avec compteur
+
+```python
+n = 6; # Limite
+i = 0; # Initialisation du compteur
+while i&lt;n: # condition particulière
+    # bloc de code à répéter
+    # tant que la condition est vraie
+    i = i + 1; # Incrémentation
+```
+]
+
+---
+
+## **Chapitre 4 : Structures répétitives (1)**
+### 4.2. Exercices
+
+__Ex 1. a)__ Écrivez un programme qui affiche les 20 premiers termes de la table de multiplication par 7.
+
+__b)__ Indiquer ceux qui sont multiples de 3 en les entourant de parenthèses.
+***
+
+__Ex 2.__ Écrivez un programme qui affiche une table de conversion de sommes d’argent exprimées en
+euros, en dollars canadiens. La progression des sommes de la table sera « géométrique »,
+comme dans l’exemple ci-dessous :
+
+&gt;1 euro(s) = 1.65 dollar(s)
+
+&gt;2 euro(s) = 3.30 dollar(s)
+
+&gt;4 euro(s) = 6.60 dollar(s)
+
+&gt;8 euro(s) = 13.20 dollar(s)
+
+&gt;etc.
+
+&gt;(S’arrêter à 16384 euros.)
+
+***
+---
+
+## **Chapitre 4 : Structures répétitives (1)**
+### 4.2. Exercices
+
+__Ex 3.__ Écrivez un programme qui permette d’encoder des valeurs dans une liste. Ce programme devrait fonctionner en boucle, l’utilisateur étant invité à entrer sans cesse de nouvelles valeurs, jusqu’à ce qu’il décide de terminer en frappant `&lt;Enter&gt;` en guise d’entrée. Le programme se terminerait alors par l’affichage de la liste.
+
+Exemple de fonctionnement :
+```
+Veuillez entrer une valeur : 25 &lt;Enter&gt;
+
+Veuillez entrer une valeur : 6284 &lt;Enter&gt;
+
+Veuillez entrer une valeur : &lt;Enter&gt;
+
+25, 6284
+```
+***
+
+__Ex 4.__ Écrivez un programme qui dessine le sapin ci-dessous en utilisant une boucle.
+```
+    *
+    *
+   ***
+   ***
+  *****
+  *****
+ *******
+ *******
+    *
+    *
+   ***
+```
+---
+
+## **Chapitre 4 : Structures répétitives (1)**
+### 4.2. Correctifs des exercices
+
+__Ex 1. a)__ Écrivez un programme qui affiche les 20 premiers termes de la table de multiplication par 7.
+
+
+```python
+n = 20 # Nombre de lignes de la table
+mult = 7 # Table de 7
+i = 0 # Compteur
+while i&lt;=n:
+    prod = i*mult
+    print(str(i) + " fois " + str(mult) + " égale " + str(prod))
+    i = i + 1 # Incrémentation du compteur
+```
+
+__b)__ Indiquer ceux qui sont multiples de 3 en les entourant de parenthèses.
+
+
+```python
+n = 20 # Nombre de lignes de la table
+mult = 7 # Table de 7
+i = 0 # Compteur
+while i&lt;=n:
+    prod = i*mult
+    if prod % 3 == 0:
+        print(str(i) + " fois " + str(mult) + " égale (" + str(prod) + ")")
+    else:
+        print(str(i) + " fois " + str(mult) + " égale " + str(prod))
+    i = i + 1 # Incrémentation du compteur
+```
+
+---
+
+## **Chapitre 4 : Structures répétitives (1)**
+### 4.2. Correctifs des exercices
+
+__Ex 2.__ Écrivez un programme qui affiche une table de conversion de sommes d’argent exprimées en
+euros, en dollars canadiens. La progression des sommes de la table sera « géométrique ».
+
+
+```python
+n = 16384 # Valeur limite
+mult = 1.65 # Facteur de conversion euros-dollars
+i = 1 # Initialisation du compteur
+while i&lt;=n:
+    prod = i*mult
+    print(str(i) + " euro(s) = " + str(prod) + " dollar(s)")
+    i = i * 2 # Progression géométrique
+```
+
+***
+
+__Ex 3.__ Écrivez un programme qui permette d’encoder des valeurs dans une liste.
+
+
+```python
+liste = ""
+saisie = "pas vide"
+while saisie != "":
+    saisie = input("Veuillez entrer une valeur : ")
+    if saisie != "":
+        valeur = int(saisie)
+        if liste == "":
+            liste = liste + saisie
+        else:
+            liste = liste + ", " + saisie
+print(liste)
+```
+---
+
+## **Chapitre 4 : Structures répétitives (1)**
+### 4.2. Correctifs des exercices
+
+__Ex 4.__ Écrivez un programme qui dessine un sapin en utilisant une boucle.
+
+__Version 1 avec des opérateurs logiques :__
+
+```python
+n = 11
+i = 0
+while i&lt;n:
+    if i == 0 or i == 1 or i == 8 or i == 9:
+        print("   *")
+    elif i == 2 or i == 3 or i == 10:
+        print("  ***")
+    elif i == 4 or i == 5:
+        print(" *****")
+    elif i == 6 or i == 7:
+        print("*******")
+    i = i + 1
+```
+---
+
+## **Chapitre 4 : Structures répétitives (1)**
+### 4.2. Correctifs des exercices
+
+__Ex 4.__ Écrivez un programme qui dessine un sapin en utilisant une boucle.
+
+__Version 2 avec des opérations sur les chaînes de caractères :__
+
+```python
+n = 11
+i = 0
+e = "   " # 3 espaces
+s = "*" # 1 étoile
+while i&lt;n:
+    if i != 0 and i % 2 == 0: # On change une ligne sur deux sauf au début
+        if e != "": # Avant le tronc
+            e = e[0:-1] # On enlève le dernier espace
+            s = s + "**" # On ajoute deux étoiles
+        else: # Début du tronc
+            e = "   " # 3 espaces
+            s = "*" # 1 étoile
+    print(e+s)
+    i = i + 1
+```
+
+---
+
+### Correctifs de l'interrogation
+
+__1.__ Ecrire un code PYTHON permettant de __résoudre une équation du second degré__ (du type __a.x&lt;sup&gt;2&lt;/sup&gt; + b.x + c = 0__) à partir de la saisie des trois coefficients par l’utilisateur.
+Afficher les résultats en fonction des trois cas possibles (deux racines réelles, une racine réelle, aucune racine réelle) selon le signe du déterminant.
+
+
+```python
+from math import * 
+
+print("Résolution d'une équation de la forme a.x^2 + b.x + c = 0")
+a = float(input("Entrer le coefficient a : "))
+b = float(input("Entrer le coefficient b : "))
+c = float(input("Entrer le coefficient c : "))
+
+det = b*b - 4*a*c
+
+if det &gt; 0:
+    x1 = (-b + sqrt(det))/(2*a)
+    x2 = (-b - sqrt(det))/(2*a)
+    print("Les deux racines réelles sont "+str(x1)+" et "+str(x2))
+elif det == 0:
+    x1 = -b/(2*a)
+    print("La racine réelle double est "+str(x1))
+else:
+    print("Il n'y a pas de racine réelle.")
+```
+
+---
+
+### Correctifs de l'interrogation
+
+__2.__ Ecrire le code PYTHON pour __apprendre les tables de multiplication__.
+
+Le programme doit demander à l’élève son nom. Ensuite, le programme doit lui demander :
+
+```
+Bonjour, {nom}. Combien de calculs veux-tu pour t’exercer ?
+```
+
+Nous appellerons sa réponse n. Le programme va ensuite interroger n fois l’élève en lui demandant :
+
+```
+Calcul n°{i} : Que vaut {a} fois {b} ?
+```
+
+où `a` et `b` sont des nombres entiers compris entre 1 et 10 choisis au hasard par l’ordinateur grâce au code suivant :
+
+
+```python
+from random import * # On met cette ligne au début du code
+
+a = randint(1,10)
+b = randint(1,10)
+```
+
+A chaque calcul, le programme doit vérifier que la réponse donnée par l’élève est correcte et lui dire ”Bravo!” si c’est le cas, sinon lui donner la bonne réponse en affichant le calcul complet.
+Après les `n` calculs, le programme doit donner une évaluation à l’élève :
+
+```
+Tu as réussi {x} calculs sur {n}.
+Cela représente {y} % de réussite.
+```
+
+---
+
+### Correctifs de l'interrogation
+
+__2.__ Ecrire le code PYTHON pour __apprendre les tables de multiplication__.
+
+
+```python
+from random import *
+
+nom = input("Quel est ton nom? ")
+n = int(input("Bonjour "+nom+". Combien de calculs veux-tu pour t’exercer ?"))
+i = 0
+x = 0
+while i&lt;n:
+    a = randint(1,10)
+    b = randint(1,10)
+    reponse = int(input("Calcul n°"+str(i)+" : Que vaut "
+                        +str(a)+" fois "+str(b)+" ?"))
+    if reponse == a*b:
+        print("Bravo!")
+        x = x + 1
+    else:
+        print("Non, "+str(a)+" fois "+str(b)+" égale "+str(a*b))
+    i = i + 1
+        
+print("Tu as réussi "+str(x)+" calculs sur "+str(n)+".")
+print("Cela représente "+str(int(x/n*100))+" % de réussite.")
+```
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

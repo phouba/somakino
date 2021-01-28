@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Informatique</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Pascal Houba" />
+    <link href="Info72_2_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Info72.css" type="text/css" />
+    <link rel="stylesheet" href="Info72-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, title-slide
+
+# Informatique
+## 2020-2021
+### Pascal Houba
+### <strong>Chapitre 2 : Premiers pas en <em>Python</em></strong>
+
+---
+
+class:middle
+
+### **Introduction : Une brève histoire de l’informatique**
+### **Prologue : Les systèmes de numération**
+### **Chapitre 1 : Introduction aux langages de programmation**
+### Chapitre 2 : Premiers pas en _Python_
+### **Chapitre 3 : Structures conditionnelles**
+### **Chapitre 4 : Structures répétitives (1)**
+### **Chapitre 5 : Données composites**
+### **Chapitre 6 : Structures répétitives (2)**
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.1. Exécuter avec Python
+
+Plusieurs possibilités d’exécution :
+
+ - Mode **interactif** :
+
+ a) Ligne de commande (mode **console** ou terminal)
+
+ b) Cellule de code d’un **notebook**
+
+ - Mode **script**
+
+***
+
+Il est possible de mettre des __commentaires__ dans un code Python pour donner des indications dans le code sans que celles-ci ne soient exécutées.
+
+On utilise pour cela le symbole `#` après lequel le reste de la ligne de code sera considérée comme un commentaire, et donc ignorée à l'exécution.
+
+&gt;Un bon programmeur veille toujours à insérer un grand nombre de commentaires dans ses scripts. En procédant ainsi, non seulement il facilite la compréhension de ses algorithmes pour d’autres lecteurs éventuels, mais encore il se force lui-même à avoir les idées plus claires.
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.2. Calculer avec Python
+
+**Opérateurs arithmétiques** : +, -, \*, /, // (division entière), \*\* (exposant), % (modulo).
+Le modulo est le reste de la division entière : `$$a \% n = a - ( (a//n) *n)$$`
+
+**Priorité des opérations** (**PEMDAS**) :
+**P**arenthèses, **E**xposants, **M**ultiplication/**D**ivision, **A**ddition/**S**oustraction.
+
+Les nombres décimaux sont appelés **flottants** (_float_), c’est-à-dire «&amp;nbsp;à virgule flottante&amp;nbsp;».
+Le délimiteur décimal est le point.
+
+
+Les nombres en **notation scientifique** sont écrits avec la lettre «&amp;nbsp;e&amp;nbsp;» pour noter le 10 exposant.
+Par exemple : _5.6e-2_ pour 0,056 ou _7e3_ pour 7000.
+
+Pour les **nombres hexadécimaux**, on commence le nombre par _0x_ ; pour les nombres binaires, par _0b_.&lt;br&gt;Par exemple _0xA3_ vaut 10x16+3 = 163 ; _0b1100_ vaut 8+4 = 12.
+
+Le **dernier résultat** est stocké dans une variable spéciale nommée par le caractère souligné : **\_** .
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.3. Données et variables
+
+L’essentiel du travail effectué par un programme d’ordinateur consiste à manipuler des **données**.
+
+Pour pouvoir accéder aux données, le programme d’ordinateur (quel que soit le langage dans lequel il est écrit) fait abondamment usage d’un grand nombre de **variables** de différents types.
+
+Une variable apparaît dans un langage de programmation sous un **nom** de variable, mais pour l’ordinateur il s’agit d’une référence désignant un emplacement précis dans la mémoire vive.
+
+À cet emplacement est stockée une **valeur** bien déterminée. C’est la donnée proprement dite, qui est stockée sous la forme d’une suite de nombres binaires, mais qui n’est pas nécessairement un nombre aux yeux du langage de programmation utilisé. Cela peut être un nombre entier, un nombre réel, une chaîne de caractères typographiques, un tableau, une fonction, etc.
+
+Pour distinguer les uns des autres ces divers contenus possibles, le langage de programmation fait usage de différents **types** de variables (entier, réel, chaîne de caractères, liste, etc.).
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.4. Noms de variables
+
+Les noms de variables sont des noms que vous choisissez vous-même assez librement.
+
+Efforcez-vous cependant de bien les choisir : de préférence assez courts, mais aussi explicites que possible, de manière à exprimer clairement ce que la variable est censée contenir.
+
+Sous Python, les noms de variables doivent obéir à quelques règles simples :
+
+ - Un nom de variable est une séquence de lettres (a→z, A→Z) et de chiffres (0→9), qui doit toujours commencer par une lettre.
+
+ - Seules les lettres ordinaires sont autorisées. Les lettres accentuées, les cédilles, les espaces, les caractères spéciaux tels que $, #, @, etc. sont interdits, à l’exception du caractère \_ (souligné).
+
+ - La casse est significative (les caractères majuscules et minuscules sont distingués). La convention est d’utiliser majoritairement les minuscules et de n’utiliser les majuscules qu’à l’intérieur même du nom, pour en augmenter la lisibilité, comme dans _tableDesMatieres_.
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.5. L’affectation
+
+
+L’affectation désigne **l’opération par laquelle on établit un lien entre le nom de la variable et sa valeur**.
+
+En Python comme dans de nombreux autres langages, elle est représentée par le signe égal.
+Par exemple `\(n = 7\)`.
+
+L’affectation a pour effet de réaliser plusieurs opérations dans la mémoire de l’ordinateur :
+
+ - créer et mémoriser un **nom** de variable ;
+
+ - créer et mémoriser une **valeur** particulière ;
+
+ - établir un lien entre le nom de la variable et l’**emplacement mémoire** de la valeur correspondante ;
+
+ - lui attribuer un **type** bien déterminé (_de manière implicite_ contrairement à d’autres langages; on parle de _typage dynamique_, par opposition au _typage statique_ qui en C++ ou en Java).
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.6. Afficher la valeur d’une variable
+
+Pour afficher leur valeur à l’écran, il existe deux possibilités :
+
+ - La première consiste à entrer au clavier le nom de la variable, puis &lt; Enter &gt;.
+
+ Python répond en affichant la valeur correspondante.
+
+ Il s’agit cependant là d’une fonctionnalité secondaire de l’interpréteur, qui est destinée à vous faciliter la vie lorsque vous faites de simples exercices à la ligne de commande.
+
+ - À l’intérieur d’un programme, il faut utiliser la fonction `print()`.
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.7. Afficher le type et l’identité d’une variable
+
+La fonction `type()` permet de vérifier le type d’une variable.
+
+Attention, contrairement à certains langages comme _Java_ ou _C_, il est possible de modifier le type d’une variable.
+
+La fonction `id()` permet de vérifier l’identité d’une variable, c’est-à-dire son identifiant numérique unique.
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.8. Les chaînes de caractères
+
+Une **chaînes de caractères** (le type `string`) consiste en une série de caractères - lettres, chiffres, symboles.
+
+Pour définir les chaînes de caractères **litérales**, on peut utiliser comme délimiteurs
+des guillemets `"..."` ou des apostrophes `'...'`.
+
+Pour des chaînes de caractères **multilignes**, on utilise 3 délimiteurs au début et à la fin.
+
+On peut accéder aux caractères d’une chaîne en utilisant les crochets.
+
+ - Par exemple :
+Si la chaîne `salut` contient `'Hello'`, `salut[1]` vaut `'e’` car la numérotation des caractères commence par 0.
+
+ - On peut utiliser des nombres négatifs pour commencer par la fin : `salut[-1]` vaut `'o'`.
+On peut aussi accéder à une partie de la chaîne : `salut[0:3]` vaut `'Hell'`.
+
+La fonction `len()` renvoit longueur d’une chaîne.
+
+L’opération de **concaténation** consiste à mettre deux ou plusieurs chaînes bout à bout.
+L’opérateur correspondant est le `+` qui est aussi utilisé pour l’addition.
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.9. Conversions entre types
+
+La fonction `int()` convertit une variable, numérique ou alphanumérique, en nombre entier.
+
+La fonction `float()` convertit une variable, numérique ou alphanumérique, en nombre flottant.
+
+La fonction `str()` convertit une variable numérique en une chaîne de caractères.
+
+***
+
+### 2.10. La fonction `input()`
+
+La fonction `input()` permet à l'utilisateur d'__entrer une valeur pendant l'exécution du programme__.
+
+Cette fonction provoque une interruption dans le programme courant. L’utilisateur est invité à entrer des caractères au clavier et à terminer avec `Entrée`.
+
+La fonction fournit en retour une __chaîne de caractères correspondant à ce que l'utilisateur a saisi__. Cette chaîne peut être assignée à une variable.
+
+_Si vous souhaitez que l’utilisateur entre une valeur numérique, vous devrez donc __convertir la valeur entrée__ (qui sera donc de toute façon de type `string`) en une valeur numérique du type qui vous convient, par l’intermédiaire des fonctions `int()` (si vous attendez un entier) ou `float()` (si vous attendez un réel)._
+
+On peut invoquer la fonction `input()` en laissant les parenthèses vides. On peut aussi y placer en argument un __message explicatif destiné à l’utilisateur__.
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.11. Importer un module de fonctions
+
+Les fonctions intégrées au langage sont relativement peu nombreuses : ce sont seulement celles qui sont susceptibles d’être utilisées très fréquemment.
+
+Les autres sont regroupées dans des fichiers séparés que l’on appelle des __modules__.
+
+Le module `math`, par exemple, contient les définitions de nombreuses __fonctions mathématiques__ telles que sinus, cosinus, tangente, racine carrée, etc.
+
+Pour pouvoir utiliser ces fonctions, il vous suffit d’incorporer la ligne suivante au début de votre script :
+
+```python
+from math import *
+```
+
+Cette ligne indique à _Python_ qu’il lui faut inclure dans le programme courant __toutes les fonctions__ (c’est là la signification du symbole « joker » : `*`) du module `math`, lequel contient une bibliothèque de fonctions mathématiques pré-programmées.
+
+Dans le corps du script lui-même, vous écrirez par exemple :
+
+.pull-left[
+
+```python
+racine = sqrt(nombre)
+```
+pour assigner à la variable `racine` la racine carrée de `nombre`
+]
+.pull-right[
+
+```python
+sinus = sin(angle)
+```
+pour assigner à la variable `sinus` le sinus de `angle` (en radians!)
+]
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.12. Exercices
+
+__Ex. 1. a)__ Ecrire un programme qui, à l'aide de deux variables `x` et `y`, additionne deux nombres entiers et affiche l'addition des deux termes et leur somme :
+
+  par exemple `18 + 7 = 25`.
+  
+  __b)__ Ecrire une nouvelle version du programme où les deux nombres sont entrés par l'utilisateur.
+
+***
+
+__Ex. 2.__ Écrivez un programme qui convertisse en mètres par seconde et en km/h une vitesse fournie
+par l’utilisateur en miles/heure. _(Rappel : 1 mile = 1609 mètres)_
+
+***
+
+__Ex. 3.__ Écrivez un programme qui calcule la période d’un pendule simple de longueur donnée.
+
+  La formule qui permet de calculer la période d’un pendule simple est
+  `$$T=2 \pi \sqrt{l/g}$$`
+  `\(l\)` représentant la longueur du pendule et `\(g\)` la valeur de l’accélération de la pesanteur.
+
+***
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.12. Correctifs des exercices
+
+__Ex. 1. a)__ Ecrire un programme qui, à l'aide de deux variables `x` et `y`, additionne deux nombres entiers et affiche l'addition des deux termes et leur somme.
+
+
+```python
+x = 18
+y = 7
+print(str(x) + "+" + str(y) + "=" + str(x+y))
+```
+
+
+&gt; Il faut bien garder en tête le __type des variables ou expressions__ :
+  - __Nombre entier__, c'est-à-dire `int`, pour `x` et `y`,
+  - __Chaîne de caractères__, c'est-à-dire `str`, pour le paramètre de la fonction `print()`.
+
+&gt; Il faut bien faire attention aux __différentes significations de l'opérateur `+`__ selon le contexte (ce qui est généralement mis en évidence par le code couleur de votre IDE) :
+ - __Symbole__ dans une chaîne de caractère : `"+"` .
+ - __Addition__ entre deux nombres : `x+y` ;
+ - __Concaténation__ entre deux chaînes : `str(y) + "="` ;
+ - En _Python_, on ne peut pas concaténer directement un nombre et une chaîne de caractères : il faut convertir explicitement le nombre en chaîne de caractères avec la fonction `str()`.
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.12. Correctifs des exercices
+
+__Ex. 1. b)__ Ecrire une nouvelle version du programme où les deux nombres sont entrés par l'utilisateur.
+
+
+```python
+saisie = input("Entrez un nombre entier :")
+x = int(saisie)
+
+saisie = input("Entrez un deuxième nombre entier :")
+y = int(saisie)
+
+print(str(x) + "+" + str(y) + "=" + str(x+y))
+```
+&gt; De nouveau, il faut bien garder en tête le __type des variables ou expressions__ :
+
+&gt; - La fonction `input()` retourne une __chaîne de caractères (`str`)__.
+
+&gt; - La variable `saisie` est donc également du type `str`.
+  
+&gt; - Pour pouvoir effectuer un calcul avec les valeurs entrées par l'utilisateur, il faut __convertir vers un type numérique__ grâce à la fonction `int()` (ou `float()` si on voulait travailler dans les réels).
+
+---
+
+## **Chapitre 2 : Premiers pas en Python**
+### 2.12. Correctifs des exercices
+
+__Ex. 2.__ Écrivez un programme qui convertisse en mètres par seconde et en km/h une vitesse fournie
+par l’utilisateur en miles/heure. _(Rappel : 1 mile = 1609 mètres)_
+
+
+```python
+saisie = input("Entrez la vitesse en miles par heure : ")
+vMph = int(saisie)
+
+vkmph = vMph*1.609
+vmps = vkmph*1000/3600
+
+print("Vitesse en miles par heure : " + str(vMph) + " MPH")
+print("Vitesse en km par heure : " + str(vkmph) + " km/h")
+print("Vitesse en m par seconde : " + str(vmps) + " m/s")
+```
+***
+
+__Ex. 3.__ Écrivez un programme qui calcule la période d’un pendule simple de longueur donnée.
+
+
+```python
+from math import *
+
+saisie1 = input("Entrez la longueur du pendule (en m) : ")
+l = float(saisie1)
+
+g = 9.81
+T = 2*pi*sqrt(l/g)
+
+print("La période du pendule est de " + str(T) + " secondes")
+```
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
