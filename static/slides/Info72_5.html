@@ -27,13 +27,244 @@ class:middle
 ### **Chapitre 2 : Premiers pas en Python**
 ### **Chapitre 3 : Structures conditionnelles**
 ### **Chapitre 4 : Structures répétitives (1)**
-### Chapitre 5 : Données composites
+### Chapitre 5 : Données séquentielles
 ### **Chapitre 6 : Structures répétitives (2)**
+### **Chapitre 7 : Fonctions**
 
 ---
 
-## **Chapitre 5 : Données composites**
-### 5.1.
+## **Chapitre 5 : Données séquentielles**
+### 5.1. Les listes
+
+#### 1. Définition
+
+Les listes sont des __séquences__, c’est-à-dire des collections ordonnées d’objets toujours disposés __dans le même ordre__.
+
+On peut __définir une liste__ comme une collection d’éléments séparés par des virgules, l’ensemble étant enfermé dans des crochets.
+
+
+```python
+jour = ['lundi', 'mardi', 'mercredi', 1800, 20.357, 'jeudi', 'vendredi']
+```
+
+Les éléments individuels qui constituent une liste peuvent être de __types variés__ (ce qui n'est généralement pas le cas pour des types de données similaires dans d'autre langages, comme les tableaux en _Java_).
+
+Les __chaînes de caractères__ (_string_) que nous avons abordées au chapitre 2 constituaient un premier exemple de données séquentielles.
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.1. Les listes
+
+#### 2. Indiçage
+
+On peut accéder à chaque élément d'une liste si l’on connaît __son index__ (en commençant __à partir de zéro__, et non à partir de un).
+
+
+```python
+liste          : ['girafe', 'tigre', 'singe', 'souris']
+indice positif :        0        1        2         3
+indice négatif :       -4       -3       -2        -1
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.1. Les listes
+
+#### 3. Découpage (_slicing_)
+
+On peut sélectionner une partie d'une liste en utilisant un indiçage construit sur le modèle `[m:n]` pour récupérer les éléments de l'élément `m` à l'élément `n` :
+
+
+```python
+animaux = ['girafe', 'tigre', 'singe', 'souris']
+animaux[0:2]
+&gt; ['girafe', 'tigre']
+```
+Notez que lorsqu'aucun indice n'est indiqué à gauche ou à droite du symbole deux-points, Python prend par défaut tous les éléments depuis le début ou tous les éléments jusqu'à la fin respectivement.
+
+
+```python
+animaux[1:]
+&gt; ['tigre', 'singe', 'souris']
+animaux[:]
+&gt; ['girafe', 'tigre', 'singe', 'souris']
+```
+
+On peut aussi préciser le pas en ajoutant un symbole deux-points supplémentaire et en indiquant le pas par un entier, sur le modèle `liste[début:fin:pas]`.
+
+
+```python
+animaux[0:3:2]
+&gt; ['girafe', 'singe']
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.1. Les listes
+
+#### 4. Opérations
+
+Tout comme les chaînes de caractères, les listes supportent l'opérateur `+` de __concaténation__, ainsi que l'opérateur `*` pour la __duplication__ :
+
+
+```python
+ani1 = ['girafe', 'tigre']
+ani2 = ['singe', 'souris']
+ani1 + ani2
+&gt; ['girafe', 'tigre', 'singe', 'souris']
+
+ani1 * 3
+&gt; ['girafe', 'tigre', 'girafe', 'tigre', 'girafe', 'tigre']
+```
+
+#### 5. Modifications
+
+Mais à la différence de ce qui se passe pour les chaînes, il est possible de changer les éléments individuels d’une liste :
+
+
+```python
+jour = ['lundi', 'mardi', 'mercredi', 1800, 20.357, 'jeudi', 'vendredi']
+jour[2] = 'Juillet'
+jour[3] = jour[3] + 47
+print(jour)
+&gt; ['lundi', 'mardi', 'Juillet', 1847, 20.357, 'jeudi', 'vendredi']
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.1. Les listes
+
+#### 6. Fonctions et méthodes
+
+La fonction intégrée `len()`, que nous avons déjà rencontrée à propos des chaînes, s’applique aussi aux listes. Elle renvoie le nombre d’éléments présents dans la liste :
+
+
+```python
+jour = ['lundi', 'mardi', 'Juillet', 1847, 20.357, 'jeudi', 'vendredi']
+print(len(jour))
+&gt; 7
+```
+
+Une autre fonction intégrée permet de supprimer d’une liste un élément quelconque (à partir de son
+index). Il s’agit de la fonction `del()` :
+
+
+```python
+del(jour[4])
+print(jour)
+&gt; ['lundi', 'mardi', 'Juillet', 1847, 'jeudi', 'vendredi']
+```
+
+Pour ajouter un élément à une liste, il faut considérer que la liste est un __objet__, dont on va utiliser l’une des __méthodes__, `append()`, en reliant les deux à l’aide d’un __point__.
+
+
+```python
+jour.append('samedi')
+print(jour)
+&gt; ['lundi', 'mardi', 'Juillet', 1847, 'jeudi', 'vendredi', 'samedi']
+```
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.1. Les listes
+
+#### 7. Fonctions `range()` et `list()`
+
+L'instruction `range()` est une fonction spéciale en _Python_ qui génère des nombres entiers compris dans un intervalle. Lorsqu'elle est utilisée en combinaison avec la fonction `list()`, on obtient une liste d'entiers. Par exemple :
+
+
+```python
+list(range(10))
+&gt; [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+La fonction range() peut également prendre deux ou trois arguments sur le modèle `range([début,] fin[, pas])` :
+
+
+```python
+list(range(0, 5))
+&gt; [0, 1, 2, 3, 4]
+list(range(15, 20))
+&gt; [15, 16, 17, 18, 19]
+list(range(0, 1000, 200))
+&gt; [0, 200, 400, 600, 800]
+list(range(2, -2, -1))
+&gt; [2, 1, 0, -1]
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.1. Les listes
+
+#### 8. Fonctions minimum, maximum et somme
+
+Les fonctions `min()`, `max()` et `sum()` renvoient respectivement le minimum, le maximum et la somme d'une liste passée en argument.
+
+
+```python
+liste = list(range(10))
+liste
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+sum(liste)
+&gt; 45
+min(liste)
+&gt; 0
+max(liste)
+&gt; 9
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.1. Les listes
+
+#### 9. Listes de listes
+
+Pour finir, sachez qu'il est possible de construire des listes de listes. Par exemple :
+
+
+```python
+enclos1 = ['girafe', 4]
+enclos2 = ['tigre', 2]
+enclos3 = ['singe', 5]
+zoo = [enclos1, enclos2, enclos3]
+zoo
+&gt; [['girafe', 4], ['tigre', 2], ['singe', 5]]
+```
+
+Pour accéder à un élément de la liste, on utilise l'indiçage habituel :
+
+
+```python
+zoo[1]
+&gt; ['tigre', 2]
+```
+
+Pour accéder à un élément de la sous-liste, on utilise un double indiçage :
+
+
+```python
+zoo[1][0]
+&gt; 'tigre'
+zoo[1][1]
+&gt; 2
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.2. Les tuples
+
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.3. Les dictionnaires
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
