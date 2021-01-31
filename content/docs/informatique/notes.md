@@ -27,9 +27,17 @@ type: docs
 
 {{< slides "Info72_4" >}}
 
-### Chapitre 5 : Données composites
+### Chapitre 5 : Données séquentielles
 
 {{< slides "Info72_5" >}}
+
+### Chapitre 6 : Structures répétitives (2)
+
+{{< slides "Info72_6" >}}
+
+### Chapitre 7 : Fonctions
+
+{{< slides "Info72_7" >}}
 
 ## Présentation pour le cours de Traitement des Données
  
