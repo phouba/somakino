@@ -35,6 +35,80 @@ class:middle
 
 ## **Chapitre 6 : Structures répétitives (2)**
 ### 6.1. La boucle `for`
+
+La boucle `for` permet de créer des __itérations sur les données séquentielles__ du chapitre précédent.
+
+
+```python
+animaux = ['girafe', 'tigre', 'singe', 'souris']
+for animal in animaux:
+     print(animal)
+
+&gt; girafe
+tigre
+singe
+souris
+```
+
+La variable `animal` est appelée __variable d'itération__, elle prend successivement les différentes valeurs de la liste `animaux` à chaque itération de la boucle.
+
+***
+
+Une partie des exemples de ce chapitre proviennent du cours en ligne "Introduction à la programmation Python pour la biologie" de Patrick Fuchs et Pierre Poulain, accessible à l'adresse https://python.sdv.univ-paris-diderot.fr
+
+***
+
+---
+
+## **Chapitre 6 : Structures répétitives (2)**
+### 6.2. La fonction `range`
+
+Contrairement à la création de liste avec `list(range(4))`, la fonction `range()` peut être utilisée telle quelle dans une boucle.
+
+
+```python
+for i in range(4):
+     print(i)
+
+&gt; 0
+1
+2
+3
+```
+
+
+---
+
+## **Chapitre 6 : Structures répétitives (2)**
+### 6.3. La fonction `enumerate`
+
+Il se peut qu'au cours d'une boucle vous ayez besoin des indices, auquel cas vous pouvez itérer sur les indices :
+
+
+```python
+animaux = ['girafe', 'tigre', 'singe', 'souris']
+for i in range(len(animaux)):
+     print("L'animal "+i+" est un(e) "+animaux[i]))
+&gt;
+L'animal 0 est un(e) girafe
+L'animal 1 est un(e) tigre
+L'animal 2 est un(e) singe
+L'animal 3 est un(e) souris
+```
+
+Python possède toutefois la fonction `enumerate()` qui vous permet d'itérer sur les indices et les éléments eux-mêmes.
+
+
+```python
+animaux = ['girafe','tigre','singe','souris']
+for i, animal in enumerate(animaux):
+     print("L'animal "+i+" est un(e) "+animaux[i]))
+&gt;
+L'animal 0 est un(e) girafe
+L'animal 1 est un(e) tigre
+L'animal 2 est un(e) singe
+L'animal 3 est un(e) souris
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

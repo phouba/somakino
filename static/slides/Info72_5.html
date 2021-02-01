@@ -67,6 +67,12 @@ indice positif :        0        1        2         3
 indice négatif :       -4       -3       -2        -1
 ```
 
+***
+
+Une partie des exemples de ce chapitre proviennent du cours en ligne "Introduction à la programmation Python pour la biologie" de Patrick Fuchs et Pierre Poulain, accessible à l'adresse https://python.sdv.univ-paris-diderot.fr
+
+***
+
 ---
 
 ## **Chapitre 5 : Données séquentielles**
@@ -260,11 +266,115 @@ zoo[1][1]
 ## **Chapitre 5 : Données séquentielles**
 ### 5.2. Les tuples
 
+Les __tuples__ (« n-tuplets » en français) correspondent aux listes à la différence qu'ils sont __non modifiables__. Ils utilisent les parenthèses au lieu des crochets :
+
+
+```python
+x = (1, 2, 3)
+x
+&gt; (1, 2, 3)
+
+x[2]
+&gt; 3
+
+x[0:2]
+&gt; (1, 2)
+
+x[2] = 15
+&gt; Traceback (innermost last):
+File "&lt;stdin&gt;", line 1, in ?
+TypeError: object doesn't support item assignment
+```
+
+Pour utiliser un tuple d'un seul élément, vous devez utiliser une syntaxe avec une virgule `(element,)`, ceci pour éviter une ambiguïté avec une simple expression.
 
 ---
 
 ## **Chapitre 5 : Données séquentielles**
 ### 5.3. Les dictionnaires
+
+Les dictionnaires sont des collections __non ordonnées__ d'objets (donc pas d'indice). On accède aux __valeurs__ d'un dictionnaire par des __clés__.
+
+
+```python
+ani1 = {}
+ani1["nom"] = "girafe"
+ani1["taille"] = 5.0
+ani1["poids"] = 1100
+ani1
+&gt; {'nom': 'girafe', 'taille': 5.0, 'poids': 1100}
+```
+
+On peut aussi initialiser toutes les clés et les valeurs d'un dictionnaire en une seule opération :
+
+
+```python
+ani2 = {"nom":"singe", "poids":70, "taille":1.75}
+```
+
+On peut également ajouter une clé et une valeur supplémentaire :
+
+
+```python
+ani2["age"] = 15
+```
+
+Pour récupérer la valeur associée à une clé donnée, il suffit d'utiliser la syntaxe suivante :
+
+
+```python
+ani1["taille"]
+&gt; 5.0
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.3. Les dictionnaires
+
+Les méthodes `.keys()` et `.values()` renvoient les clés et les valeurs d'un dictionnaire :
+
+
+```python
+ani2.keys()
+&gt; dict_keys(['poids', 'nom', 'taille'])
+ani2.values()
+&gt; dict_values([70, 'singe', 1.75])
+```
+
+Les mentions `dict_keys` et `dict_values` indiquent que nous avons à faire à des objets un peu particuliers. Ils ne sont pas indexables (on ne peut pas retrouver un élément par indice, par exemple `dico.keys()[0]` renverra une erreur). Si besoin, nous pouvons les transformer en liste avec la fonction `list()` :
+
+
+
+```python
+list(ani2.values())
+&gt; [70, 'singe', 1.75]
+```
+
+Il existe aussi la méthode `.items()` qui renvoie un nouvel objet `dict_items` :
+
+
+```python
+dico = {0: 't', 1: 'o', 2: 't', 3: 'o'}
+dico.items()
+&gt; dict_items([(0, 't'), (1, 'o'), (2, 't'), (3, 'o')])
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.3. Les dictionnaires
+
+Pour vérifier si une clé existe dans un dictionnaire, on peut utiliser le test d’appartenance avec l'instruction `in` qui renvoie un booléen :
+
+
+```python
+if "poids" in ani2:
+    print("La clé 'poids' existe pour ani2")
+
+if "age" in ani2:
+     print("La clé 'age' existe pour ani2")
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
