@@ -35,6 +35,32 @@ class:middle
 
 ## **Chapitre 7 : Fonctions**
 ### 7.1. Définition
+
+
+---
+
+
+## **Chapitre 7 : Fonctions**
+### 7.x. Exercices
+
+Reprendre l'exercice du chapitre prédédent et transformer le programme qui analyse un par un tous les éléments d’une liste de nombres pour générer deux nouvelles listes, l’une contenant seulement les nombres pairs de la liste initiale, et l’autre les nombres impairs, en une fonction.
+
+
+```python
+def pairs_impairs(liste):
+    pairs = []
+    impairs = []
+    for nombre in liste:
+        if nombre % 2 == 0: # nombre est pair
+            pairs.append(nombre)
+        else: # nombre est impair
+            impairs.append(nombre)  
+    #print(pairs, impairs)
+    return pairs, impairs
+    
+p, i = pairs_impairs([32, 5, 12, 8, 3, 75, 2, 15])
+print(p, i)
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

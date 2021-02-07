@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Traitement des Données</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Pascal Houba" />
+    <link href="Data72_3_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="Data72_3_files/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+    <script src="Data72_3_files/d3-3.3.8/d3.min.js"></script>
+    <script src="Data72_3_files/dagre-0.4.0/dagre-d3.min.js"></script>
+    <link href="Data72_3_files/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+    <script src="Data72_3_files/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+    <link href="Data72_3_files/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="Data72_3_files/chromatography-0.1/chromatography.js"></script>
+    <script src="Data72_3_files/DiagrammeR-binding-1.0.6.9000/DiagrammeR.js"></script>
+    <script src="Data72_3_files/pymjs-1.3.2/pym.v1.min.js"></script>
+    <script src="Data72_3_files/kePrint-0.0.1/kePrint.js"></script>
+    <link href="Data72_3_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Data72.css" type="text/css" />
+    <link rel="stylesheet" href="Data72-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, title-slide
+
+# Traitement des Données
+## 2020-2021
+### Pascal Houba
+### <strong>Chapitre 3 : Les régressions</strong>
+
+---
+
+class:middle
+
+### **Introduction : L’intelligence artificielle et les données**
+### **Chapitre 1 : Les probabilités simples**
+### **Fiche 1 : Les tableurs**
+### **Chapitre 2 : Les probabilités conditionnelles**
+### **Fiche 2 : Performances d'un test de dépistage**
+### Chapitre 3 : Les régressions
+### Fiche 3 : Modules Python pour le Machine Learning
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.1. Introduction
+<div id="htmlwidget-a6554129e307720bb3ea" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-a6554129e307720bb3ea">{"x":{"diagram":"\n  graph LR;\n\n  IA(\"<b>Intelligence<br>Artificielle<\/b>\") --> ML(\"<b>Machine<br>Learning<\/b>\");\n  \n  ST(\"<b>Statistiques<\/b>\") --> ML;\n  \n  ML -- \"Données<br>étiquetées<br>(labeled)\" --> SL(\"<b>Apprentissage<br>supervisé<\/b>\");\n  \n  ML -- \"Données<br>non-étiquetées<br>(unlabeled)\" --> UL(\"<b>Apprentissage<br>non-supervisé<\/b>\");\n\n  SL -- \"Données<br>continues\" --> REG(\"<b>Régression<\/b>\");\n  SL -- \"Données<br>discrètes\" -->  CLA(\"<b>Classification<\/b>\");\n  \n  UL --> CLU(\"<b>Regroupement<br>(Clustering)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  \n  style IA fill:#fff, stroke-width:2, stroke:#000;\n  style ST fill:#fff, stroke-width:2, stroke:#000;\n  style ML fill:#ff0, stroke-width:2, stroke:#000;\n  style SL fill:#fa0, stroke-width:2, stroke:#000; \n  style UL fill:#fa0, stroke-width:2, stroke:#000;\n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style CLA fill:#f60, stroke-width:2, stroke:#000;\n  style CLU fill:#f60, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.1. Introduction
+
+<div id="htmlwidget-80cad5d02b388a572905" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-80cad5d02b388a572905">{"x":{"diagram":"\n  graph LR;\n  \n  REG(\"<b>Régressions<\/b>\") -- \"Une variable<br>indépendante\" --> SREG(\"<b>Simples<\/b>\");\n  REG -- \"Plusieurs variables<br>indépendantes\" --> MREG(\"<b>Multiples<\/b>\");\n  \n  SREG --> SLR(\"<b>Linéaires<\/b>\");\n  SREG --> SNLR(\"<b>Non-linéaires<\/b>\");\n  SNLR --> SPR(\"<b>Polynomiales<\/b>\");\n  \n  MREG --> MLR(\"<b>Linéaires<\/b>\");\n  MREG --> MNLR(\"<b>Non-linéaires<\/b>\");\n  MNLR --> MPR(\"<b>Polynomiales<\/b>\");\n  \n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  linkStyle 7 stroke:#fff, fill:#0AD, anything;\n  \n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style SREG fill:#fa0, stroke-width:2, stroke:#000;\n  style MREG fill:#fa0, stroke-width:2, stroke:#000;\n  style SLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SPR fill:#ff0, stroke-width:2, stroke:#000;\n  style MLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MPR fill:#ff0, stroke-width:2, stroke:#000;\n  \n  \n  "},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.2. Rappels d'analyse mathématique
+
+#### a) Fonction affine
+
+`$$f(x) = a.x + b$$`
+
+Elle est représentée par une __droite__, dont `\(a\)` est la __pente__ et `\(b\)` __l'ordonnée à l'origine__.
+.center[
+&lt;img src="images/Linear_functions2.PNG" style="width:50%"/&gt;
+]
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.2. Rappels d'analyse mathématique
+
+#### b) Dérivée
+
+La pente de la tangente est égale à la dérivée de la fonction au point marqué.
+
+.center[
+&lt;img src="images/Tangent_to_a_curve.svg.png" style="width:50%"/&gt;
+]
+
+Pour une fonction affine `\(f(x) = a.x + b\)`, la pente est égale à `\(a\)` en tout point :
+
+$$ \frac{df}{dx} = a$$
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.2. Rappels d'analyse mathématique
+
+#### c) Gradient
+
+Le __gradient__ est la généralisation à plusieurs variables de la dérivée d'une fonction d'une seule variable.
+
+C'est un vecteur dont les composantes sont les __dérivées partielles__ de la fonction par rapport aux différents variables.
+
+Le gradient d'une fonction `\(f(x_1,x_2, ..., x_n)\)` est le vecteur de composantes
+
+`$$\frac{\partial f}{\partial x_i}$$`
+
+pour `\(i=1,2, ..., n\)`.
+
+On le note
+
+$$
+\nabla f =
+`\begin{bmatrix}
+\frac{\partial f}{\partial x_1} \\
+\vdots \\
+\frac{\partial f}{\partial x_n}
+\end{bmatrix}`
+$$
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.2. Rappels d'analyse mathématique
+
+#### d) Points critiques
+
+Un __point critique__ d'une fonction de plusieurs variables est un point d'annulation de son gradient.
+
+Il peut s'agir d'un __extremum__ (minimum ou maximum) local de cette fonction, d'un __point d'inflexion__ ou, lorsqu'il y a plus d'une dimension, de __points-selles__.
+
+.pull-left[
+&lt;img src="images/Extrema_of_a_function.gif"/&gt;
+]
+.pull-right[
+&lt;img src="images/Saddle_point.png"/&gt;
+]
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.3. Les étapes de l'apprentissage supervisé
+
+#### a) Dataset
+
+Il s'agit de l'ensemble des données à partir desquelles va s'effectuer l'apprentissage.
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: white !important;background-color: #0AD !important;"&gt; Target &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: white !important;background-color: #0AD !important;"&gt;  &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: white !important;background-color: #0AD !important;"&gt; Features &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: white !important;background-color: #0AD !important;"&gt;  &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #ff0 !important;background-color: #fa0 !important;"&gt; \(y\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #ff0 !important;"&gt; \(x_1\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #ff0 !important;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #ff0 !important;"&gt; \(x_n\) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #fa0 !important;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(y^{(1)}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(x_1^{(1)}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(x_n^{(1)}\) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #fa0 !important;font-weight: bold;color: black !important;background-color: white !important;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; ... &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #fa0 !important;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(y^{(m)}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(x_1^{(m)}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(x_n^{(m)}\) &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Il est constitué de `\(m\)` __exemples__ (les lignes du tableau) pour lesquelles on considère que les données d'une des colonnes, représentant la __variable dépendante__ ou _target_, évolue en fonction des données des `\(n\)` autres colonnes, représentant les __variables indépendantes__ ou _features_.
+
+L'apprentissage consiste à prédire, sur la base de ces données exemples (ce qui en fait un __apprentissage supervisé__), de nouvelles valeurs de la _target_ correspondant à de nouvelles valeurs des _features_.
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.3. Les étapes de l'apprentissage supervisé
+
+#### b) Modèle
+
+Il permet de __prédire__ les valeurs de la _target_ `\(y\)` en fonction des _features_ `\(x_i\)` :
+
+`$$\hat{y} = f(x_1,...,x_n)$$`
+
+.pull-left[.right[
+Linéaire :
+]]
+.pull-right[
+`\(f(x) = a.x + b\)`
+]
+.pull-left[.right[
+Quadratique :  
+]]
+.pull-right[
+`\(f(x) = a.x^2 + b.x + c\)`
+]
+.pull-left[.right[
+Polynômial :  
+]]
+.pull-right[
+`\(f(x) = a.x^k + ... + p.x + q\)`
+]
+.pull-left[.right[
+Vecteur des paramètres :
+]]
+.pull-right[
+`\(\Theta = (a, b, ..., q)\)`
+]
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.3. Les étapes de l'apprentissage supervisé
+
+#### c) Fonction coût
+
+Elle mesure les __écarts ou erreurs__ entre les prédictions du modèles et les valeurs correspondantes du _dataset_.
+
+On peut utiliser l'__Erreur Quadratique Moyenne__ (_Mean Squared Error_) :
+
+$$ J(\Theta) = \frac{1}{2m}\sum_{i=1}^m ( f(x^{(i)}) - y^{(i)})^2$$
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.3. Les étapes de l'apprentissage supervisé
+
+#### d) Algorithme de minimisation
+
+Il permet de __minimiser la fonction coût__, et donc d'améliorer les prédictions du modèle, en déterminant les __valeurs optimales des paramètres du modèle__.
+
+
+On peut utiliser la méthode des __moindres carrés__ :
+
+$$ \frac{\partial J(a,b)}{\partial a} = 0$$
+$$ \frac{\partial J(a,b)}{\partial b} = 0$$
+ou l'algorithme de la __descente de grandient__ :
+
+$$ a_{i+1} = a_i + \alpha \frac{\partial J(a,b)}{\partial a}$$
+
+où l'hyperparamètre `\(\alpha\)`, le __taux d'apprentissage__ (_learning rate_), est toujours positif et doit être ajusté pour assurer la bonne convergence de l'algorithme.
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.4. La régression linéaire simple
+
+__a) Dataset :__ `\((x,y)\)` avec `\(m\)` exemples.
+
+__b) Modèle :__ `\(f(x) = a.x + b\)`
+
+__c) Fonction coût :__
+
+`$$J(a,b) = \frac{1}{2m}\sum_{i=1}^m ( a.x^{(i)} + b - y^{(i)})^2$$`
+
+__d) Gradients :__
+
+$$ \frac{\partial J(a,b)}{\partial a} = \frac{1}{m}\sum_{i=1}^m x^{(i)}( a.x^{(i)} + b - y^{(i)})^2$$
+
+$$ \frac{\partial J(a,b)}{\partial b} = \frac{1}{m}\sum_{i=1}^m ( a.x^{(i)} + b - y^{(i)})^2$$
+
+__e) Descente de gradient :__
+.pull-left[
+$$ a_{i+1} = a_i + \alpha \frac{\partial J(a,b)}{\partial a}$$
+]
+.pull-right[
+$$ b_{i+1} = b_i + \alpha \frac{\partial J(a,b)}{\partial b}$$
+]
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.4. La régression linéaire simple
+
+#### Ecriture matricielle
+
+Linéaire = modèle polynomial de degré 1 : `\(n = 1\)`
+
+Simple = une seule variable indépendante : `\(m = 1\)`
+
+.pull-left[
+__a) Dataset :__
+
+$$
+\underset{m \times (n+1)}{X} = 
+`\begin{bmatrix}
+x^{(1)} &amp; 1 \\
+\vdots &amp; \vdots \\
+x^{(m)} &amp; 1 
+\end{bmatrix}`
+$$
+]
+.pull-right[
+__b) Modèle :__
+
+`$$\underset{m \times 1}{F} = \underset{m \times (n+1)}{X}.\underset{(n+1) \times 1}{\Theta}$$`
+
+$$
+\underset{(n+1) \times 1}{\Theta} =
+`\begin{bmatrix}
+a \\
+b
+\end{bmatrix}`
+$$
+]
+
+.pull-left[
+__c) Fonction coût :__
+
+`$$J(a,b) = \frac{1}{2m}\sum_{i=1}^m ( a.x^{(i)} + b - y^{(i)})^2$$`
+
+]
+.pull-right[
+__d) Gradients :__
+
+$$ \frac{\partial J(a,b)}{\partial a} = \frac{1}{m}\sum_{i=1}^m x^{(i)}( a.x^{(i)} + b - y^{(i)})^2$$
+
+$$ \frac{\partial J(a,b)}{\partial b} = \frac{1}{m}\sum_{i=1}^m ( a.x^{(i)} + b - y^{(i)})^2$$
+
+]
+
+__e) Descente de gradient :__
+
+---
+
+## **Fiche 3 : Application à l'astronomie**
+### 3.1. La loi de Hubble
+
+.pull-left[
+En 1929, l'astronome Edwin Hubble publia [un article](https://www.pnas.org/content/15/3/168) montrant, à partir des données issues de l'observation de 24 galaxies visibles à l'époque, qu'il existe une __relation linéaire entre leur vitesse `\(v\)` et leur distance de la Terre `\(d\)`__ :
+
+`$$v = H_0 \times d$$`
+]
+.pull-right[
+&lt;img src="images/F1.large.jpg"/&gt;
+]
+
+Cette relation est appelée depuis lors la __loi de Hubble__ et `\(H_0\)`, la __constante de Hubble__. Elle signifie que __plus une galaxie est distante, plus elle s'éloigne de nous rapidement__.
+
+Il s'agissait d'une découverte scientifique majeure marquant le début de la __cosmologie observationnelle__. En effet, cela a conduit à penser que notre univers était en __expansion__ constante et que, si cela avait toujours été le cas, il avait dû commencer, il y a environ 14 milliards d'années, par un __Big Bang__.
+
+---
+
+## **Fiche 3 : Application à l'astronomie**
+### 3.1. La loi de Hubble
+
+Cette estimation de l'__âge de l'univers__ ou __temps de Hubble__, `\(t_H\)`, peut être calculé en prenant l'inverse de la constande de Hubble :
+
+`$$t_H = 1/H_0$$`
+
+La valeur de la constante de Hubble est estimée à _70 km/s/Mpc_ où _1 Mpc = `\(10^6\)` parsec_. Le __parsec__ est une mesure de distance utilisée en astronomie. Il vaut environ _3,26 années-lumière_ ou `\(3,085 677 581 \times 10^{16}\)` _m_.
+
+`$$t_H = \frac{3,085 677 581.10^{22} m}{7.10^5 m} s = 4,4.10^{17} s$$`
+
+Ce qui peut se convertir en années en divisant par _60 s x 60 min x 24 h x 365,25 jours/an = 31557600 s/an_. Cela donne :
+
+`$$t_H = \frac{4,4.10^{17} s}{3,15576.10^7 s/an} = 13,96.10^9 an$$`
+
+---
+
+## **Fiche 3 : Application à l'astronomie**
+### 3.1. La loi de Hubble
+
+#### Exercice
+
+A partir du _[dataset](datasets/hubble_data.csv)_ contenant les données originales utilisées par Hubble, retrouver la valeur de la constante de Hubble à laquelle il est arrivé. Estimer l'âge de l'univers correspondant.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

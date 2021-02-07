@@ -40,5 +40,20 @@ type: docs
 {{< slides "Info72_7" >}}
 
 ## Présentation pour le cours de Traitement des Données
- 
+
+### Introduction : L’intelligence artificielle et les données
+
 {{< slides "Data72" >}}
+
+### Chapitre 1 : Les probabilités simples
+
+{{< slides "Data72_1" >}}
+
+### Chapitre 2 : Les probabilités conditionnelles
+
+{{< slides "Data72_2" >}}
+
+### Chapitre 3 : Les régressions
+
+{{< slides "Data72_3" >}}
+
