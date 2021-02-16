@@ -315,6 +315,106 @@ Astuce : On peut trouver l'index d'un élément `x` dans une liste en utilisant 
 ---
 
 ## **Chapitre 5 : Données séquentielles**
+### 5.1. Les listes
+
+#### 10. Exercices
+
+__2.__ Construire un calendrier grâce aux listes.
+
+
+```python
+jours = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"]
+mois = ["Jan", "Fév", "Mars", "Avr", "Mai", "Juin", "Juil", "Août", "Sept", "Oct", "Nov", "Déc"]
+joursParMois = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+debut = input("Entrer le nom du jour de la semaine du 1er janvier : ")
+if debut in jours: # Vérifie que le nom entré est bien dans les liste des jours
+    joursAnnee = jours*54 # Tous les noms des jours de l'année et plus...
+
+    iDebut = jours.index(debut) # index du nom du premier jour de l'année
+    joursAnnee = joursAnnee[iDebut:] # On commence à l'index du premier jour
+    joursAnnee = joursAnnee[:365] # On prend les 365 premiers jours
+
+    calendrier = [] # Liste des 365 jours de l'année avec leur date
+```
+
+(suite à la page suivante)
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.1. Les listes
+
+#### 10. Exercices
+
+__2.__ Construire un calendrier grâce aux listes.
+
+Deux possibilités pour construire la liste `calendrier` :
+
+
+```python
+    # Version avec une simple boucle
+    n = 0 # index du mois
+    i = 0 # index du jour
+    calendrier = []
+    for j in joursAnnee:
+        date = j + " " + str(i+1) + " " + mois[n] # Date complète
+        calendrier.append(date)
+        i = i + 1
+        if (i == joursParMois[n]): # Dernier jour du mois ?
+            i = 0
+            n = n + 1
+```
+
+
+```python
+    # Version avec une double boucle
+    i = 0 # Numéro du jour de l'année : 0 -&gt; 364
+    for n, m in enumerate(mois): # n contient l'index du mois, m le nom du mois
+        for j in range(joursParMois[n]): # Parcourt les numéros des jours du mois
+            date = joursAnnee[i] + " " + str(j+1) + " " + m # Date complète
+            calendrier.append(date)
+            i = i + 1
+```
+
+(suite à la page suivante)
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.1. Les listes
+
+#### 10. Exercices
+
+__2.__ Construire un calendrier grâce aux listes.
+
+
+```python
+    semainier = [] # Liste des semaines
+    semaine = [] # Chaque semaine
+    for i, d in enumerate(calendrier):
+        semaine.append(d)
+        if joursAnnee[i] == jours[-1]: # Dernier jour de la semaine (dimanche) ?
+            semainier.append(semaine)
+            semaine = []
+    semainier.append(semaine)
+      # Ajoute la semaine incomplète qui n'aurait pas atteint le dimanche
+    
+    # Affichage par semaine
+    largeurColonne = 26 # A adapter selon la largeur de l'écran
+    for i in range(iDebut): # Affichage du début de la première semaine (espaces)
+        print(' '*largeurColonne, end='') # Ne pas retourner à la ligne
+        
+    for s in semainier:
+        for j in s:
+            print(j+' '*(largeurColonne-len(j)), end='')
+                # Affiche toujours le même nombre de caractères par colonne
+                # Ne pas retourner à la ligne
+        print('\n') # Retour à la ligne après chaque semaine
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
 ### 5.2. Les tuples
 
 Les __tuples__ (« n-tuplets » en français) correspondent aux listes à la différence qu'ils sont __non modifiables__. Ils utilisent les parenthèses au lieu des crochets :
