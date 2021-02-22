@@ -38,27 +38,27 @@ class:middle
 ### **Chapitre 2 : Les probabilités conditionnelles**
 ### **Fiche 2 : Performances d'un test de dépistage**
 ### Chapitre 3 : Les régressions
-### Fiche 3 : Modules Python pour le Machine Learning
+### Fiche 3 : Application à l'astronomie
 
 ---
 
 ## **Chapitre 3 : Les régressions**
 ### 3.1. Introduction
-<div id="htmlwidget-ac67b578f3e5ef89911d" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-c20763036c0f1d2c36df" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-ac67b578f3e5ef89911d">{"x":{"diagram":"\n  graph LR;\n\n  IA(\"<b>Intelligence<br>Artificielle<\/b>\") --> ML(\"<b>Machine<br>Learning<\/b>\");\n  \n  ST(\"<b>Statistiques<\/b>\") --> ML;\n  \n  ML -- \"Données<br>étiquetées<br>(labeled)\" --> SL(\"<b>Apprentissage<br>supervisé<\/b>\");\n  \n  ML -- \"Données<br>non-étiquetées<br>(unlabeled)\" --> UL(\"<b>Apprentissage<br>non-supervisé<\/b>\");\n\n  SL -- \"Données<br>continues\" --> REG(\"<b>Régression<\/b>\");\n  SL -- \"Données<br>discrètes\" -->  CLA(\"<b>Classification<\/b>\");\n  \n  UL --> CLU(\"<b>Regroupement<br>(Clustering)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  \n  style IA fill:#fff, stroke-width:2, stroke:#000;\n  style ST fill:#fff, stroke-width:2, stroke:#000;\n  style ML fill:#ff0, stroke-width:2, stroke:#000;\n  style SL fill:#fa0, stroke-width:2, stroke:#000; \n  style UL fill:#fa0, stroke-width:2, stroke:#000;\n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style CLA fill:#f60, stroke-width:2, stroke:#000;\n  style CLU fill:#f60, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-c20763036c0f1d2c36df">{"x":{"diagram":"\n  graph LR;\n\n  IA(\"<b>Intelligence<br>Artificielle<\/b>\") --> ML(\"<b>Machine<br>Learning<\/b>\");\n  \n  ST(\"<b>Statistiques<\/b>\") --> ML;\n  \n  ML -- \"Données<br>étiquetées<br>(labeled)\" --> SL(\"<b>Apprentissage<br>supervisé<\/b>\");\n  \n  ML -- \"Données<br>non-étiquetées<br>(unlabeled)\" --> UL(\"<b>Apprentissage<br>non-supervisé<\/b>\");\n\n  SL -- \"Données<br>continues\" --> REG(\"<b>Régression<\/b>\");\n  SL -- \"Données<br>discrètes\" -->  CLA(\"<b>Classification<\/b>\");\n  \n  UL --> CLU(\"<b>Regroupement<br>(Clustering)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  \n  style IA fill:#fff, stroke-width:2, stroke:#000;\n  style ST fill:#fff, stroke-width:2, stroke:#000;\n  style ML fill:#ff0, stroke-width:2, stroke:#000;\n  style SL fill:#fa0, stroke-width:2, stroke:#000; \n  style UL fill:#fa0, stroke-width:2, stroke:#000;\n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style CLA fill:#f60, stroke-width:2, stroke:#000;\n  style CLU fill:#f60, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
 ---
 
 ## **Chapitre 3 : Les régressions**
 ### 3.1. Introduction
 
-<div id="htmlwidget-3cc009a9746cd785d725" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-25eaee4d7c72351c33cb" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-3cc009a9746cd785d725">{"x":{"diagram":"\n  graph LR;\n  \n  REG(\"<b>Régressions<\/b>\") -- \"Une variable<br>indépendante\" --> SREG(\"<b>Simples<\/b>\");\n  REG -- \"Plusieurs variables<br>indépendantes\" --> MREG(\"<b>Multiples<\/b>\");\n  \n  SREG --> SLR(\"<b>Linéaires<\/b>\");\n  SREG --> SNLR(\"<b>Non-linéaires<\/b>\");\n  SNLR --> SPR(\"<b>Polynomiales<\/b>\");\n  \n  MREG --> MLR(\"<b>Linéaires<\/b>\");\n  MREG --> MNLR(\"<b>Non-linéaires<\/b>\");\n  MNLR --> MPR(\"<b>Polynomiales<\/b>\");\n  \n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  linkStyle 7 stroke:#fff, fill:#0AD, anything;\n  \n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style SREG fill:#fa0, stroke-width:2, stroke:#000;\n  style MREG fill:#fa0, stroke-width:2, stroke:#000;\n  style SLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SPR fill:#ff0, stroke-width:2, stroke:#000;\n  style MLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MPR fill:#ff0, stroke-width:2, stroke:#000;\n  \n  \n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-25eaee4d7c72351c33cb">{"x":{"diagram":"\n  graph LR;\n  \n  REG(\"<b>Régressions<\/b>\") -- \"Une variable<br>indépendante\" --> SREG(\"<b>Simples<\/b>\");\n  REG -- \"Plusieurs variables<br>indépendantes\" --> MREG(\"<b>Multiples<\/b>\");\n  \n  SREG --> SLR(\"<b>Linéaires<\/b>\");\n  SREG --> SNLR(\"<b>Non-linéaires<\/b>\");\n  SNLR --> SPR(\"<b>Polynomiales<\/b>\");\n  \n  MREG --> MLR(\"<b>Linéaires<\/b>\");\n  MREG --> MNLR(\"<b>Non-linéaires<\/b>\");\n  MNLR --> MPR(\"<b>Polynomiales<\/b>\");\n  \n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  linkStyle 7 stroke:#fff, fill:#0AD, anything;\n  \n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style SREG fill:#fa0, stroke-width:2, stroke:#000;\n  style MREG fill:#fa0, stroke-width:2, stroke:#000;\n  style SLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SPR fill:#ff0, stroke-width:2, stroke:#000;\n  style MLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MPR fill:#ff0, stroke-width:2, stroke:#000;\n  \n  \n  "},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -285,13 +285,9 @@ $$ b_{i+1} = b_i + \alpha \frac{\partial J(a,b)}{\partial b}$$
 ---
 
 ## **Chapitre 3 : Les régressions**
-### 3.4. La régression linéaire simple
+### 3.5. Ecriture matricielle
 
-#### Ecriture matricielle
-
-Linéaire = modèle polynomial de degré 1 : `\(n = 1\)`
-
-Simple = une seule variable indépendante : `\(m = 1\)`
+Dataset de `\(m\)` exemples et `\(n\)` variables indépendantes
 
 .pull-left[
 __a) Dataset :__
@@ -299,9 +295,9 @@ __a) Dataset :__
 $$
 \underset{m \times (n+1)}{X} = 
 `\begin{bmatrix}
-x^{(1)} &amp; 1 \\
-\vdots &amp; \vdots \\
-x^{(m)} &amp; 1 
+x_1^{(1)} &amp; \dots &amp; x_n^{(1)} &amp; 1 \\
+\vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+x_1^{(m)} &amp; \dots &amp; x_n^{(m)}  &amp; 1 
 \end{bmatrix}`
 $$
 ]
@@ -318,23 +314,20 @@ b
 \end{bmatrix}`
 $$
 ]
-
 .pull-left[
 __c) Fonction coût :__
 
-`$$J(a,b) = \frac{1}{2m}\sum_{i=1}^m ( a.x^{(i)} + b - y^{(i)})^2$$`
-
+`$$\underset{1 \times 1}{J(\Theta)} = \frac{1}{m}\sum ( X \Theta - Y)^2$$`
 ]
 .pull-right[
-__d) Gradients :__
+__e) Descente de gradient :__
 
-$$ \frac{\partial J(a,b)}{\partial a} = \frac{1}{m}\sum_{i=1}^m x^{(i)}( a.x^{(i)} + b - y^{(i)})^2$$
-
-$$ \frac{\partial J(a,b)}{\partial b} = \frac{1}{m}\sum_{i=1}^m ( a.x^{(i)} + b - y^{(i)})^2$$
-
+$$ \underset{(n+1) \times 1}{\frac{\partial J(\Theta)}{\partial \Theta}} = \frac{1}{m}\sum \underset{(n+1) \times m}{X^T} \underset{m \times 1}{(X \Theta - Y)}$$
 ]
 
 __e) Descente de gradient :__
+
+$$ \Theta = \Theta + \alpha \frac{\partial J(\Theta)}{\partial \Theta}$$
 
 ---
 
@@ -370,6 +363,10 @@ La valeur de la constante de Hubble est estimée à _70 km/s/Mpc_ où _1 Mpc = `
 Ce qui peut se convertir en années en divisant par _60 s x 60 min x 24 h x 365,25 jours/an = 31557600 s/an_. Cela donne :
 
 `$$t_H = \frac{4,4.10^{17} s}{3,15576.10^7 s/an} = 13,96.10^9 an$$`
+
+***
+
+Pour plus de détails, consulter l'[atelier "Effet Doppler - Cosmologie" sur le site de Jean-Marc Bonnet-Bidaud](http://bonnetbidaud.free.fr/pedagogie/hubble_law/index.html).
 
 ---
 
