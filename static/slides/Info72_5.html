@@ -515,15 +515,60 @@ dico.items()
 ## **Chapitre 5 : Données séquentielles**
 ### 5.3. Les dictionnaires
 
-Pour vérifier si une clé existe dans un dictionnaire, on peut utiliser le test d’appartenance avec l'instruction `in` qui renvoie un booléen :
+Pour vérifier si une clé existe dans un dictionnaire, on peut utiliser le test d’appartenance avec l'instruction `in` (et `not in`) qui renvoie un booléen :
 
 
 ```python
 if "poids" in ani2:
     print("La clé 'poids' existe pour ani2")
 
-if "age" in ani2:
-     print("La clé 'age' existe pour ani2")
+if "age" not in ani2:
+     print("La clé 'age' n'existe pas pour ani2")
+```
+
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.3. Les dictionnaires
+
+#### Exercice
+
+Appliquer ce programme pour trouver les fréquence d'apparition des chiffres dans les premières décimales de _pi_.
+
+
+```python
+texte = "Un petit texte quelconque."
+occurrences = {} # Dictionnaire vide
+for c in texte: # Parcourt tous les caractères de la chaîne 'texte'
+    if c in occurrences:
+        occurrences[c] += 1 # Incrémenter la valeur de la clé c
+    else:
+        occurrences[c] = 1 # Crée un élément avec la clé c
+print(occurrences)
+```
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.3. Les dictionnaires
+
+#### Exercice
+
+Appliquer le programme précédent pour trouver les fréquence d'apparition des chiffres dans les premières décimales de _pi_.
+
+
+```python
+from mpmath import mp
+mp.dps = 400 # nombre de décimales
+
+texte = str(mp.pi)[2:] # On ne retient que les décimales
+occurrences = {} # Dictionnaire vide
+for c in texte: # Parcourt tous les caractères de la chaîne 'texte'
+    if c in occurrences:
+        occurrences[c] += 1 # Incrémenter la valeur de la clé c
+    else:
+        occurrences[c] = 1 # Crée un élément avec la clé c
+print(occurrences)
 ```
 
 ---
@@ -561,7 +606,7 @@ with open(os.path.join(dirname, filename)) as file:
 ## **Chapitre 5 : Données séquentielles**
 ### 5.3. Les dictionnaires
 
-#### Exercice : analyse des données du _dataset_ _NetflixShows_ de _Kaggle_.
+#### Exercice : analyser les données du _dataset_ _Netflix Movies and TV Shows_.
 
 La plateforme _Kaggle_ met a disposition un grand nombre de _datasets_. Parmis ceux-ci, on peut en trouver un qui contient des données sur des shows (films et émissions de télévision) accessibles sur la plateforme de streaming _Netflix_.
 
@@ -584,6 +629,43 @@ __e)__ Construire une liste qui contient la liste des années de sorties des sho
 __f)__ Construire un dictionnaire contenant la liste des années et le nombre de shows de chaque année
 
 __g)__ Trouver l'année où le maximum de shows sont sortis
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.3. Les dictionnaires
+
+#### Exercice : analyser les données du _dataset_ _Netflix Movies and TV Shows_.
+
+
+```python
+import os
+for dirname, _, filenames in os.walk('/kaggle/input'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+        
+import csv
+with open(os.path.join(dirname, filename)) as file:
+    dataDR = csv.DictReader(file) # Objet de type DictReader
+    # a) Trouver la liste des champs du fichier
+    header = dataDR.fieldnames # Liste des champs (entêtes des colonnes)
+    print(header)
+    
+    # b) Trouver le nombre de shows listés dans le fichier
+    dataL = list(dataDR)
+    print(len(dataL), "shows")
+    
+    # c) Imprimer une liste de 10 shows et leur date de sortie
+    for i in dataL[1000:1010]:
+        print(i['title'],'('+i['release_year']+')')
+        
+    # d) Trouver le nombre de films sortis en 2020
+    n2020 = 0
+    for i in dataL: # Parcourt tous les shows
+        if i['release_year'] == '2020':
+            n2020 += 1
+    print(n2020, "shows sortis en 2020")
+```
 
 ---
 
