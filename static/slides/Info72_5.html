@@ -440,6 +440,20 @@ TypeError: object doesn't support item assignment
 Pour utiliser un tuple d'un seul élément, vous devez utiliser une syntaxe avec une virgule `(element,)`, ceci pour éviter une ambiguïté avec une simple expression.
 ---
 
+
+## **Chapitre 5 : Données séquentielles**
+.pull-left[
+### 5.1. Les listes
+]
+.pull-right[
+### 5.2. Les tuples
+]
+.center[
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/watch?v=5UOSiCPu5aM&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+---
+
 ## **Chapitre 5 : Données séquentielles**
 ### 5.3. Les dictionnaires
 
@@ -526,7 +540,10 @@ if "age" not in ani2:
      print("La clé 'age' n'existe pas pour ani2")
 ```
 
-
+***
+.center[
+&lt;iframe width="500" height="275" src="https://www.youtube.com/embed/watch?v=QR-gUWAeLqs&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
 ---
 
 ## **Chapitre 5 : Données séquentielles**
@@ -606,7 +623,7 @@ with open(os.path.join(dirname, filename)) as file:
 ## **Chapitre 5 : Données séquentielles**
 ### 5.3. Les dictionnaires
 
-#### Exercice : analyser les données du _dataset_ _Netflix Movies and TV Shows_.
+#### Exercice : analyser les données du _dataset_ _"Netflix Movies and TV Shows"_.
 
 La plateforme _Kaggle_ met a disposition un grand nombre de _datasets_. Parmis ceux-ci, on peut en trouver un qui contient des données sur des shows (films et émissions de télévision) accessibles sur la plateforme de streaming _Netflix_.
 
@@ -753,18 +770,24 @@ _NumPy_ contient un grand nombre de fonctions mathématiques. Cependant elles di
 ```python
 import numpy as np 
 a = np.array([0,30,45,60,90]) 
-
 print 'Sinus de quelques angles:' 
 print np.sin(a*np.pi/180) # Conversion en radiants en multipliant par pi/180
-
 &gt; Sinus de quelques angles:
 [ 0.          0.5         0.70710678  0.8660254   1.        ]
 ```
+***
+.pull-left[
+&lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=NzDQTrqsxas&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+.pull-right[
+&lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=vw4u9uBFFqU&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=11" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
 ---
 
 ## **Chapitre 5 : Données séquentielles**
-### 5.4. Les tableaux
-
+### 5.5. Le module `matplotlib`
+.pull-left[
 #### Dessin de fonction
 
 
@@ -775,7 +798,14 @@ x = np.linspace(0, 10, 1000)
 plt.style.use('seaborn-whitegrid')
 plt.plot(x, np.sin(x))
 ```
+]
+.pull-right[
+&lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=O_OeWxpnUc0&amp;t=810&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=14" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
 
+***
+
+.pull-left[
 #### Affichage d'image
 
 
@@ -786,6 +816,10 @@ face = misc.face()
 plt.imshow(face)
 plt.show()
 ```
+]
+.pull-right[
+&lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=vw4u9uBFFqU&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=11" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
