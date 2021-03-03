@@ -52,21 +52,21 @@ Nous suivrons la démarche de la chaîne _YouTube_ __Machine Learnia__ :
 
 ## **Chapitre 3 : Les régressions**
 ### 3.1. Introduction
-<div id="htmlwidget-615ffa7849b31f7fa64c" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-b37c76705f2b9048c20e" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-615ffa7849b31f7fa64c">{"x":{"diagram":"\n  graph LR;\n\n  IA(\"<b>Intelligence<br>Artificielle<\/b>\") --> ML(\"<b>Machine<br>Learning<\/b>\");\n  \n  ST(\"<b>Statistiques<\/b>\") --> ML;\n  \n  ML -- \"Données<br>étiquetées<br>(labeled)\" --> SL(\"<b>Apprentissage<br>supervisé<\/b>\");\n  \n  ML -- \"Données<br>non-étiquetées<br>(unlabeled)\" --> UL(\"<b>Apprentissage<br>non-supervisé<\/b>\");\n\n  SL -- \"Données<br>continues\" --> REG(\"<b>Régression<\/b>\");\n  SL -- \"Données<br>discrètes\" -->  CLA(\"<b>Classification<\/b>\");\n  \n  UL --> CLU(\"<b>Regroupement<br>(Clustering)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  \n  style IA fill:#fff, stroke-width:2, stroke:#000;\n  style ST fill:#fff, stroke-width:2, stroke:#000;\n  style ML fill:#ff0, stroke-width:2, stroke:#000;\n  style SL fill:#fa0, stroke-width:2, stroke:#000; \n  style UL fill:#fa0, stroke-width:2, stroke:#000;\n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style CLA fill:#f60, stroke-width:2, stroke:#000;\n  style CLU fill:#f60, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-b37c76705f2b9048c20e">{"x":{"diagram":"\n  graph LR;\n\n  IA(\"<b>Intelligence<br>Artificielle<\/b>\") --> ML(\"<b>Machine<br>Learning<\/b>\");\n  \n  ST(\"<b>Statistiques<\/b>\") --> ML;\n  \n  ML -- \"Données<br>étiquetées<br>(labeled)\" --> SL(\"<b>Apprentissage<br>supervisé<\/b>\");\n  \n  ML -- \"Données<br>non-étiquetées<br>(unlabeled)\" --> UL(\"<b>Apprentissage<br>non-supervisé<\/b>\");\n\n  SL -- \"Données<br>continues\" --> REG(\"<b>Régression<\/b>\");\n  SL -- \"Données<br>discrètes\" -->  CLA(\"<b>Classification<\/b>\");\n  \n  UL --> CLU(\"<b>Regroupement<br>(Clustering)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  \n  style IA fill:#fff, stroke-width:2, stroke:#000;\n  style ST fill:#fff, stroke-width:2, stroke:#000;\n  style ML fill:#ff0, stroke-width:2, stroke:#000;\n  style SL fill:#fa0, stroke-width:2, stroke:#000; \n  style UL fill:#fa0, stroke-width:2, stroke:#000;\n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style CLA fill:#f60, stroke-width:2, stroke:#000;\n  style CLU fill:#f60, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
 ---
 
 ## **Chapitre 3 : Les régressions**
 ### 3.1. Introduction
 
-<div id="htmlwidget-44e8cbf4d80c7875d9d0" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-8073247d6bb9fc9afc29" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-44e8cbf4d80c7875d9d0">{"x":{"diagram":"\n  graph LR;\n  \n  REG(\"<b>Régressions<\/b>\") -- \"Une variable<br>indépendante\" --> SREG(\"<b>Simples<\/b>\");\n  REG -- \"Plusieurs variables<br>indépendantes\" --> MREG(\"<b>Multiples<\/b>\");\n  \n  SREG --> SLR(\"<b>Linéaires<\/b>\");\n  SREG --> SNLR(\"<b>Non-linéaires<\/b>\");\n  SNLR --> SPR(\"<b>Polynomiales<\/b>\");\n  \n  MREG --> MLR(\"<b>Linéaires<\/b>\");\n  MREG --> MNLR(\"<b>Non-linéaires<\/b>\");\n  MNLR --> MPR(\"<b>Polynomiales<\/b>\");\n  \n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  linkStyle 7 stroke:#fff, fill:#0AD, anything;\n  \n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style SREG fill:#fa0, stroke-width:2, stroke:#000;\n  style MREG fill:#fa0, stroke-width:2, stroke:#000;\n  style SLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SPR fill:#ff0, stroke-width:2, stroke:#000;\n  style MLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MPR fill:#ff0, stroke-width:2, stroke:#000;\n  \n  \n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-8073247d6bb9fc9afc29">{"x":{"diagram":"\n  graph LR;\n  \n  REG(\"<b>Régressions<\/b>\") -- \"Une variable<br>indépendante\" --> SREG(\"<b>Simples<\/b>\");\n  REG -- \"Plusieurs variables<br>indépendantes\" --> MREG(\"<b>Multiples<\/b>\");\n  \n  SREG --> SLR(\"<b>Linéaires<\/b>\");\n  SREG --> SNLR(\"<b>Non-linéaires<\/b>\");\n  SNLR --> SPR(\"<b>Polynomiales<\/b>\");\n  \n  MREG --> MLR(\"<b>Linéaires<\/b>\");\n  MREG --> MNLR(\"<b>Non-linéaires<\/b>\");\n  MNLR --> MPR(\"<b>Polynomiales<\/b>\");\n  \n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  linkStyle 7 stroke:#fff, fill:#0AD, anything;\n  \n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style SREG fill:#fa0, stroke-width:2, stroke:#000;\n  style MREG fill:#fa0, stroke-width:2, stroke:#000;\n  style SLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SPR fill:#ff0, stroke-width:2, stroke:#000;\n  style MLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MPR fill:#ff0, stroke-width:2, stroke:#000;\n  \n  \n  "},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -424,6 +424,13 @@ Ce qui peut se convertir en années en divisant par _60 s x 60 min x 24 h x 365,
 ***
 
 Pour plus de détails, consulter l'[atelier "Effet Doppler - Cosmologie" sur le site de Jean-Marc Bonnet-Bidaud](http://bonnetbidaud.free.fr/pedagogie/hubble_law/index.html).
+
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.1. La loi de Hubble
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/2AO6MCP0AzM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 ---
 
