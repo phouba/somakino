@@ -629,9 +629,7 @@ La plateforme _Kaggle_ met a disposition un grand nombre de _datasets_. Parmis c
 
 Vous devez créer un _notebook Kaggle_ avec un lien vers cette _source de données_.
 
-Ensuite, accédez aux données via le code de la page précédente (le début du code est déjà écrit dans le nouveau _notebook Kaggle_).
-
-Avec ses données, effectuez les opérations suivantes :
+Ensuite, accédez aux données via le code de la page précédente (le début du code est déjà écrit dans le nouveau _notebook Kaggle_). Avec ses données, effectuez les opérations suivantes :
 
 __a)__ Trouver la liste des champs du fichier
 
@@ -641,18 +639,20 @@ __c)__ Imprimer une liste de 10 shows et leur date de sortie
 
 __d)__ Trouver le nombre de films sortis en 2020
 
-__e)__ Construire une liste qui contient la liste des années de sorties des shows
+__e)__ Construire une liste qui contient les années de sorties des shows
 
-__f)__ Construire un dictionnaire contenant la liste des années et le nombre de shows de chaque année
+__f)__ Construire une liste des titres des films sortis en 2020
 
-__g)__ Trouver l'année où le maximum de shows sont sortis
+__g)__ Construire un dictionnaire contenant la liste des années et le nombre de shows de chaque année
+
+__h)__ Trouver l'année où le maximum de shows sont sortis
 
 ---
 
 ## **Chapitre 5 : Données séquentielles**
 ### 5.3. Les dictionnaires
 
-#### Exercice : analyser les données du _dataset_ _Netflix Movies and TV Shows_.
+#### Correctif : analyser les données du _dataset_ _Netflix Movies and TV Shows_. (1/4)
 
 
 ```python
@@ -660,28 +660,124 @@ import os
 for dirname, _, filenames in os.walk('/kaggle/input'):
     for filename in filenames:
         print(os.path.join(dirname, filename))
-        
+
 import csv
 with open(os.path.join(dirname, filename)) as file:
     dataDR = csv.DictReader(file) # Objet de type DictReader
+    
     # a) Trouver la liste des champs du fichier
     header = dataDR.fieldnames # Liste des champs (entêtes des colonnes)
     print(header)
+    print("-------")
     
     # b) Trouver le nombre de shows listés dans le fichier
     dataL = list(dataDR)
     print(len(dataL), "shows")
+    print("-------")
     
     # c) Imprimer une liste de 10 shows et leur date de sortie
     for i in dataL[1000:1010]:
         print(i['title'],'('+i['release_year']+')')
-        
+    print("-------")
+```
+
+(suite à la page suivante)
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.3. Les dictionnaires
+
+#### Correctif : analyser les données du _dataset_ _Netflix Movies and TV Shows_. (2/4)
+
+
+```python
     # d) Trouver le nombre de films sortis en 2020
-    n2020 = 0
+    n2020 = 0 # Compteur
     for i in dataL: # Parcourt tous les shows
-        if i['release_year'] == '2020':
-            n2020 += 1
+        if i['release_year'] == '2020': # Si l'année de sortie est 2020
+            n2020 += 1 # On incrémente le compteur
     print(n2020, "shows sortis en 2020")
+    print("-------")
+    
+    # e) Construire une liste qui contient les années de sorties des shows
+    annees = [] # Liste vide
+    for i in dataL: # Parcourt tous les shows
+        if i['release_year'] not in annees:
+            # Si l'année de sortie n'est pas déjà dans la liste
+            annees.append(i['release_year']) # On l'ajoute dans la liste
+    annees.sort() # Tri
+    print(annees)
+    print("-------")
+```
+(suite à la page suivante)
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.3. Les dictionnaires
+
+#### Correctif : analyser les données du _dataset_ _Netflix Movies and TV Shows_. (3/4)
+
+
+```python
+    # f) Construire une liste des titres des films sortis en 2020
+    films2020 = [] # Liste vide
+    for i in dataL: # Parcourir la liste des shows
+        if i['release_year'] == '2020' and i['type'] == 'Movie':
+            # Si l'année de sortie du film est 2020
+            films2020.append(i['title']) # On ajoute le titre à la liste
+    print(films2020[-10:]) # On affiche les dix derniers
+    print("------")
+    
+    # g) Construire un dictionnaire contenant la liste des années
+    #    et le nombre de shows de chaque année
+    parAnnees = {} # Dictionnaire vide
+    for i in dataL: # Parcourt tous les shows
+        if i['release_year'] not in parAnnees:
+            # Si l'année de sortie n'est pas déjà dans le dictionnaire
+            parAnnees[i['release_year']] = 1
+                # On crée un nouvel élément dont la clé est l'année de sortie 
+                # et la valeur est 1
+        else: # Sinon (l'année de sortie est déjà dans le dictionnaire)
+            parAnnees[i['release_year']] += 1
+                # On incrémente la valeur correspondant
+                # à la clé de l'année de sortie
+    print(parAnnees)
+    print("-------")
+```
+(suite à la page suivante)
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.3. Les dictionnaires
+
+#### Correctif : analyser les données du _dataset_ _Netflix Movies and TV Shows_. (4/4)
+
+
+```python
+    # h) Trouver l'année où le maximum de shows sont sortis
+    #    (à partir du dictionnaire construit précédemment)
+    cles = list(parAnnees.keys()) # La liste des clés (années de sorties)
+    valeurs = list(parAnnees.values()) # La liste des valeurs (nombre de sorties)
+    nmax = max(valeurs) # Trouve la valeur maximum
+    print("Un maximum de", nmax, "films sont sortis la même année.")
+    
+    # Attention : cette année n'est pas obligatoirement unique!
+```
+
+```python
+    # h') On suppose que cette année est unique
+    imax = valeurs.index(nmax) # Trouve l'index correspondant à cette valeur
+    ymax = cles[imax] # Trouve la clé correspondant à cet index
+    print("C'était en",ymax)
+```
+
+```python
+    # h'') Construire une liste des clés pour lesquelles la valeur est maximum
+    lmax = [] # Liste vide
+    for e in parAnnees: # Parcourt toutes les années
+        if parAnnees[e] == nmax: # Si la valeur de cette année est maximum
+            lmax.append(e); # On l'ajoute à la liste
+    print("Les années où un maximum de films sont sortis sont",lmax) 
 ```
 
 ---
@@ -778,18 +874,39 @@ print np.sin(a*np.pi/180) # Conversion en radiants en multipliant par pi/180
 ```
 ***
 .pull-left[
-&lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=NzDQTrqsxas&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=2LdLiCtVUEA&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=9" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 ]
 .pull-right[
-&lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=vw4u9uBFFqU&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=11" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=NzDQTrqsxas&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 ]
 
 ---
 
 ## **Chapitre 5 : Données séquentielles**
-### 5.5. Le module `matplotlib`
+### 5.4. Les tableaux
+
 .pull-left[
-#### Dessin de fonction
+#### Affichage d'image &lt;/br&gt; (en couleur ou en noir et blanc)
+
+
+```python
+from scipy import misc
+import matplotlib.pyplot as plt
+face = misc.face()
+# face = misc.face(gray=True)
+plt.imshow(face)
+# plt.imshow(face, cmap=plt.cm.gray)
+plt.show()
+```
+]
+.pull-right[
+&lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=vw4u9uBFFqU&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=11" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+***
+
+.pull-left[
+#### Dessin de fonction&lt;/br&gt; avec le module `matplotlib`
 
 
 ```python
@@ -802,24 +919,6 @@ plt.plot(x, np.sin(x))
 ]
 .pull-right[
 &lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=O_OeWxpnUc0&amp;t=810&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=14" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
-]
-
-***
-
-.pull-left[
-#### Affichage d'image
-
-
-```python
-from scipy import misc
-import matplotlib.pyplot as plt
-face = misc.face()
-plt.imshow(face)
-plt.show()
-```
-]
-.pull-right[
-&lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=vw4u9uBFFqU&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=11" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
