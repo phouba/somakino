@@ -857,6 +857,15 @@ Les tableaux _NumPy_ possèdent également plusieurs __attributs__ (propriétés
 
 On peut accéder aux éléments ou à des parties de tableaux avec les mêmes techniques d'indiçage et de découpage que pour les listes.
 
+#### Changement de forme
+
+La méthode `reshape` permet changer les __dimensions__ (`shape`) d'un tableau.
+
+
+```python
+np.array([1,2,3,4,5,6]).reshape(3,2)
+```
+
 ---
 
 ## **Chapitre 5 : Données séquentielles**
@@ -929,7 +938,221 @@ plt.plot(x, np.sin(x))
 ## **Chapitre 5 : Données séquentielles**
 ### 5.4. Les tableaux
 
-#### Exercice
+#### Exercices interactifs (1/6)
+
+a) Importer Numpy
+
+
+```python
+import numpy as np
+```
+
+b) Créer un tableau contenant 5 zéros
+
+
+```python
+np.zeros(5)
+```
+
+```
+## array([0., 0., 0., 0., 0.])
+```
+
+c) Créer un tableau de 15 éléments valant 7
+
+
+```python
+#np.zeros(15) + 7
+#np.ones(15) * 7
+np.full(15,7)
+```
+
+```
+## array([7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7])
+```
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.4. Les tableaux
+
+#### Exercices interactifs (2/6)
+d) Créer un tableau d'entiers entre 5 et 10
+
+
+```python
+np.arange(5,11)
+```
+
+```
+## array([ 5,  6,  7,  8,  9, 10])
+```
+e) Créer un tableau de tous les entiers impairs entre 0 et 10
+
+
+```python
+#np.arange(0,10,2) + 1
+#np.arange(1,11,2)
+impairs = np.arange(0,11)
+impairs[impairs % 2 == 1]
+```
+
+```
+## array([1, 3, 5, 7, 9])
+```
+
+f) Créer une matrice 3x3 avec les valeurs de 1 à 9
+
+```python
+np.arange(1,10).reshape(3,3)
+```
+
+```
+## array([[1, 2, 3],
+##        [4, 5, 6],
+##        [7, 8, 9]])
+```
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.4. Les tableaux
+
+#### Exercices interactifs (3/6)
+g) Créer une matrice de 5 éléments dont les valeurs sont des flottants aléatoires entre 0 et 10
+
+
+```python
+np.random.random(5)*10
+```
+
+```
+## array([8.99262168, 4.55816031, 1.2496933 , 9.14702439, 9.51442389])
+```
+
+h) Créer un tableau qui contient les valeurs suivantes:
+
+0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.
+
+
+```python
+#np.linspace(0.1,1,10)
+np.arange(0.1,1,0.1)
+```
+
+```
+## array([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.4. Les tableaux
+
+#### Exercices interactifs (4/6)
+i) Créer une variable contenant la matrice suivante :
+
+array([[ 1, 2, 3, 4], [ 5, 6, 7, 8], [ 9, 10, 11, 12], [13, 14, 15, 16]])
+
+
+```python
+mat = np.arange(1,17).reshape(4,4)
+mat
+```
+
+```
+## array([[ 1,  2,  3,  4],
+##        [ 5,  6,  7,  8],
+##        [ 9, 10, 11, 12],
+##        [13, 14, 15, 16]])
+```
+
+j) Accéder au nombre 12 dans la matrice précédente
+
+
+```python
+mat[2,3]
+```
+
+```
+## 12
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.4. Les tableaux
+
+#### Exercices interactifs (5/6)
+
+k) Sélectionner la première ligne de la matrice
+
+
+```python
+#mat[0]
+mat[0,:]
+```
+
+```
+## array([1, 2, 3, 4])
+```
+
+l) Sélectionner la première colonne de la matrice
+
+
+```python
+mat[:,0]
+#mat[:,0:1]
+```
+
+```
+## array([ 1,  5,  9, 13])
+```
+
+m) Sélectionner une partie de la matrice contenant les nombres 11, 12, 15 et 16
+
+
+```python
+mat[2:,2:]
+```
+
+```
+## array([[11, 12],
+##        [15, 16]])
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.4. Les tableaux
+
+#### Exercices interactifs (6/6)
+n) Calculer la somme de toutes les valeurs de la matrice
+
+
+```python
+mat.sum()
+```
+
+```
+## 136
+```
+
+o) Effectuer la somme de toutes les lignes de la matrices
+
+
+```python
+mat.sum(axis=1)
+```
+
+```
+## array([10, 26, 42, 58])
+```
+
+---
+
+## **Chapitre 5 : Données séquentielles**
+### 5.4. Les tableaux
+
+#### Exercices sur les images
 
 __1.__ Construire et afficher une image de dimension 400x400 représentant un damier de 8x8 cases alternativement noires et blanches.
 
