@@ -52,21 +52,21 @@ Nous suivrons la démarche de la chaîne _YouTube_ __Machine Learnia__ :
 
 ## **Chapitre 3 : Les régressions**
 ### 3.1. Introduction
-<div id="htmlwidget-741d381dda25d3657c46" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-6c9cd8f184f20365c936" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-741d381dda25d3657c46">{"x":{"diagram":"\n  graph LR;\n\n  IA(\"<b>Intelligence<br>Artificielle<\/b>\") --> ML(\"<b>Machine<br>Learning<\/b>\");\n  \n  ST(\"<b>Statistiques<\/b>\") --> ML;\n  \n  ML -- \"Données<br>étiquetées<br>(labeled)\" --> SL(\"<b>Apprentissage<br>supervisé<\/b>\");\n  \n  ML -- \"Données<br>non-étiquetées<br>(unlabeled)\" --> UL(\"<b>Apprentissage<br>non-supervisé<\/b>\");\n\n  SL -- \"Données<br>continues\" --> REG(\"<b>Régression<\/b>\");\n  SL -- \"Données<br>discrètes\" -->  CLA(\"<b>Classification<\/b>\");\n  \n  UL --> CLU(\"<b>Regroupement<br>(Clustering)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  \n  style IA fill:#fff, stroke-width:2, stroke:#000;\n  style ST fill:#fff, stroke-width:2, stroke:#000;\n  style ML fill:#ff0, stroke-width:2, stroke:#000;\n  style SL fill:#fa0, stroke-width:2, stroke:#000; \n  style UL fill:#fa0, stroke-width:2, stroke:#000;\n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style CLA fill:#f60, stroke-width:2, stroke:#000;\n  style CLU fill:#f60, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-6c9cd8f184f20365c936">{"x":{"diagram":"\n  graph LR;\n\n  IA(\"<b>Intelligence<br>Artificielle<\/b>\") --> ML(\"<b>Machine<br>Learning<\/b>\");\n  \n  ST(\"<b>Statistiques<\/b>\") --> ML;\n  \n  ML -- \"Données<br>étiquetées<br>(labeled)\" --> SL(\"<b>Apprentissage<br>supervisé<\/b>\");\n  \n  ML -- \"Données<br>non-étiquetées<br>(unlabeled)\" --> UL(\"<b>Apprentissage<br>non-supervisé<\/b>\");\n\n  SL -- \"Données<br>continues\" --> REG(\"<b>Régression<\/b>\");\n  SL -- \"Données<br>discrètes\" -->  CLA(\"<b>Classification<\/b>\");\n  \n  UL --> CLU(\"<b>Regroupement<br>(Clustering)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  \n  style IA fill:#fff, stroke-width:2, stroke:#000;\n  style ST fill:#fff, stroke-width:2, stroke:#000;\n  style ML fill:#ff0, stroke-width:2, stroke:#000;\n  style SL fill:#fa0, stroke-width:2, stroke:#000; \n  style UL fill:#fa0, stroke-width:2, stroke:#000;\n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style CLA fill:#f60, stroke-width:2, stroke:#000;\n  style CLU fill:#f60, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
 ---
 
 ## **Chapitre 3 : Les régressions**
 ### 3.1. Introduction
 
-<div id="htmlwidget-c30f10a5e1c3f6b1a53e" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-c42d58b8c8a096e36807" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-c30f10a5e1c3f6b1a53e">{"x":{"diagram":"\n  graph LR;\n  \n  REG(\"<b>Régressions<\/b>\") -- \"Une variable<br>indépendante\" --> SREG(\"<b>Simples<\/b>\");\n  REG -- \"Plusieurs variables<br>indépendantes\" --> MREG(\"<b>Multiples<\/b>\");\n  \n  SREG --> SLR(\"<b>Linéaires<\/b>\");\n  SREG --> SNLR(\"<b>Non-linéaires<\/b>\");\n  SNLR --> SPR(\"<b>Polynomiales<\/b>\");\n  \n  MREG --> MLR(\"<b>Linéaires<\/b>\");\n  MREG --> MNLR(\"<b>Non-linéaires<\/b>\");\n  MNLR --> MPR(\"<b>Polynomiales<\/b>\");\n  \n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  linkStyle 7 stroke:#fff, fill:#0AD, anything;\n  \n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style SREG fill:#fa0, stroke-width:2, stroke:#000;\n  style MREG fill:#fa0, stroke-width:2, stroke:#000;\n  style SLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SPR fill:#ff0, stroke-width:2, stroke:#000;\n  style MLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MPR fill:#ff0, stroke-width:2, stroke:#000;\n  \n  \n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-c42d58b8c8a096e36807">{"x":{"diagram":"\n  graph LR;\n  \n  REG(\"<b>Régressions<\/b>\") -- \"Une variable<br>indépendante\" --> SREG(\"<b>Simples<\/b>\");\n  REG -- \"Plusieurs variables<br>indépendantes\" --> MREG(\"<b>Multiples<\/b>\");\n  \n  SREG --> SLR(\"<b>Linéaires<\/b>\");\n  SREG --> SNLR(\"<b>Non-linéaires<\/b>\");\n  SNLR --> SPR(\"<b>Polynomiales<\/b>\");\n  \n  MREG --> MLR(\"<b>Linéaires<\/b>\");\n  MREG --> MNLR(\"<b>Non-linéaires<\/b>\");\n  MNLR --> MPR(\"<b>Polynomiales<\/b>\");\n  \n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  linkStyle 7 stroke:#fff, fill:#0AD, anything;\n  \n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style SREG fill:#fa0, stroke-width:2, stroke:#000;\n  style MREG fill:#fa0, stroke-width:2, stroke:#000;\n  style SLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SPR fill:#ff0, stroke-width:2, stroke:#000;\n  style MLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MPR fill:#ff0, stroke-width:2, stroke:#000;\n  \n  \n  "},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -449,7 +449,7 @@ Le code complet est disponible sur Kaggle : https://www.kaggle.com/pascalhouba/h
 ## **Fiche 3 : Applications à l'astronomie**
 ### 3.1. La loi de Hubble
 
-#### Correctif (1/5)
+#### Correctif (1/5) : Importation et pre-processing avec le module `Pandas`
 
 
 ```python
@@ -469,9 +469,11 @@ df = pd.read_csv('/kaggle/input/nearby-galaxy-catalog/neargalcat2.csv',
 print("Le dataset contient", df.shape[0], "exemples au départ.")
 
 # Pre-processing
-df = df.loc[:,['distance', 'radial_velocity']] # On ne prend que les colonnes nécessaires
-df = df.dropna() # On enlève les lignes qui ne possèdent pas de données
-# On restreint le dataset en imposant quelques conditions
+# a) On ne prend que les colonnes nécessaires
+df = df.loc[:,['distance', 'radial_velocity']]
+# b) On enlève les lignes qui ne possèdent pas de données
+df = df.dropna() 
+# c) On restreint le dataset en imposant quelques conditions
 df = df.loc[df['distance'] &lt; 12]
 df = df.loc[df['distance'] &gt; 1]
 df = df.loc[df['radial_velocity'] &lt; 1200]
@@ -483,7 +485,7 @@ print("Il reste", df.shape[0], "exemples après le pre-processing.")
 ## **Fiche 3 : Applications à l'astronomie**
 ### 3.1. La loi de Hubble
 
-#### Correctif (2/5)
+#### Correctif (2/5) : Conversion des données en tableaux `Numpy`
 
 
 ```python
@@ -513,7 +515,7 @@ print(y.shape)
 ## **Fiche 3 : Applications à l'astronomie**
 ### 3.1. La loi de Hubble
 
-#### Correctif (3/5)
+#### Correctif (3/5) : Définition des matrices (dataset, modèle, fonction coût)
 
 
 ```python
@@ -546,7 +548,7 @@ cost_function(X, y, theta)
 ## **Fiche 3 : Applications à l'astronomie**
 ### 3.1. La loi de Hubble
 
-#### Correctif (4/5)
+#### Correctif (4/5) : Définition de l'algorithme, entraînement et prédiction
 
 
 ```python
@@ -581,7 +583,7 @@ plt.plot(x, predictions, c='r')
 ## **Fiche 3 : Applications à l'astronomie**
 ### 3.1. La loi de Hubble
 
-#### Correctif (5/5)
+#### Correctif (5/5) : Interprétation des résultats
 
 
 ```python
@@ -609,6 +611,162 @@ Hubble_Time(theta_final[0][0])
 ### 3.2. La troisième loi de Kepler
 
 &lt;iframe width="800" height="450" src="https://www.youtube.com/embed/eKnc89aVOIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+---
+## **Fiche 3 : Applications à l'astronomie**
+### 3.2. La troisième loi de Kepler
+
+#### Correctif (1/5) : Importation et exploration préliminaire des données
+
+
+```python
+# Importation du dataset
+import os
+for dirname, _, filenames in os.walk('/kaggle/input'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+import pandas as pd
+df = pd.read_csv(os.path.join(dirname, filename)) # dataframe
+
+# Exploration préliminaire des données
+df.shape
+df.columns
+df.head()
+df.describe()
+df['orbits'].value_counts(dropna=False)
+```
+
+```python
+Jupiter            79
+Saturn             65
+NaN                60 [Sun]
+Uranus             27
+Neptune            14
+Pluto               5
+Mars                2
+...
+Earth               1
+...
+```
+---
+## **Fiche 3 : Applications à l'astronomie**
+### 3.2. La troisième loi de Kepler
+
+#### Correctif (2/5) : Pre-processing
+
+
+```python
+# Pre-processing
+# a) On ne prend que les colonnes nécessaires
+df = df.drop(['semimajorAxis', 'perihelion', 'aphelion', #'eccentricity',
+              'inclination', 'density', 'gravity', 'escape', 'bondAlbido',
+              'geomAlbido', 'RV_abs', 'p_transit', 'transit_visibility',
+              'transit_depth', 'massj', 'meanRadius', 'equaRadius', 'polarRadius',
+              'flattening', 'dimension', 'sideralRotation', 'discoveryDate',
+              'mass_kg', 'volume', 'orbit_type', 'grav_int'], axis=1)
+```
+
+```python
+# b) On ne prend que les lignes qui répondent à certains critères
+df = df[df['isPlanet'] == True] # Restriction aux planètes
+df = df[df['semimajorAxis_AU'] &lt; 40] # Pas plus loin que Pluton
+```
+pour les planètes, ou pour les satellites de Jupiter :
+
+```python
+# b) On ne prend que les lignes qui répondent à certains critères
+df = df[df['orbits'] == 'Jupiter'] # Restriction aux satelittes de Jupiter
+```
+
+```python
+print("Le dataset contient", df.shape[0], "exemples de ce type :")
+df.sort_values(by=['sideralOrbit'], inplace=True) # Tri selon la période orbitale
+df.head(10) # Affichage des 10 premiers
+```
+---
+## **Fiche 3 : Applications à l'astronomie**
+### 3.2. La troisième loi de Kepler
+
+#### Correctif (3/5) : Conversion en tableaux `NumPy`
+
+
+```python
+# Conversion du dataset du DataFrame en tableaux NumPy
+import numpy as np
+
+x = np.array(df['sideralOrbit'])
+#print(type(x))
+y = np.array(df['semimajorAxis_AU'])
+#print(x,y)
+
+# Troisième loi de Kepler : feature engineering
+x = x/365.256 # Période en années
+x = x**2
+y = y**3
+
+# Visualisation
+import matplotlib.pyplot as plt
+plt.scatter(x,y)
+plt.scatter(np.log(x),np.log(y))
+
+# Redimensionnement de x et y
+x = x.reshape(x.shape[0], 1)
+y = y.reshape(y.shape[0], 1)
+
+# Ecriture matricielle du dataset
+X = np.hstack((x, np.ones(x.shape)))
+```
+
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.2. La troisième loi de Kepler
+
+#### Correctif (4/5) : Régression avec le module `Scikit Learn`
+
+
+```python
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+model.fit(X,y)
+model.score(X,y)
+predictions = model.predict(X)
+
+plt.scatter(x, y)
+plt.plot(x, predictions, c='r')
+print("Coefficients du modèle:",model.coef_)
+```
+
+***
+.center[
+&lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=P6kSc3qVph0&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=20" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.2. La troisième loi de Kepler
+
+#### Correctif (5/5) : Vérification concernant une erreur 
+
+Dans les données pour les satellites de Jupiter, on peut observer une donnée qui s'éloigne fortement de la droite de régression.
+
+Le code suivant permet de retrouver l'élément correspondant dans le _dataframe_.
+
+
+```python
+# Tableau des ecarts entre les données et les prédictions
+ecarts = np.abs(y-predictions)
+results = np.where(ecarts == max(ecarts)) # Tableau des index correspondants
+
+x_ERR = x[results[0][0]][0] # Valeur aberrante dans le tableau x
+a = np.sqrt(x_ERR)*365.25 # Conversion en période sidérale
+print(a)
+
+# Sélection des satellites avoisinants
+df[(df['sideralOrbit'] &gt; a*0.98) &amp; (df['sideralOrbit'] &lt; a*1.02)]
+```
+
+Après vérification des données du satellite problématique, Megaclite, on peut voir qu'il s'agit d'une erreur dans la valeur du rayon de son orbite telle qu'encodée dans le dataset : elle devrait être de 0.159133 Unités Astronomiques et pas 0.094565 UA.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
