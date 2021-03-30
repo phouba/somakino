@@ -39,6 +39,10 @@ type: docs
 
 {{< slides "Info72_7" >}}
 
+### Chapitre 8 : Images et graphiques
+
+{{< slides "Info72_8" >}}
+
 ## Présentation pour le cours de Traitement des Données
 
 ### Introduction : L’intelligence artificielle et les données
