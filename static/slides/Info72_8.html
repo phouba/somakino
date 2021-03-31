@@ -145,11 +145,108 @@ damier = np.hstack([colonne, 255-colonne]*4)
 plt.imshow(damier, cmap=plt.cm.gray, vmin=0, vmax=255)
 plt.show()
 ```
+---
+
+## **Chapitre 8 : Images et graphiques**
+### 8.2. Les graphiques
+
+#### Visualiser des données
+
+.center[
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/r0Ln7T69hQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+Le code complet est disponible aux pages suivantes.
+]
+---
+
+## **Chapitre 8 : Images et graphiques**
+### 8.2. Les graphiques
+
+#### Visualiser des données
+
+
+```python
+import matplotlib.pyplot as plt
+
+# Les données à visualiser
+prix_ms=[39,50,57,69,94,100]
+prix_apple=[93,112,104,144,170,172]
+annee=[2015,2016,2017,2018,2019,2020]
+
+# Visualiser les données
+plt.scatter(annee, prix_ms, label='Prix Windows', c='lime') # Nuage de points
+plt.plot(annee, prix_apple, label='Prix Apple', C='r') # Linéaire
+plt.legend()
+plt.xlabel('Année')
+plt.ylabel('Prix des Ordinateurs')
+plt.title('Evolution des Prix des Ordinateurs durant les 5 Dernières Années')
+plt.show() # Optionnel dans les environnements de type Notebook.
+
+# Visualiser les données dans deux plans
+plt.subplot(1,2,1)
+plt.scatter(annee, prix_ms, label='Prix Windows', c= 'lime')
+plt.subplot(1,2,2)
+plt.plot(annee,prix_apple, label='Prix Apple', c='r')
+plt.show() # Optionnel dans les environnements de type Notebook.
+```
 
 ---
 
 ## **Chapitre 8 : Images et graphiques**
 ### 8.2. Les graphiques
+
+#### Visualiser des données
+
+
+```python
+import matplotlib.pyplot as plt
+
+# Visualiser les données en diagramme de bande
+index_annee=np.arange(len(annee))
+a=0.25
+plt.bar(index_annee,prix_ms, label='Prix Windows', width=a)
+plt.bar(index_annee+a,prix_apple label= 'Prix Apple', width=a)
+plt.legend()
+plt.xlabel('Année')
+plt.ylabel('Prix des Ordinateurs')
+plt.title('Evolution des Prix des Ordinateurs durant les 5 Dernières Années')
+plt.show() # Optionnel dans les environnements de type Notebook.
+
+# Dessiner Pie Chart
+produit=['P1','P2','P3','P4']
+vente=[10,20,20,50]
+plt.pie(vente,labels=produit,autopct='%1.1f%%')
+plt.show() # Optionnel dans les environnements de type Notebook.
+```
+---
+
+## **Chapitre 8 : Images et graphiques**
+### 8.2. Les graphiques
+
+#### Visualiser des données : exercice
+
+Trouver quatre jeux de données sur internet, par exemple en faisant une recherche avec le mot-clé "graphique" et en sélectionnant l'onglet "images" de votre moteur de recherches.
+
+Trouver des données qui ne sont pas trop nombreuses et qui sont composées de plusieurs catégories qui peuvent être comparées comme dans l'exemple de la vidéo précédente ("Windows vs Apple").
+
+Adaptez le code des pages précédentes pour visualiser ces données le mieux possible (avec un titre, des labels, une légende, des couleurs).
+
+__1.__ Pour un jeu de données, faire un graphique de type linéaire (`plot`).
+
+__2.__ Pour un autre jeu de données, faire un graphique de type nuage de points (`scatter`).
+
+__3.__ Pour un autre jeu de données, faire un graphique de type diagramme de bande (`bar`).
+
+__4.__ Pour un autre jeu de données (avec une seule catégorie), faire un graphique de type camembert (`pie`).
+
+__5.__ Réaliser une figure contenant ces 4 graphes dans une matrice de graphes 2x2 (`subplot`).
+
+---
+
+## **Chapitre 8 : Images et graphiques**
+### 8.2. Les graphiques
+
+#### Tracer une fonction
 
 
 ```python
@@ -162,7 +259,7 @@ plt.plot(x, y)
 ```
 
 .center[
-&lt;iframe width="400" height="300" src="https://www.youtube.com/embed/watch?v=O_OeWxpnUc0&amp;t=810&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=14" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/watch?v=O_OeWxpnUc0&amp;t=810&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=14" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
