@@ -30,20 +30,132 @@ class:middle
 ### **Chapitre 5 : Données séquentielles**
 ### **Chapitre 6 : Structures répétitives (2)**
 ### Chapitre 7 : Fonctions
+### **Chapitre 8 : Images et graphiques**
 
 ---
 
 ## **Chapitre 7 : Fonctions**
-### 7.1. Définition
+### 7.1. Généralités
 
+De manière générale, __les fonctions sont un moyen d'exécuter des actions plus ou moins complexes__ en les appelant par leur nom, ce qui permet de rendre un code plus lisible et surtout de le décomposer en parties plus simples.
+
+Contrairement aux variables, les fonctions se caractérisent par le fait que __leur nom est suivi de parenthèses__.
+
+La plupart du temps, entre ses parenthèses, les fonctions admettent un ou plusieurs __paramètres__ de différents types et peuvent retourner un objet plus ou moins complexe.
+
+Par exemple, la fonction `len` admet un paramètre de type list (mais aussi de type chaîne de caractères) et retourne un entier.
+
+
+```python
+len([1,2,-4]) 
+```
+
+```
+## 3
+```
+
+Certaines fonctions s'appliquent sur un objet qui, plutôt que d'être passé en paramètre, est placé avant l'identifiant de la fonction et séparé de celle-ci par un point. On parle alors de __méthodes__ plutôt que de fonctions.
+
+
+```python
+l1 = [1,2,-4]
+l1.append(2)
+```
 
 ---
 
+## **Chapitre 7 : Fonctions**
+### 7.2. Fonctions prédéfinies
+
+Jusqu'à présent, nous avons utilisés des __fonctions prédéfinies__ soit dans le langage Python, soit dans certains modules.
+
+
+```python
+import math
+print(math.cos(math.pi))
+```
+
+```
+## -1.0
+```
+
+Rappelons que la syntaxe suivante permet de ne pas devoir spécifier le nom du module comme un objet auquel s'applique les fonctions qu'il contient.
+
+
+```python
+from math import *
+print(cos(pi))
+```
+
+```
+## -1.0
+```
+---
 
 ## **Chapitre 7 : Fonctions**
-### 7.x. Exercices
+### 7.3. Définitions de fonctions personnelles
 
-Reprendre l'exercice du chapitre prédédent et transformer le programme qui analyse un par un tous les éléments d’une liste de nombres pour générer deux nouvelles listes, l’une contenant seulement les nombres pairs de la liste initiale, et l’autre les nombres impairs, en une fonction.
+Il est possible de définir ses propres fonctions grâce au mot-clé `def` suivi d'un bloc de code indenté. Le mot-clé `return` permet de retourner une valeur le cas échéant.
+
+
+```python
+# Fonction qui prend un argument numérique et retourne une valeur numérique
+def carre(x):
+    return x**2
+
+carre(6)
+```
+
+```
+## 36
+```
+
+
+```python
+# Fonction sans argument qui ne retourne pas de valeur
+def hello():
+    print("Hello!")
+
+hello()
+```
+
+```
+## Hello!
+```
+
+Notez qu'il est nécessaire d'appeler la fonction pour que le code qu'elle contient soit exécuté. Il ne suffit pas de la définir.
+
+---
+
+## **Chapitre 7 : Fonctions**
+### 7.4. Exercices
+
+__1.__ Ecrire une fonction qui imprime la table de multiplication d'un nombre entier.
+
+__2.__ Ecrire une fonction qui retourne le nombre de chiffre d'un nombre.
+
+__3.__ Ecrire une fonction qui retourne la factorielle d'un nombre entier.
+
+__4.__ Ecrire une fonction qui retourne une liste de listes des n premières lignes du triangle de Pascal.
+
+Une méthode de construction du triangle de Pascal consiste à placer 1 au sommet du triangle, puis 1 et 1 en dessous, de part et d'autre. Les extrémités des lignes sont toujours des 1, et les autres nombres sont la somme des deux nombres directement au-dessus.
+
+````
+        1
+      1   1
+    1   2   1
+  1   3   3   1
+1   4   6   4   1
+```
+
+__5.__ Ecrire une fonction qui retourne une liste qui combine deux listes contenant des nombres entiers mais sans éléments dupliqués. Tester la fonction en générant des listes aléatoires de nombres entiers de longueurs aléatoires.
+
+---
+
+## **Chapitre 7 : Fonctions**
+### 7.4. Exercices
+
+__6.__ Ecrire une fonction qui analyse un par un tous les éléments d’une liste de nombres pour générer deux nouvelles listes, l’une contenant seulement les nombres pairs de la liste initiale, et l’autre les nombres impairs.
 
 
 ```python
@@ -54,13 +166,32 @@ def pairs_impairs(liste):
         if nombre % 2 == 0: # nombre est pair
             pairs.append(nombre)
         else: # nombre est impair
-            impairs.append(nombre)  
-    #print(pairs, impairs)
-    return pairs, impairs
+            impairs.append(nombre)
+    return pairs, impairs # Retourne un tuple composé de deux listes
     
 p, i = pairs_impairs([32, 5, 12, 8, 3, 75, 2, 15])
 print(p, i)
 ```
+
+```
+## [32, 12, 8, 2] [5, 3, 75, 15]
+```
+
+---
+## **Chapitre 7 : Fonctions**
+### 7.4. Exercices
+
+__7.__ Ecrire une fonction `bin2dec` qui permet de convertir un nombre binaire en nombre décimal.
+
+__8.__ Ecrire une fonction `hex2dec` qui permet de convertir un nombre hexadécimal en nombre décimal.
+
+__9.__ Ecrire une fonction `dec2bin` qui permet de convertir un nombre décimal en nombre binaire.
+
+__10.__ Ecrire une fonction `dec2hex` qui permet de convertir un nombre décimal en nombre hexadécimal.
+
+__11.__ Ecrire une fonction `baseN2dec` qui permet de convertir un nombre en base `n` en nombre décimal.
+
+__12.__ Ecrire une fonction `dec2baseN` qui permet de convertir un nombre décimal en nombre en base `n`.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
