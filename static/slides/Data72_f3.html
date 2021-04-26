@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Traitement des Données</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Pascal Houba" />
+    <link href="Data72_f3_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Data72.css" type="text/css" />
+    <link rel="stylesheet" href="Data72-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, title-slide
+
+# Traitement des Données
+## 2020-2021
+### Pascal Houba
+### <strong>Fiche 3 : Applications à l’astronomie</strong>
+
+---
+
+class:middle
+
+### **Introduction : L’intelligence artificielle et les données**
+### **Chapitre 1 : Les probabilités simples**
+### **Fiche 1 : Les tableurs**
+### **Chapitre 2 : Les probabilités conditionnelles**
+### **Fiche 2 : Performances d'un test de dépistage**
+### **Chapitre 3 : Les régressions**
+### Fiche 3 : Applications à l'astronomie
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.1. La loi de Hubble
+
+.pull-left[
+En 1929, l'astronome Edwin Hubble publia [un article](https://www.pnas.org/content/15/3/168) montrant, à partir des données issues de l'observation de 24 galaxies visibles à l'époque, qu'il existe une __relation linéaire entre leur vitesse `\(v\)` et leur distance de la Terre `\(d\)`__ :
+
+`$$v = H_0 \times d$$`
+]
+.pull-right[
+&lt;img src="images/F1.large.jpg"/&gt;
+]
+
+Cette relation est appelée depuis lors la __loi de Hubble__ et `\(H_0\)`, la __constante de Hubble__. Elle signifie que __plus une galaxie est distante, plus elle s'éloigne de nous rapidement__.
+
+Il s'agissait d'une découverte scientifique majeure marquant le début de la __cosmologie observationnelle__. En effet, cela a conduit à penser que notre univers était en __expansion__ constante et que, si cela avait toujours été le cas, il avait dû commencer, il y a environ 14 milliards d'années, par un __Big Bang__.
+
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.1. La loi de Hubble
+
+Cette estimation de l'__âge de l'univers__ ou __temps de Hubble__, `\(t_H\)`, peut être calculé en prenant l'inverse de la constande de Hubble :
+
+`$$t_H = 1/H_0$$`
+
+La valeur de la constante de Hubble est estimée à _70 km/s/Mpc_ où _1 Mpc = `\(10^6\)` parsec_. Le __parsec__ est une mesure de distance utilisée en astronomie. Il vaut environ _3,26 années-lumière_ ou `\(3,085 677 581 \times 10^{16}\)` _m_.
+
+`$$t_H = \frac{3,085 677 581.10^{22} m}{7.10^5 m} s = 4,4.10^{17} s$$`
+
+Ce qui peut se convertir en années en divisant par _60 s x 60 min x 24 h x 365,25 jours/an = 31557600 s/an_. Cela donne :
+
+`$$t_H = \frac{4,4.10^{17} s}{3,15576.10^7 s/an} = 13,96.10^9 an$$`
+
+***
+
+Pour plus de détails, consulter l'[atelier "Effet Doppler - Cosmologie" sur le site de Jean-Marc Bonnet-Bidaud](http://bonnetbidaud.free.fr/pedagogie/hubble_law/index.html).
+
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.1. La loi de Hubble
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/2AO6MCP0AzM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.1. La loi de Hubble
+
+#### Exercice
+
+A partir du _[dataset](https://www.kaggle.com/pascalhouba/hubble-1929)_ contenant les données originales utilisées par Hubble, retrouver la valeur de la constante de Hubble à laquelle il est arrivé. Estimer l'âge de l'univers correspondant. Comparer avec la valeur obtenue à partir d'un [dataset plus récent](https://www.kaggle.com/pascalhouba/nearby-galaxy-catalog).
+
+__Solution :__
+
+Le code complet est disponible sur Kaggle : https://www.kaggle.com/pascalhouba/hubble-1929-ml
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.1. La loi de Hubble
+
+#### Correctif (1/5) : Importation et pre-processing avec le module `Pandas`
+
+
+```python
+import pandas as pd
+```
+
+```python
+# Importation du dataset original de Hubble
+df = pd.read_csv('/kaggle/input/hubble-1929/hubble_data.csv')
+print("Le dataset contient", df.shape[0], "exemples.")
+```
+
+```python
+# Importation du dataset Updated Nearby Galaxy Catalog
+df = pd.read_csv('/kaggle/input/nearby-galaxy-catalog/neargalcat2.csv',
+                  sep=',', decimal='.')
+print("Le dataset contient", df.shape[0], "exemples au départ.")
+
+# Pre-processing
+# a) On ne prend que les colonnes nécessaires
+df = df.loc[:,['distance', 'radial_velocity']]
+# b) On enlève les lignes qui ne possèdent pas de données
+df = df.dropna() 
+# c) On restreint le dataset en imposant quelques conditions
+df = df.loc[df['distance'] &lt; 12]
+df = df.loc[df['distance'] &gt; 1]
+df = df.loc[df['radial_velocity'] &lt; 1200]
+df = df.loc[df['radial_velocity'] &gt; 0]
+print("Il reste", df.shape[0], "exemples après le pre-processing.")
+```
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.1. La loi de Hubble
+
+#### Correctif (2/5) : Conversion des données en tableaux `Numpy`
+
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Conversion du dataset du DataFrame en tableaux NumPy
+x = np.array(df['distance'])
+#y = np.array(df['recession_velocity']) # Pour Hubble 1929
+y = np.array(df['radial_velocity']) # Pour Nearby Galaxy Catalog
+
+# Visualisation du dataset
+plt.scatter(x,y)
+
+# Vérification des dimensions et redimensionnements
+print(x.shape)
+x = x.reshape(x.shape[0], 1)
+print(x.shape)
+
+print(y.shape)
+y = y.reshape(y.shape[0], 1)
+print(y.shape)
+```
+
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.1. La loi de Hubble
+
+#### Correctif (3/5) : Définition des matrices (dataset, modèle, fonction coût)
+
+
+```python
+# Création de la matrice X qui contient la colonne de biais.
+X = np.hstack((x, np.ones(x.shape)))
+print(X.shape)
+
+# Création d'un vecteur paramètre initialisé avec des coefficients aléatoires.
+np.random.seed(0) # pour produire toujours le meme vecteur theta aléatoire
+theta = np.random.randn(2, 1)
+
+# Définition du modèle
+def model(X, theta):
+    return X.dot(theta)
+
+# Visualisation du modèle avec les paramètres initiaux par rapport au dataset
+plt.scatter(x, y)
+plt.plot(x, model(X, theta), c='r')
+
+# Définition de la fonction coût (erreur quadratique moyenne)
+def cost_function(X, y, theta):
+    m = len(y)
+    return 1/(2*m) * np.sum((model(X, theta) - y)**2)
+    
+# Calcul de la fonction coût pour les paramètres initiaux
+cost_function(X, y, theta)
+```
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.1. La loi de Hubble
+
+#### Correctif (4/5) : Définition de l'algorithme, entraînement et prédiction
+
+
+```python
+# Définition de la fonction gradient
+def grad(X, y, theta):
+    m = len(y)
+    return 1/m * X.T.dot(model(X, theta) - y)
+
+# Définition de l'algorithme de la descente de gradient
+def gradient_descent(X, y, theta, learning_rate, n_iterations):
+    cost_history = np.zeros(n_iterations) # évolution de la fonction coût
+    for i in range(0, n_iterations):
+        theta = theta - learning_rate * grad(X, y, theta) # formule de la descente de gradient
+        cost_history[i] = cost_function(X, y, theta)
+    return theta, cost_history
+    
+# Phase d'entraînement
+n_iterations = 1000 # Hyperparamètre à ajuster
+learning_rate = 0.01 # Hyperparamètre à ajuster
+theta_final, cost_history = gradient_descent(X, y, theta, learning_rate, n_iterations)
+print(theta_final) # Paramètres du modèle une fois que la machine a été entraînée
+
+# Création d'un vecteur qui contient les prédictions de notre modèle final
+predictions = model(X, theta_final)
+
+# Affichage des prédictions par rapport au dataset
+plt.scatter(x, y)
+plt.plot(x, predictions, c='r')
+```
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.1. La loi de Hubble
+
+#### Correctif (5/5) : Interprétation des résultats
+
+
+```python
+# Définition de la conversion entre le temps de Hubble et l'âge de l'Univers
+def Hubble_Time(H):
+    # Conversion de la constante de Hubble en m/s/m = 1/s
+    Mpc = 3.085677581*10**16 * 10**3 # 1 Mpc en kilomètres
+    H = H/Mpc 
+
+    # Temps de Hubble = inverse de la constante de Hubble (en s)
+    tH = 1/H
+    print("Temps de Hubble : " + str(tH) + " s")
+
+    # Conversion de secondes en millards d'années
+    tHa = tH / 60 / 60 / 24 / 365.25 / 10**9
+    print("Age de l'Univers : " + str(tHa) + " millards d'années")
+    
+    return tHa
+
+# Calcul de l'âge de l'Univers à partir de la constante de Hubble
+Hubble_Time(theta_final[0][0])
+```
+---
+## **Fiche 3 : Applications à l'astronomie**
+### 3.2. La troisième loi de Kepler
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/eKnc89aVOIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+---
+## **Fiche 3 : Applications à l'astronomie**
+### 3.2. La troisième loi de Kepler
+
+#### Correctif (1/5) : Importation et exploration préliminaire des données
+
+
+```python
+# Importation du dataset
+import os
+for dirname, _, filenames in os.walk('/kaggle/input'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+import pandas as pd
+df = pd.read_csv(os.path.join(dirname, filename)) # dataframe
+
+# Exploration préliminaire des données
+df.shape
+df.columns
+df.head()
+df.describe()
+df['orbits'].value_counts(dropna=False)
+```
+
+```python
+Jupiter            79
+Saturn             65
+NaN                60 [Sun]
+Uranus             27
+Neptune            14
+Pluto               5
+Mars                2
+...
+Earth               1
+...
+```
+---
+## **Fiche 3 : Applications à l'astronomie**
+### 3.2. La troisième loi de Kepler
+
+#### Correctif (2/5) : Pre-processing
+
+
+```python
+# Pre-processing
+# a) On ne prend que les colonnes nécessaires
+df = df.drop(['semimajorAxis', 'perihelion', 'aphelion', #'eccentricity',
+              'inclination', 'density', 'gravity', 'escape', 'bondAlbido',
+              'geomAlbido', 'RV_abs', 'p_transit', 'transit_visibility',
+              'transit_depth', 'massj', 'meanRadius', 'equaRadius', 'polarRadius',
+              'flattening', 'dimension', 'sideralRotation', 'discoveryDate',
+              'mass_kg', 'volume', 'orbit_type', 'grav_int'], axis=1)
+```
+
+```python
+# b) On ne prend que les lignes qui répondent à certains critères
+df = df[df['isPlanet'] == True] # Restriction aux planètes
+df = df[df['semimajorAxis_AU'] &lt; 40] # Pas plus loin que Pluton
+```
+pour les planètes, ou pour les satellites de Jupiter :
+
+```python
+# b) On ne prend que les lignes qui répondent à certains critères
+df = df[df['orbits'] == 'Jupiter'] # Restriction aux satelittes de Jupiter
+```
+
+```python
+print("Le dataset contient", df.shape[0], "exemples de ce type :")
+df.sort_values(by=['sideralOrbit'], inplace=True) # Tri selon la période orbitale
+df.head(10) # Affichage des 10 premiers
+```
+---
+## **Fiche 3 : Applications à l'astronomie**
+### 3.2. La troisième loi de Kepler
+
+#### Correctif (3/5) : Conversion en tableaux `NumPy`
+
+
+```python
+# Conversion du dataset du DataFrame en tableaux NumPy
+import numpy as np
+
+x = np.array(df['sideralOrbit'])
+#print(type(x))
+y = np.array(df['semimajorAxis_AU'])
+#print(x,y)
+
+# Troisième loi de Kepler : feature engineering
+x = x/365.256 # Période en années
+x = x**2
+y = y**3
+
+# Visualisation
+import matplotlib.pyplot as plt
+plt.scatter(x,y)
+plt.scatter(np.log(x),np.log(y))
+
+# Redimensionnement de x et y
+x = x.reshape(x.shape[0], 1)
+y = y.reshape(y.shape[0], 1)
+
+# Ecriture matricielle du dataset
+X = np.hstack((x, np.ones(x.shape)))
+```
+
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.2. La troisième loi de Kepler
+
+#### Correctif (4/5) : Régression avec le module `Scikit Learn`
+
+
+```python
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+model.fit(X,y)
+model.score(X,y)
+predictions = model.predict(X)
+
+plt.scatter(x, y)
+plt.plot(x, predictions, c='r')
+print("Coefficients du modèle:",model.coef_)
+```
+
+***
+.center[
+&lt;iframe width="400" height="225" src="https://www.youtube.com/embed/watch?v=P6kSc3qVph0&amp;list=PLO_fdPEVlfKqMDNmCFzQISI2H_nJcEDJq&amp;index=20" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+---
+
+## **Fiche 3 : Applications à l'astronomie**
+### 3.2. La troisième loi de Kepler
+
+#### Correctif (5/5) : Vérification concernant une valeur aberrante (_outlier_) 
+
+Sur le graphe pour les satellites de Jupiter, on peut observer une donnée aberrante qui s'éloigne fortement de la droite de régression.
+
+Le code suivant permet de retrouver l'élément correspondant dans le _dataframe_.
+
+
+```python
+# Tableau des ecarts entre les données et les prédictions
+ecarts = np.abs(y-predictions)
+results = np.where(ecarts == max(ecarts)) # Tableau des index correspondants
+
+x_ERR = x[results[0][0]][0] # Valeur aberrante dans le tableau x
+a = np.sqrt(x_ERR)*365.25 # Conversion en période sidérale
+print(a)
+
+# Sélection des satellites avoisinants
+df[(df['sideralOrbit'] &gt; a*0.98) &amp; (df['sideralOrbit'] &lt; a*1.02)]
+```
+
+Après vérification des données du satellite problématique, _Megaclite_, on peut voir qu'il s'agit d'une erreur dans la valeur du rayon de son orbite telle qu'encodée dans le dataset : elle devrait être de 0.159133 Unités Astronomiques et pas 0.094565 UA.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -95,11 +95,11 @@ print(cos(pi))
 ## **Chapitre 7 : Fonctions**
 ### 7.3. Définitions de fonctions personnelles
 
-Il est possible de définir ses propres fonctions grâce au mot-clé `def` suivi d'un bloc de code indenté. Le mot-clé `return` permet de retourner une valeur le cas échéant.
+Il est possible de définir ses propres fonctions grâce au mot-clé `def` suivi d'un bloc de code indenté. Le mot-clé `return` permet de renvoier une valeur le cas échéant.
 
 
 ```python
-# Fonction qui prend un argument numérique et retourne une valeur numérique
+# Fonction qui prend un argument numérique et renvoie une valeur numérique
 def carre(x):
     return x**2
 
@@ -112,7 +112,7 @@ carre(6)
 
 
 ```python
-# Fonction sans argument qui ne retourne pas de valeur
+# Fonction sans argument qui ne renvoie pas de valeur
 def hello():
     print("Hello!")
 
@@ -132,23 +132,161 @@ Notez qu'il est nécessaire d'appeler la fonction pour que le code qu'elle conti
 
 __1.__ Ecrire une fonction qui imprime la table de multiplication d'un nombre entier.
 
-__2.__ Ecrire une fonction qui retourne le nombre de chiffre d'un nombre.
 
-__3.__ Ecrire une fonction qui retourne la factorielle d'un nombre entier.
+```python
+def table(n):
+    print("Table de "+str(n))
+    print()
+    for i in range(10):
+        #print(str(i+1)+" * "+str(n)+" = "+str((i+1)*n))
+        print(i+1,"*",n,"=",(i+1)*n)
+        
+table(6)
+```
 
-__4.__ Ecrire une fonction qui retourne une liste de listes des n premières lignes du triangle de Pascal.
+```
+## Table de 6
+## 
+## 1 * 6 = 6
+## 2 * 6 = 12
+## 3 * 6 = 18
+## 4 * 6 = 24
+## 5 * 6 = 30
+## 6 * 6 = 36
+## 7 * 6 = 42
+## 8 * 6 = 48
+## 9 * 6 = 54
+## 10 * 6 = 60
+```
+
+---
+
+## **Chapitre 7 : Fonctions**
+### 7.4. Exercices
+
+__2.__ Ecrire une fonction qui renvoie le nombre de chiffre d'un nombre.
+
+
+```python
+def lenn(n):
+    return len(str(n))
+
+lenn(657657)
+```
+
+```
+## 6
+```
+
+__3.__ Ecrire une fonction qui renvoie la factorielle d'un nombre entier.
+
+Cette fonction est l'occasion de donner un exemple de __fonction récursive__, c'est-à-dire qui s'appelle elle-même, avec une valeur différente du paramètre. Dans ce cas, il faut faire attention à prévoir une valeur du paramètre (ici `n = 1`) pour laquelle la fonction renvoie une valeur directement, mettant fin à la récursion. 
+
+.pull-left[
+
+```python
+def fact(n): # version non-récursive
+    f = 1
+    for i in range(n):
+        f = f*(i+1)
+    return f
+
+fact(6)
+```
+
+```
+## 720
+```
+]
+.pull-right[
+
+```python
+def fact_rec(n): # version récursive
+    if n == 1: 
+        return 1 # fin de la récursion
+    else:
+        return n*fact_rec(n-1)
+    
+fact_rec(6)
+```
+
+```
+## 720
+```
+]
+---
+
+## **Chapitre 7 : Fonctions**
+### 7.4. Exercices
+
+__4.__ Ecrire une fonction qui renvoie une liste qui combine deux listes contenant des nombres entiers mais sans éléments dupliqués. Tester la fonction en générant des listes aléatoires de nombres entiers de longueurs aléatoires.
+
+
+```python
+def fusion(list1, list2):
+    for e in list2:
+        if e not in list1:
+            list1.append(e)
+    return list1
+
+def fusion_forte(list1, list2): # Elimine les doublons possibles dans list1
+    listf = []
+    for e in list1:
+        if e not in listf:
+            listf.append(e)
+    for e in list2:
+        if e not in listf:
+            listf.append(e)
+    return listf
+
+fusion([1,5,6,6,7,3],[6,4,3,1])
+```
+
+```
+## [1, 5, 6, 6, 7, 3, 4]
+```
+
+```python
+fusion_forte([1,5,6,6,7,3],[6,4,3,1])
+```
+
+```
+## [1, 5, 6, 7, 3, 4]
+```
+---
+
+## **Chapitre 7 : Fonctions**
+### 7.4. Exercices
+
+__5.__ Ecrire une fonction qui renvoie une liste de listes des n premières lignes du triangle de Pascal.
 
 Une méthode de construction du triangle de Pascal consiste à placer 1 au sommet du triangle, puis 1 et 1 en dessous, de part et d'autre. Les extrémités des lignes sont toujours des 1, et les autres nombres sont la somme des deux nombres directement au-dessus.
 
-````
+```
         1
-      1   1
-    1   2   1
-  1   3   3   1
+      1 + 1
+    1 + 2 + 1
+  1 + 3 + 3 + 1
 1   4   6   4   1
 ```
 
-__5.__ Ecrire une fonction qui retourne une liste qui combine deux listes contenant des nombres entiers mais sans éléments dupliqués. Tester la fonction en générant des listes aléatoires de nombres entiers de longueurs aléatoires.
+
+```python
+def pascal(n):
+    triangle = []
+    for i in range(n):
+        triangle.append([1]*(i+1)) # Commence par créer une liste avec des 1
+        if i &gt; 1: # Modifie les éléments qui ne doivent pas rester des 1
+            for j in range(i-1):
+                triangle[-1][j+1] = triangle[-2][j] + triangle[-2][j+1]
+    return triangle
+
+pascal(6)
+```
+
+```
+## [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1], [1, 5, 10, 10, 5, 1]]
+```
 
 ---
 
@@ -167,14 +305,13 @@ def pairs_impairs(liste):
             pairs.append(nombre)
         else: # nombre est impair
             impairs.append(nombre)
-    return pairs, impairs # Retourne un tuple composé de deux listes
+    return [pairs, impairs] # Retourne une liste composée de deux listes
     
-p, i = pairs_impairs([32, 5, 12, 8, 3, 75, 2, 15])
-print(p, i)
+pairs_impairs([32, 5, 12, 8, 3, 75, 2, 15])
 ```
 
 ```
-## [32, 12, 8, 2] [5, 3, 75, 15]
+## [[32, 12, 8, 2], [5, 3, 75, 15]]
 ```
 
 ---
