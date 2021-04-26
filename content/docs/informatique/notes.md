@@ -61,3 +61,6 @@ type: docs
 
 {{< slides "Data72_3" >}}
 
+### Fiche 3 : Applications à l'astronomie
+
+{{< slides "Data72_f3" >}}
