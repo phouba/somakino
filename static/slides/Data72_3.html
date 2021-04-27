@@ -54,21 +54,21 @@ Nous suivrons la démarche de la chaîne _YouTube_ __Machine Learnia__ :
 
 ## **Chapitre 3 : Les régressions**
 ### 3.1. Introduction
-<div id="htmlwidget-a35f6a6d981af3a26ded" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-220ff46a241b0e3f080b" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-a35f6a6d981af3a26ded">{"x":{"diagram":"\n  graph LR;\n\n  IA(\"<b>Intelligence<br>Artificielle<\/b>\") --> ML(\"<b>Machine<br>Learning<\/b>\");\n  \n  ST(\"<b>Statistiques<\/b>\") --> ML;\n  \n  ML -- \"Données<br>étiquetées<br>(labeled)\" --> SL(\"<b>Apprentissage<br>supervisé<\/b>\");\n  \n  ML -- \"Données<br>non-étiquetées<br>(unlabeled)\" --> UL(\"<b>Apprentissage<br>non-supervisé<\/b>\");\n\n  SL -- \"Données<br>continues\" --> REG(\"<b>Régression<\/b>\");\n  SL -- \"Données<br>discrètes\" -->  CLA(\"<b>Classification<\/b>\");\n  \n  UL --> CLU(\"<b>Regroupement<br>(Clustering)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  \n  style IA fill:#fff, stroke-width:2, stroke:#000;\n  style ST fill:#fff, stroke-width:2, stroke:#000;\n  style ML fill:#ff0, stroke-width:2, stroke:#000;\n  style SL fill:#fa0, stroke-width:2, stroke:#000; \n  style UL fill:#fa0, stroke-width:2, stroke:#000;\n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style CLA fill:#f60, stroke-width:2, stroke:#000;\n  style CLU fill:#f60, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-220ff46a241b0e3f080b">{"x":{"diagram":"\n  graph LR;\n\n  IA(\"<b>Intelligence<br>Artificielle<\/b>\") --> ML(\"<b>Machine<br>Learning<\/b>\");\n  \n  ST(\"<b>Statistiques<\/b>\") --> ML;\n  \n  ML -- \"Données<br>étiquetées<br>(labeled)\" --> SL(\"<b>Apprentissage<br>supervisé<\/b>\");\n  \n  ML -- \"Données<br>non-étiquetées<br>(unlabeled)\" --> UL(\"<b>Apprentissage<br>non-supervisé<\/b>\");\n\n  SL -- \"Données<br>continues\" --> REG(\"<b>Régression<\/b>\");\n  SL -- \"Données<br>discrètes\" -->  CLA(\"<b>Classification<\/b>\");\n  \n  UL --> CLU(\"<b>Regroupement<br>(Clustering)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  \n  style IA fill:#fff, stroke-width:2, stroke:#000;\n  style ST fill:#fff, stroke-width:2, stroke:#000;\n  style ML fill:#ff0, stroke-width:2, stroke:#000;\n  style SL fill:#fa0, stroke-width:2, stroke:#000; \n  style UL fill:#fa0, stroke-width:2, stroke:#000;\n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style CLA fill:#f60, stroke-width:2, stroke:#000;\n  style CLU fill:#f60, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
 ---
 
 ## **Chapitre 3 : Les régressions**
 ### 3.1. Introduction
 
-<div id="htmlwidget-f339c57f57043cd14727" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<div id="htmlwidget-6d77f52db16b66097844" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
 <script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
                                 setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
                             });</script>
-<script type="application/json" data-for="htmlwidget-f339c57f57043cd14727">{"x":{"diagram":"\n  graph LR;\n  \n  REG(\"<b>Régressions<\/b>\") -- \"Une variable<br>indépendante\" --> SREG(\"<b>Simples<\/b>\");\n  REG -- \"Plusieurs variables<br>indépendantes\" --> MREG(\"<b>Multiples<\/b>\");\n  \n  SREG --> SLR(\"<b>Linéaires<\/b>\");\n  SREG --> SNLR(\"<b>Non-linéaires<\/b>\");\n  SNLR --> SPR(\"<b>Polynomiales<\/b>\");\n  \n  MREG --> MLR(\"<b>Linéaires<\/b>\");\n  MREG --> MNLR(\"<b>Non-linéaires<\/b>\");\n  MNLR --> MPR(\"<b>Polynomiales<\/b>\");\n  \n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  linkStyle 7 stroke:#fff, fill:#0AD, anything;\n  \n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style SREG fill:#fa0, stroke-width:2, stroke:#000;\n  style MREG fill:#fa0, stroke-width:2, stroke:#000;\n  style SLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SPR fill:#ff0, stroke-width:2, stroke:#000;\n  style MLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MPR fill:#ff0, stroke-width:2, stroke:#000;\n  \n  \n  "},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-6d77f52db16b66097844">{"x":{"diagram":"\n  graph LR;\n  \n  REG(\"<b>Régressions<\/b>\") -- \"Une variable<br>indépendante\" --> SREG(\"<b>Simples<\/b>\");\n  REG -- \"Plusieurs variables<br>indépendantes\" --> MREG(\"<b>Multiples<\/b>\");\n  \n  SREG --> SLR(\"<b>Linéaires<\/b>\");\n  SREG --> SNLR(\"<b>Non-linéaires<\/b>\");\n  SNLR --> SPR(\"<b>Polynomiales<\/b>\");\n  \n  MREG --> MLR(\"<b>Linéaires<\/b>\");\n  MREG --> MNLR(\"<b>Non-linéaires<\/b>\");\n  MNLR --> MPR(\"<b>Polynomiales<\/b>\");\n  \n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  linkStyle 7 stroke:#fff, fill:#0AD, anything;\n  \n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style SREG fill:#fa0, stroke-width:2, stroke:#000;\n  style MREG fill:#fa0, stroke-width:2, stroke:#000;\n  style SLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SPR fill:#ff0, stroke-width:2, stroke:#000;\n  style MLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MPR fill:#ff0, stroke-width:2, stroke:#000;\n  \n  \n  "},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -393,7 +393,15 @@ https://github.com/MachineLearnia/Regression-lineaire-numpy
 ## **Chapitre 3 : Les régressions**
 ### 3.8. Rappels de statistiques
 
-&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/iUlfsefFNFk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+.center[
+&lt;iframe width="450" height="250" src="https://www.youtube.com/embed/iUlfsefFNFk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+&lt;BR&gt;
+
+.center[
+&lt;iframe width="450" height="250" src="https://www.youtube.com/embed/2k-1Yi40ZSw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
 
 ---
 
@@ -447,14 +455,16 @@ L'intérêt de l'écart-type par rapport à la variance est qu'il se mesure avec
 ## **Chapitre 3 : Les régressions**
 ### 3.8. Rappels de statistiques
 
-#### 3. Mesures des relations entre deux variables quantitatives
+.center[
+&lt;iframe width="450" height="250" src="https://www.youtube.com/embed/nchH22qmtmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
 
-.pull-left[
-&lt;iframe width="400" height="300" src="https://www.youtube.com/embed/nchH22qmtmc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;BR&gt;
+
+.center[
+&lt;iframe width="450" height="250" src="https://www.youtube.com/embed/aKd6bjXG03w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 ]
-.pull-right[
-&lt;iframe width="400" height="300" src="https://www.youtube.com/embed/aKd6bjXG03w" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
-]
+
 ---
 
 ## **Chapitre 3 : Les régressions**
@@ -614,24 +624,26 @@ __Visualisation d'une seule variable en nuage de points__
 ```python
 import matplotlib.pyplot as plt
 plt.style.use('seaborn-whitegrid')
+plt.figure(figsize=(4,3.5));
 x = np.arange(dist.size)
-plt.scatter(x, dist, c='black')
-plt.axhline(np.mean(dist), c='r')
+plt.scatter(x, dist, c='black');
+plt.axhline(np.mean(dist), c='r');
 plt.show()
 ```
 
-&lt;img src="Data72_3_files/figure-html/unnamed-chunk-10-1.png" width="672" /&gt;
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-1.png" width="384" /&gt;
 ]
 .pull-right[
 
 ```python
+import matplotlib.pyplot as plt
 x = [1]*dist.size
-plt.scatter(x, dist, c='black')
-plt.axhline(np.mean(dist), c='r')
+plt.scatter(x, dist, c='black');
+plt.axhline(np.mean(dist), c='r');
 plt.show()
 ```
 
-&lt;img src="Data72_3_files/figure-html/unnamed-chunk-11-1.png" width="672" /&gt;
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-3.png" width="384" /&gt;
 ]
 ---
 
@@ -645,22 +657,22 @@ __Visualisation d'une distribution en histogramme__
 ```python
 import matplotlib.pyplot as plt
 # Distribution uniforme
-plt.figure(figsize=(4,3.2))
+plt.figure(figsize=(4,3.2));
 n, bins, patches = plt.hist(dist,
   bins=100, range=(0,100),
   color='b', alpha=0.5)
-plt.axvline(np.mean(dist), c='r')
+plt.axvline(np.mean(dist), c='r');
 plt.axvline(np.median(dist), c='g')
 ```
 
-&lt;img src="Data72_3_files/figure-html/unnamed-chunk-12-1.png" width="384" /&gt;
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-5.png" width="384" /&gt;
 ]
 .pull-right[
 
 ```python
 import scipy.stats as st
 # Distribution normale
-plt.figure(figsize=(4,3))
+plt.figure(figsize=(4,3));
 n, bins, patches = plt.hist(normal_dist,
   bins=20, range=(0,100), density=True)
 x = np.arange(100)
@@ -668,7 +680,7 @@ plt.plot(x,st.norm.pdf(x,
   np.mean(dist), np.std(dist)))
 ```
 
-&lt;img src="Data72_3_files/figure-html/unnamed-chunk-13-1.png" width="384" /&gt;
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-7.png" width="384" /&gt;
 ]
 ---
 
@@ -739,13 +751,13 @@ __Affichage de la distribution d'une des variables__
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 # histogram of the height
-df.Height.hist(color='purple', edgecolor='black', figsize=(11,5))
-plt.title('Distribution of Height', size=24)
-plt.xlabel('Height (inches)', size=18)
+df.Height.hist(color='purple', edgecolor='black', figsize=(11,5));
+plt.title('Distribution of Height', size=24);
+plt.xlabel('Height (inches)', size=18);
 plt.ylabel('Frequency', size=18)
 ```
 
-&lt;img src="Data72_3_files/figure-html/unnamed-chunk-16-1.png" width="1056" /&gt;
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-9.png" width="1056" /&gt;
 ---
 
 ## **Chapitre 3 : Les régressions**
@@ -753,7 +765,7 @@ plt.ylabel('Frequency', size=18)
 
 __Affichage des distributions selon les catégories__
 
-&lt;img src="Data72_3_files/figure-html/unnamed-chunk-17-1.png" width="1056" /&gt;
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-11.png" width="1056" /&gt;
 ---
 
 ## **Chapitre 3 : Les régressions**
@@ -770,10 +782,10 @@ df_females = df[df['Gender'] == 'Female']
 # histogram of the height - males and females
 df_males.Height.hist(color='blue', edgecolor='black', alpha=0.5, figsize=(10, 7));
 df_females.Height.plot(kind='hist', color='magenta', edgecolor='black', alpha=0.5,
-                       figsize=(11, 7))
-plt.legend(labels=['Males', 'Females'])
-plt.title('Distribution of Height', size=24)
-plt.xlabel('Height (inches)', size=18)
+                       figsize=(11, 7));
+plt.legend(labels=['Males', 'Females']);
+plt.title('Distribution of Height', size=24);
+plt.xlabel('Height (inches)', size=18);
 plt.ylabel('Frequency', size=18)
 ```
 ---
@@ -783,7 +795,7 @@ plt.ylabel('Frequency', size=18)
 
 __Affichage des nuages de points et des droites de régressions__
 
-&lt;img src="Data72_3_files/figure-html/unnamed-chunk-19-1.png" width="1056" /&gt;
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-13.png" width="1056" /&gt;
 ---
 
 ## **Chapitre 3 : Les régressions**
@@ -799,38 +811,39 @@ female_fit = np.polyfit(df_females.Height, df_females.Weight, 1)
 
 # Scatter plots
 ax1 = df_males.plot(kind='scatter', x='Height', y='Weight', color='blue',
-                    alpha=0.2, figsize=(11, 7))
+                    alpha=0.2, figsize=(11, 7));
 df_females.plot(kind='scatter', x='Height', y='Weight', color='magenta',
-                alpha=0.2, figsize=(11, 7), ax=ax1)
+                alpha=0.2, figsize=(11, 7), ax=ax1);
 
 # Regression lines
 plt.plot(df_males.Height, male_fit[0] * df_males.Height + male_fit[1],
-         color='darkblue', linewidth=2)
+         color='darkblue', linewidth=2);
 plt.plot(df_females.Height, female_fit[0] * df_females.Height + female_fit[1],
-         color='deeppink', linewidth=2)
+         color='deeppink', linewidth=2);
 
 # Legend, title and labels with regression equations
 plt.legend(labels=['Males : y={:.2f}+{:.2f}*x'.format(male_fit[1], male_fit[0]),
                    'Females : y={:.2f}+{:.2f}*x'.format(female_fit[1],
-                   female_fit[0])], fontsize = 16)
-plt.title('Relationship between Height and Weight', size=24)
-plt.xlabel('Height (inches)', size=18)
-plt.ylabel('Weight (pounds)', size=18)
+                   female_fit[0])], fontsize = 16);
+plt.title('Relationship between Height and Weight', size=24);
+plt.xlabel('Height (inches)', size=18);
+plt.ylabel('Weight (pounds)', size=18);
+plt.show()
 ```
 ---
 
 ## **Chapitre 3 : Les régressions**
 ### 3.9. Exemple d'une régression linéaire simple et multiple
 
-__Variation des droites de régression selon l'échantillonage__
+__Variation des droites de régression selon l'échantillonnage__
 
-&lt;img src="Data72_3_files/figure-html/unnamed-chunk-21-1.png" width="1056" /&gt;
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-15.png" width="1056" /&gt;
 ---
 
 ## **Chapitre 3 : Les régressions**
 ### 3.9. Exemple d'une régression linéaire simple et multiple
 
-__Variation des droites de régression selon l'échantillonage__
+__Variation des droites de régression selon l'échantillonnage__
 
 
 ```python
@@ -867,15 +880,15 @@ plt.ylabel('Weight (pounds)', size=18)
 ## **Chapitre 3 : Les régressions**
 ### 3.9. Exemple d'une régression linéaire simple et multiple
 
-__Variation des droites de régression selon l'échantillonage (version `Seaborn`)__
+__Variation des droites de régression selon l'échantillonnage (version `Seaborn`)__
 
-&lt;img src="Data72_3_files/figure-html/unnamed-chunk-23-1.png" width="1056" /&gt;
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-17.png" width="1056" /&gt;
 ---
 
 ## **Chapitre 3 : Les régressions**
 ### 3.9. Exemple d'une régression linéaire simple et multiple
 
-__Variation des droites de régression selon l'échantillonage (version `Seaborn`)__
+__Variation des droites de régression selon l'échantillonnage (version `Seaborn`)__
 
 
 ```python
@@ -905,7 +918,7 @@ plt.ylabel('Weight (pounds)', size=18)
 
 __Graphe des résidus (version `Seaborn`)__
 
-&lt;img src="Data72_3_files/figure-html/unnamed-chunk-25-1.png" width="1056" /&gt;
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-19.png" width="1056" /&gt;
 
 ---
 
@@ -923,7 +936,7 @@ df_females_sample = df_females.sample(500)
 
 # residual plot 500 females
 fig = plt.figure(figsize = (11, 7))
-sns.residplot(df_females_sample.Height, df_females_sample.Weight, color='magenta')
+sns.residplot(data=df_females_sample, x='Height', y='Weight', color='magenta')
 
 # title and labels
 plt.title('Residual plot 500 females', size=24)

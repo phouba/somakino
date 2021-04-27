@@ -320,7 +320,67 @@ pairs_impairs([32, 5, 12, 8, 3, 75, 2, 15])
 
 __7.__ Ecrire une fonction `bin2dec` qui permet de convertir un nombre binaire en nombre décimal.
 
+
+```python
+def bin2dec(sbin): # sbin est une chaîne de caractère
+    dec = 0
+    nbits = len(sbin) # Nombre de bits
+    for index, bit in enumerate(sbin): # Boucle sur les caractères de la chaîne
+        dec += int(bit)*2**(nbits - 1 - index)
+    return dec
+
+def bin2dec2(sbin): # Version où on renverse la chaîne 
+    dec = 0
+    for index, bit in enumerate(sbin[::-1]): # Chaîne renversée par [::-1]
+        dec += int(bit)*2**index
+    return dec
+
+bin2dec("1101010") # Appel de la fonction
+```
+
+```
+## 106
+```
+
+---
+## **Chapitre 7 : Fonctions**
+### 7.4. Exercices
+
 __8.__ Ecrire une fonction `hex2dec` qui permet de convertir un nombre hexadécimal en nombre décimal.
+
+
+```python
+def hex2dec(shex): # shex est une chaîne de caractères
+    dec = 0
+    for index, hit in enumerate(shex[::-1]): # Boucle sur la chaîne renversée
+        if ord(hit) &gt;= 65 and ord(hit) &lt;= 70: # Lettre A-F
+            dec += (ord(hit)-55)*16**index
+            # HEX : A = 10, B = 11, C = 12, D = 13, E = 14, F = 15
+            # ASCII : ord('A') = 65, B = 66, C = 67, D = 68, E = 69, F = 70
+        elif ord(hit) &gt;= 48 and ord(hit) &lt;= 57: # Chiffre 0-9
+            dec += int(hit)*16**index
+    return dec
+    
+def hex2dec2(shex): # Version avec un dictionnaire
+    dec = 0
+    dictHEX ={'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
+    for index, hit in enumerate(shex[::-1]): # Boucle sur la chaîne renversée
+        if hit in dictHEX: # Lettre A-F
+          dec += dictHEX[hit]*16**index
+        else:  # Chiffre 0-9
+          dec += int(hit)*16**index
+    return dec
+
+hex2dec("A7")
+```
+
+```
+## 167
+```
+
+---
+## **Chapitre 7 : Fonctions**
+### 7.4. Exercices
 
 __9.__ Ecrire une fonction `dec2bin` qui permet de convertir un nombre décimal en nombre binaire.
 
