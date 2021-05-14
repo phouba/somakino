@@ -389,6 +389,127 @@ __10.__ Ecrire une fonction `dec2hex` qui permet de convertir un nombre décimal
 __11.__ Ecrire une fonction `baseN2dec` qui permet de convertir un nombre en base `n` en nombre décimal.
 
 __12.__ Ecrire une fonction `dec2baseN` qui permet de convertir un nombre décimal en nombre en base `n`.
+
+---
+
+## **Chapitre 7 : Fonctions**
+### 7.5. Correctif de l'interrogation
+
+__1.__ Ecrire un programme PYTHON qui demande la date de naissance de la personne (sous la forme JJ/MM/AAAA) et calcule l'âge de la personne. Utiliser la méthode `datetime.datetime.today()` du module `datetime`.
+
+
+```python
+import datetime
+
+today = str(datetime.datetime.today())
+today_annee = int(today[0:4])
+today_mois = int(today[5:7])
+today_jour = int(today[8:10])
+#print(today_jour, today_mois, today_annee)
+
+birthday = input("Entrez votre date de naissance (JJ/MM/AAAA): ")
+birthday_jour = int(birthday[0:2])
+birthday_mois = int(birthday[3:5])
+birthday_annee = int(birthday[6:10])
+#print(birthday_jour, birthday_mois, birthday_annee)
+
+age = today_annee - birthday_annee
+if (today_mois &lt; birthday_mois) or
+   ((today_mois == birthday_mois) and (today_jour &lt; birthday_jour)):
+    age = age - 1
+elif (today_mois == birthday_mois) and (today_jour == birthday_jour):
+    print("Bon anniversaire!")
+
+print("Vous avez " + str(age) + " ans.")
+```
+
+---
+
+## **Chapitre 7 : Fonctions**
+### 7.5. Correctif de l'interrogation
+
+__2.__ a) Ecrire un programme PYTHON qui construit une liste contenant une représentation de 52 cartes à jouer. Les cartes ont :
+
+- 13 valeurs ("As", "2", ..., "10", "Valet", "Dame", "Roi") et
+
+- 4 couleurs possibles ("Coeur", "Carreau", "Trèfle", "Pique" ou en UNICODE : '\u2665','\u2666','\u2663','\u2660')
+
+b) Ensuite, on tire 4 mains de 5 cartes au hasard parmi ce jeu. Ces mains seront encodées dans une liste de listes.
+
+
+```python
+valeurs = ['A','2','3','4','5','6','7','8','9','10','V','D','R']
+couleurs = ['\u2665','\u2666','\u2663','\u2660']
+jeu = []
+for valeur in valeurs:
+    for couleur in couleurs:
+       jeu.append(valeur+' '+couleur)
+#print(jeu)
+import random
+mains = []
+for i in range(4):
+    mains.append([])
+    for j in range(5):
+        n = random.randint(0,len(jeu)-1)
+        mains[-1].append(jeu[n])
+        del(jeu[n]) # Retire la carte tirée du jeu
+print(mains)
+```
+
+---
+
+## **Chapitre 7 : Fonctions**
+### 7.5. Correctif de l'interrogation
+
+__3.__ Ecrire un programme PYTHON où l'on doit deviner un nombre secret entre 1 et 100 généré par l'ordinateur. On a 6 chances.
+
+L'ordinateur indique à chaque essai si le nombre choisi est trop petit, trop grand ou si on a correctement deviné. Si c’est le cas, l’ordinateur indique en combien de coup cela s’est fait.
+
+Utiliser la boucle `while`.
+
+
+```python
+import random
+secret = random.randint(1,100)
+chance = 1
+while chance &lt;= 6 and (nombre != secret):
+    nombre = int(input("Devinez un nombre entre 1 et 100 (encore "+
+                       str(7-chance)+" chances): "))
+    if (nombre &gt; secret):
+        print("Trop grand!")
+    elif (nombre &lt; secret):
+        print("Trop petit!")
+    else:
+        print("Vous avez deviné en ",chance,"coups!")
+    chance += 1
+if (nombre != secret):
+    print("Vous n'avez pas deviné le nombre secret ("+str(secret)+
+          ") en moins de 6 coups.")
+```
+---
+
+## **Chapitre 7 : Fonctions**
+### 7.5. Correctif de l'interrogation
+
+__4.__ Ecrire une fonction PYTHON qui converti les années japonaises en années occidentales. Les années japonaises sont comptées à partir de la première année de règne de l’empereur. Voici les 5 ères les plus récentes :
+
+1868: Ère Meiji, 1912: Ère Taisho, 1926: Ère Showa, 1989: Ère Heisei, 2019: Ère Reiwa
+
+Pour convertir une année japonaise en année occidentale, il faut d'abord trouver la première année de l'ère puis y soustraire 1 et ensuite ajouter le nombre de l'année japonaise. Ainsi, la 23ème année de l'ère Showa (« Showa 23 ») correspond à 1948.
+
+Exemple : 1926 − 1 = 1925, et 1925 + 23 = 1948
+
+
+```python
+def jap2occ(japAnnee):
+    eres = {'Meiji':1868, 'Taisho':1912, 'Showa':1926, 'Heisei':1989, 'Reiwa':2019}
+    ere = japAnnee[:japAnnee.index(' ')] # Nom de l'ère
+    anEre = int(japAnnee[japAnnee.index(' ')+1:]) # Année de l'ère
+    occAnnee = eres[ere] + anEre - 1
+    return occAnnee
+
+jap2occ("Showa 23")
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
