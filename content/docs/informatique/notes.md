@@ -41,7 +41,7 @@ type: docs
 
 ### Chapitre 8 : Images et graphiques
 
-{{< slides "Info72_8" >}}
+{{< slides "Info72_8" >}} -->
 
 ## Présentation pour le cours de Traitement des Données
 
@@ -49,7 +49,7 @@ type: docs
 
 {{< slides "Data72" >}}
 
-### Chapitre 1 : Les probabilités simples
+<!-- ### Chapitre 1 : Les probabilités simples
 
 {{< slides "Data72_1" >}}
 
