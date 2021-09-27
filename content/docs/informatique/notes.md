@@ -11,7 +11,7 @@ type: docs
 
 {{< slides "Info72" >}}
 
-### Chapitre 1 : Introduction aux langages de programmation
+<!-- ### Chapitre 1 : Introduction aux langages de programmation
 
 {{< slides "Info72_1" >}}
 
@@ -64,3 +64,5 @@ type: docs
 ### Fiche 3 : Applications à l'astronomie
 
 {{< slides "Data72_f3" >}}
+
+-->
