@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Informatique</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Pascal Houba" />
+    <script src="Info72_files/header-attrs-2.5/header-attrs.js"></script>
+    <link href="Info72_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="Info72_files/kePrint-0.0.1/kePrint.js"></script>
+    <link href="Info72_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Info72.css" type="text/css" />
+    <link rel="stylesheet" href="Info72-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, title-slide
+
+# Informatique
+## 2021-2022
+### Pascal Houba
+
+---
+
+
+## **Prologue : Les systèmes de numération**
+### P.1. Le système décimal (rappel)
+
+__Compter en décimal__
+
+Base 10 (dix valeurs) : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.
+
+Après 9, vient 10 : 1 dizaine et remise à zéro des unités.
+
+Ensuite 11, 12, 13, 14, 15, 16, 17, 18, 19.
+
+Après 19, vient 20 : 2 dizaines et remise à zéro des unités.
+
+Et ainsi de suite…
+
+Après 99, vient 100 : 1 centaine, et remise à zéro des dizaines et des unités.
+
+On a compris…
+
+---
+
+## **Prologue : Les systèmes de numération**
+### P.2. Le système binaire
+
+__a) Compter en binaire__
+
+Base 2 (deux valeurs) : 0, 1.
+
+Après 1, vient 10 (« un-zéro ») : 1 ~~dizaine~~ (deuzaine?) et remise à zéro des unités.
+
+Ensuite 11 (« un-un »).
+
+Après 11, vient ~~20~~ 100 : 1 au niveau supérieur et remise à zéro des chiffres suivants.
+
+Ensuite 101, 110, 111.
+
+Après 111, vient 1000 : 1 au niveau supérieur et remise à zéro des chiffres suivants.
+
+Ensuite 1001, 1010, 1011, 1100, 1101, 1110, 1111.
+
+On a compris… (?)
+---
+
+## **Prologue : Les systèmes de numération**
+### P.2. Le système binaire
+
+__a) Compter en binaire__
+
+.pull-left[
+&lt;table class="table" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Décimal &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Binaire &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;font-weight: bold;color: black !important;background-color: #DDDDDD !important;"&gt; \({2}^{0}\) = 1 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;font-weight: bold;color: black !important;background-color: #DDDDDD !important;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;font-weight: bold;color: black !important;background-color: #DDDDDD !important;"&gt; \({2}^{1}\) = 2 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;font-weight: bold;color: black !important;background-color: #DDDDDD !important;"&gt; 10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 11 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;font-weight: bold;color: black !important;background-color: #DDDDDD !important;"&gt; \({2}^{2}\) = 4 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;font-weight: bold;color: black !important;background-color: #DDDDDD !important;"&gt; 100 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 101 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 110 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 111 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;font-weight: bold;color: black !important;background-color: #DDDDDD !important;"&gt; \({2}^{3}\) = 8 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;font-weight: bold;color: black !important;background-color: #DDDDDD !important;"&gt; 1000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 1001 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+.pull-right[
+&lt;table class="table" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Décimal &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Binaire &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 1010 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 1011 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 1100 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 13 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 1101 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 14 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 1110 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 15 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 1111 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;font-weight: bold;color: black !important;background-color: #DDDDDD !important;"&gt; \({2}^{4}\) = 16 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;font-weight: bold;color: black !important;background-color: #DDDDDD !important;"&gt; 10000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 10001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 18 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 10010 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 19 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;text-align: right;"&gt; 10011 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+---
+
+## **Prologue : Les systèmes de numération**
+### P.2. Le système binaire
+.pull-left[
+__b) Convertir le binaire en décimal__
+
+Exemple : 11010010b (b pour binaire)
+&lt;table class="table" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; 1 &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; 1 &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; 0 &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; 1 &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; 0 &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; 0 &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; 1 &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; 0 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;text-align: center;background-color: #AAAAAA !important;"&gt; \({2}^{7}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;text-align: center;background-color: #AAAAAA !important;"&gt; \({2}^{6}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; \({2}^{5}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;text-align: center;background-color: #AAAAAA !important;"&gt; \({2}^{4}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; \({2}^{3}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; \({2}^{2}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;text-align: center;background-color: #AAAAAA !important;"&gt; \({2}^{1}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; \({2}^{0}\) &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+2&lt;sup&gt;7&lt;/sup&gt; + 2&lt;sup&gt;6&lt;/sup&gt; + ~~2&lt;sup&gt;5&lt;/sup&gt;~~ + 2&lt;sup&gt;4&lt;/sup&gt; + ~~2&lt;sup&gt;3&lt;/sup&gt;~~ + ~~2&lt;sup&gt;2&lt;/sup&gt;~~ + 2&lt;sup&gt;1&lt;/sup&gt; + ~~2&lt;sup&gt;0&lt;/sup&gt;~~
+
+= 128 + 64 + 16 + 2
+
+= 210d
+
+(d pour décimal)
+]
+.pull-right[
+]
+
+---
+
+## **Prologue : Les systèmes de numération**
+### P.2. Le système binaire
+
+__c) Convertir le décimal en binaire__
+
+Exemple : 335d
+
+.pull-left[
+__A&lt;sub&gt;1&lt;/sub&gt;.__ Quelle est la plus grande puissance de deux inférieure ou égale à 335 ?
+]
+.pull-right[
+→ 256 = __2&lt;sup&gt;8&lt;/sup&gt;__
+.left[
+__B&lt;sub&gt;1&lt;/sub&gt;.__ 335 - 256 = 79
+]]
+.pull-left[
+__A&lt;sub&gt;2&lt;/sub&gt;.__ Quelle est la plus grande puissance de deux inférieure ou égale à 79 ?
+]
+.pull-right[
+→ 64 = __2&lt;sup&gt;6&lt;/sup&gt;__
+.left[
+__B&lt;sub&gt;2&lt;/sub&gt;.__ 79 - 64 = 15
+]]
+.pull-left[
+__A&lt;sub&gt;3&lt;/sub&gt;.__ Quelle est la plus grande puissance de deux inférieure ou égale à 15 ?
+]
+.pull-right[
+→ 8 = __2&lt;sup&gt;3&lt;/sup&gt;__
+.left[
+__B&lt;sub&gt;3&lt;/sub&gt;.__ 15 - 8 = 7
+]]
+.pull-left[
+__A&lt;sub&gt;4&lt;/sub&gt;.__ Quelle est la plus grande puissance de deux inférieure ou égale à 7 ?
+]
+.pull-right[
+→ 4 = __2&lt;sup&gt;2&lt;/sup&gt;__
+.left[
+__B&lt;sub&gt;4&lt;/sub&gt;.__ 7 - 4 = 3
+]]
+.pull-left[
+__A&lt;sub&gt;5&lt;/sub&gt;.__ Quelle est la plus grande puissance de deux inférieure ou égale à 3 ?
+]
+.pull-right[
+→ 2 = __2&lt;sup&gt;1&lt;/sup&gt;__
+.left[
+__B&lt;sub&gt;5&lt;/sub&gt;.__ 3 - 2 = 1 = __2&lt;sup&gt;0&lt;/sup&gt;__
+]]
+
+335d = 1.__2&lt;sup&gt;8&lt;/sup&gt;__ + ~~0.__2&lt;sup&gt;7&lt;/sup&gt;__~~ + 1.__2&lt;sup&gt;6&lt;/sup&gt;__ + ~~0.__2&lt;sup&gt;5&lt;/sup&gt;__~~ + ~~0.__2&lt;sup&gt;4&lt;/sup&gt;__~~ + 1.__2&lt;sup&gt;3&lt;/sup&gt;__ + 1.__2&lt;sup&gt;2&lt;/sup&gt;__ + 1.__2&lt;sup&gt;1&lt;/sup&gt;__ + 1.__2&lt;sup&gt;0&lt;/sup&gt;__ = 101001111b
+
+---
+
+## **Prologue : Les systèmes de numération**
+### P.3. Le système hexadécimal
+
+__a) Compter en hexadécimal__
+
+Base 16 (seize valeurs) : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ?, ?, ?, ?, ?, ?
+
+Après 9, vient ~~10~~ A : on a pas encore épuisé les valeurs disponibles.
+
+Ensuite B, C, D, E, F.
+
+Après F, vient 10 (« un-zéro ») : 1 « seizaine » et remise à zéro des unités.
+
+Ensuite 11 (« un-un »), 12 (« un-deux »), 13 (« un-trois »), 14, 15, 16, 17, 18, 19. 
+
+Après 19, vient 1A.
+
+Ensuite 1B, 1C, 1D, 1E, 1F. 
+
+Après 1F, vient 20.
+
+Ensuite 21, 22, 23, 24, 25, 26, 27, 28, 29, 2A, 2B, 2C, 2D, 2E, 2F. 
+
+Après 2F, vient 30. (…) Après FF, vient 100 (« un-zéro-zéro »). Et ainsi de suite…
+
+---
+
+## **Prologue : Les systèmes de numération**
+### P.3. Le système hexadécimal
+
+__a) Compter en hexadécimal__
+
+.pull-left[
+.pull-left[
+&lt;table class="table" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;color: black !important;background-color: white !important;"&gt; DEC &lt;/th&gt;
+   &lt;th style="text-align:left;color: black !important;background-color: white !important;"&gt; HEX &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 7 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+.pull-right[
+&lt;table class="table" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;color: black !important;background-color: white !important;"&gt; DEC &lt;/th&gt;
+   &lt;th style="text-align:left;color: black !important;background-color: white !important;"&gt; HEX &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #DDDDDD !important;text-align: right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #DDDDDD !important;text-align: right;"&gt; A &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #DDDDDD !important;text-align: right;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #DDDDDD !important;text-align: right;"&gt; B &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #DDDDDD !important;text-align: right;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #DDDDDD !important;text-align: right;"&gt; C &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #DDDDDD !important;text-align: right;"&gt; 13 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #DDDDDD !important;text-align: right;"&gt; D &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #DDDDDD !important;text-align: right;"&gt; 14 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #DDDDDD !important;text-align: right;"&gt; E &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #DDDDDD !important;text-align: right;"&gt; 15 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #DDDDDD !important;text-align: right;"&gt; F &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: #AAAAAA !important;text-align: right;"&gt; 16 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: #AAAAAA !important;text-align: right;"&gt; 10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 11 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 18 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 19 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 13 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+]
+.pull-right[
+
+.left-column[
+&lt;table class="table" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;color: black !important;background-color: #AAAAAA !important;color: black !important;background-color: white !important;text-align: right;"&gt; DEC &lt;/th&gt;
+   &lt;th style="text-align:left;color: black !important;background-color: #AAAAAA !important;color: black !important;background-color: white !important;text-align: right;"&gt; HEX &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 20 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 14 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 21 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 15 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 22 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 23 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 17 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 24 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 25 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 19 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 26 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 1A &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 27 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 1B &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 28 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 1C &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 29 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 1D &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+.right-column[
+.pull-left[
+&lt;table class="table" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;color: black !important;background-color: #AAAAAA !important;color: black !important;background-color: white !important;text-align: right;"&gt; DEC &lt;/th&gt;
+   &lt;th style="text-align:left;color: black !important;background-color: #AAAAAA !important;color: black !important;background-color: white !important;text-align: right;"&gt; HEX &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 30 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 1E &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 31 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 1F &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 32 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 20 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 33 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 21 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; ... &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 41 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 29 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 42 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 2A &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 43 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 2B &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 44 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 2C &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 45 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 2D &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+.pull-right[
+&lt;table class="table" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;color: black !important;background-color: #AAAAAA !important;color: black !important;background-color: white !important;text-align: right;"&gt; DEC &lt;/th&gt;
+   &lt;th style="text-align:left;color: black !important;background-color: #AAAAAA !important;color: black !important;background-color: white !important;text-align: right;"&gt; HEX &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 46 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 2E &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 47 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 2F &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 48 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 30 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 49 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 31 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; ... &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 255 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; FF &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;color: black !important;background-color: #AAAAAA !important;text-align: right;"&gt; 256 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;color: black !important;background-color: #AAAAAA !important;text-align: right;"&gt; 100 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; ... &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; 4095 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;"&gt; FFF &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;color: black !important;background-color: #AAAAAA !important;text-align: right;"&gt; 4096 &lt;/td&gt;
+   &lt;td style="text-align:left;color: black !important;background-color: white !important;text-align: right;color: black !important;background-color: #AAAAAA !important;text-align: right;"&gt; 1000 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+]
+]
+---
+
+## **Prologue : Les systèmes de numération**
+### P.3. Le système hexadécimal
+.pull-left[
+__b) Convertir l'hexadécimal en décimal__
+
+Exemple : 2B9h (h pour hexadécimal)
+&lt;table class="table" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; 2 &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; B &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; 9 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; \({16}^{2}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; \({16}^{1}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;text-align: center;"&gt; \({16}^{0}\) &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+= __2__ x 16&lt;sup&gt;2&lt;/sup&gt; + __B__ x 16&lt;sup&gt;1&lt;/sup&gt; + __9__ x 16&lt;sup&gt;0&lt;/sup&gt;
+
+= __2__ x 16&lt;sup&gt;2&lt;/sup&gt; + __11__ x 16&lt;sup&gt;1&lt;/sup&gt; + __9__ x 16&lt;sup&gt;0&lt;/sup&gt;
+
+= 512 + 176 + 9
+
+= 697d
+
+(d pour décimal)
+]
+.pull-right[
+]
+
+---
+
+## **Prologue : Les systèmes de numération**
+### P.2. Le système hexadécimal
+
+__c) Convertir le décimal en hexadécimal__
+
+Exemple : 675d
+
+.pull-left[
+__A&lt;sub&gt;1&lt;/sub&gt;.__ Quelle est la plus grande puissance de seize inférieure ou égale à 675 ?
+]
+.pull-right[
+→ 256 = __16&lt;sup&gt;2&lt;/sup&gt;__
+.left[
+__B&lt;sub&gt;1&lt;/sub&gt;.__ Combien de fois peut-on la retirer de ce nombre ?
+
+675 - __2__ x 256 = 163
+]]
+.pull-left[
+__A&lt;sub&gt;2&lt;/sub&gt;.__ Quelle est la plus grande puissance de seize inférieure ou égale à 163 ?
+]
+.pull-right[
+→ 16 = __16&lt;sup&gt;1&lt;/sup&gt;__
+.left[
+__B&lt;sub&gt;2&lt;/sub&gt;.__ Combien de fois peut-on la retirer de ce nombre ?
+
+163 - __10__ x 16 = 3
+.right[
+3 &lt; 16 → __STOP__
+]
+]]
+
+675d = 2.__16&lt;sup&gt;2&lt;/sup&gt;__ + 10.__16&lt;sup&gt;1&lt;/sup&gt;__ + 9.__2&lt;sup&gt;0&lt;/sup&gt;__ = 2A3h
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

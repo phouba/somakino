@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Traitement des Données</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Pascal Houba" />
+    <link href="Data72_2_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="Data72_2_files/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+    <script src="Data72_2_files/d3-3.3.8/d3.min.js"></script>
+    <script src="Data72_2_files/dagre-0.4.0/dagre-d3.min.js"></script>
+    <link href="Data72_2_files/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+    <script src="Data72_2_files/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+    <link href="Data72_2_files/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="Data72_2_files/chromatography-0.1/chromatography.js"></script>
+    <script src="Data72_2_files/DiagrammeR-binding-1.0.6.9000/DiagrammeR.js"></script>
+    <script src="Data72_2_files/pymjs-1.3.2/pym.v1.min.js"></script>
+    <script src="Data72_2_files/kePrint-0.0.1/kePrint.js"></script>
+    <link href="Data72_2_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Data72.css" type="text/css" />
+    <link rel="stylesheet" href="Data72-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, title-slide
+
+# Traitement des Données
+## 2020-2021
+### Pascal Houba
+### <strong>Chapitre 2 : Les probabilités conditionnelles</strong>
+
+---
+
+class:middle
+
+### **Introduction : L’intelligence artificielle et les données**
+### **Chapitre 1 : Les probabilités simples**
+### **Fiche 1 : Les tableurs**
+### Chapitre 2 : Les probabilités conditionnelles
+### Fiche 2 : Performances d'un test de dépistage
+
+---
+
+## **Chapitre 2 : Les probabilités conditionnelles**
+### 2.1. La notion de probabilité conditionnelle
+
+Mathématiquement, deux événements `\(A\)` et `\(B\)` sont **indépendants** si `$$P(A \cap B) = P(A) . P(B)$$`
+
+Dans ce cas, on peut utiliser les formules des **probabilités simples**. Sinon, on doit utiliser les formules des **probabilités conditionnelles**.
+
+Une **probabilité conditionnelle** est la probabilité d'un événement **sachant** qu'un autre événement a eu lieu.
+
+On note `\(P(A|B)\)` la probabilité conditionnelle que A se réalise sachant que B a eu lieu. Attention, l’ordre est important : `\(P(A|B) \neq P(B|A)\)`.
+
+La **formule** de la probabilité conditionnelle de `\(A\)` sachant `\(B\)` est : `$$P(A|B) = \frac{P(A \cap B)}{P(B)}$$`
+
+On peut donc calculer `\(P(A \cap B)\)` de deux manières : `$$P(A \cap B) = P(A|B).P(B) = P(B|A).P(A)$$`
+
+Cela donne le **théorème de Bayes** : `\(P(A|B) = \frac{P(B|A).P(A)}{P(B)}\)`.
+
+---
+
+## **Chapitre 2 : Les probabilités conditionnelles**
+### 2.2. Le théorème de Bayes
+
+.pull-left[
+&lt;iframe width="400" height="250" src="https://www.youtube.com/embed/U_85TaXbeIo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+.pull-right[
+&lt;iframe width="400" height="250" src="https://www.youtube.com/embed/HZGCoVF3YvM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+.pull-left[
+&lt;iframe width="400" height="250" src="https://www.youtube.com/embed/x-2uVNze56s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+.pull-right[
+&lt;iframe width="400" height="250" src="https://www.youtube.com/embed/3FOrWMDL8CY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+---
+
+## **Chapitre 2 : Les probabilités conditionnelles**
+### 2.3. La représentation en diagramme de Venn
+
+Partition de l'univers (ou de la population) en fonction de deux événements `A` et `B` :
+
+.center[
+&lt;img src="partitions.png" style="width: 80%" /&gt;
+]
+
+.pull-left[
+__La loi des probabilités totales : __
+
+`$$P(B) = P(B \cap A) + P(B \cap \neg A)$$`
+]
+.pull-right[
+&lt;iframe width="400" height="200" src="https://www.youtube.com/embed/lMhk3pzmuYo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+---
+
+## **Chapitre 2 : Visualisation des probabilités conditionnelles**
+### 2.4. La représentation en arbre
+.center[
+<div id="htmlwidget-1b958f85feee89fd3880" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-1b958f85feee89fd3880">{"x":{"diagram":"\n  graph LR;\n\n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n  \n  AB --- IAB(\"<b>P(A&cap;B) = P(A).P(B|A)<\/b>\");\n  ANB --- IANB(\"<b>P(A&cap;&not;B) = P(A).P(&not;B|A)<\/b>\");\n  NAB --- INAB(\"<b>P(&not;A&cap;B) = P(&not;A).P(B|&not;A)<\/b>\");\n  NANB --- INANB(\"<b>P(&not;A&cap;&not;B) = P(&not;A).P(&not;B|&not;A)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 7 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 8 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 9 stroke:#0AD, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  style IAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style IANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
+]
+
+.pull-left[
+Verticalement,&lt;br&gt;on __additionne__ les probabilités :
+`$$P(A) + P( \neg A) = 1$$`
+`$$P(B|A) + P( \neg B| A) = 1$$`
+`$$P(B|\neg A) + P( \neg B| \neg A) = 1$$`
+
+]
+
+.pull-right[
+Horizontalement,&lt;br&gt;on __multiplie__ les probabilités :
+`$$P(A \cap B) = P(A).P(B|A)$$`
+]
+
+---
+
+## **Chapitre 2 : Visualisation des probabilités conditionnelles**
+### 2.4. La représentation en arbre
+.pull-left[
+<div id="htmlwidget-b9cd7757f47f60f3f314" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-b9cd7757f47f60f3f314">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+]
+.pull-right[
+<div id="htmlwidget-e1473ffe01cd4418f38b" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-e1473ffe01cd4418f38b">{"x":{"diagram":"\n  graph RL;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(B)\" --> B(\"<b>B<\/b>\");\n  P -- \"P(&not;B)\" --> NB(\"<b>&not;B<\/b>\");\n  \n  B -- \"P(A|B)\" --> BA(\"<b>A<\/b>\");\n  B -- \"P(&not;A|B)\" --> BNA(\"<b>&not;A<\/b>\");\n  NB -- \"P(A|&not;B)\" --> NBA(\"<b>A<\/b>\");\n  NB -- \"P(&not;A|&not;B)\" --> NBNA(\"<b>&not;A<\/b>\");\n\n  BA --- IBA(\"<b>P(A&cap;B)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, stroke-width:3, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, anything;\n  \n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style B fill:#fA0, stroke-width:2, stroke:#000;\n  style NB fill:#fA0, stroke-width:2, stroke:#000; \n  style BA fill:#ff0, stroke-width:2, stroke:#000;\n  style BNA fill:#ff0, stroke-width:2, stroke:#000;\n  style NBA fill:#ff0, stroke-width:2, stroke:#000;\n  style NBNA fill:#ff0, stroke-width:2, stroke:#000;\n  style IBA fill:#0AD, stroke:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
+]
+
+On peut calculer `\(P(A \cap B)\)` de deux manières : `$$P(A \cap B) = P(A|B).P(B) = P(B|A).P(A)$$`
+
+Cela donne le **théorème de Bayes** : `\(P(A|B) = \frac{P(B|A).P(A)}{P(B)}\)`.
+
+---
+
+## **Chapitre 2 : Visualisation des probabilités conditionnelles**
+### 2.5. La représentation en tableau à double entrée
+
+<div id="htmlwidget-06a4d473ae1dbdaca0dc" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-06a4d473ae1dbdaca0dc">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>&#8486;<\/b>\") -- \"P(A)\" --> A(\"<b>A<\/b>\");\n  P -- \"P(&not;A)\" --> NA(\"<b>&not;A<\/b>\");\n  \n  A -- \"P(B|A)\" --> AB(\"<b>B<\/b>\");\n  A -- \"P(&not;B|A)\" --> ANB(\"<b>&not;B<\/b>\");\n  NA -- \"P(B|&not;A)\" --> NAB(\"<b>B<\/b>\");\n  NA -- \"P(&not;B|&not;A)\" --> NANB(\"<b>&not;B<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+
+.pull-left[
+
+
+__Tableau à double entrée :__
+&lt;table class="table" style="font-size: 15px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; \(\Omega\) &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; A &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; \(\neg\)A &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Total &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; B &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(card(\)A\(\cap\)B\()\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(card(\neg\)A\(\cap\)B\()\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(card(\)B\()\) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; \(\neg\)B &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(card(\)A\(\cap\neg\)B\()\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(card(\neg\)A\(\cap\neg\)B\()\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(card(\neg\)B\()\) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(card(\)A\()\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(card(\neg\)A\()\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(card(\Omega\)\()\) &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+.pull-right[
+
+`$$P(B|A) = \frac{card(A \cap B)}{card(A)}$$`
+
+]
+
+---
+
+### Fiche 2 : Performances d'un test de dépistage
+
+Nous nous baserons sur cette vidéo de Thierry Ancelle :
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/t3R96Kpm2mw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+Plus particulièrement,
+
+- de 9:06 à 12:14 pour la f2.1.
+
+- de 28:40 à 37:30 et de 44:30 à 45:50 pour la f2.2.
+
+- de 37:30 à 41:25 pour la f2.3 et f.2.4.
+
+- de 56:06 à 59:48 pour une conclusion et un épilogue.
+
+---
+
+## **Fiche 2 : Performances d'un test de dépistage**
+### f2.1. En situation expérimentale
+
+Lors de la mise au point du test, le but de l'expérience est de déterminer les paramètres du test, sa __sensibilité__ et sa __spécificité__, sachant qui est malade ou non.
+
+.pull-left[
+
+<div id="htmlwidget-59d8bc2d09d69badf0cc" style="width:576px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-59d8bc2d09d69badf0cc">{"x":{"diagram":"\n  graph LR;\n  \n  P(\"<b>N<\/b>\") --> A(\"<b>Malades<\/b>\");\n  P --> NA(\"<b>Sains<\/b>\");\n  \n  A --> AB(\"<b>T+<\/b>\");\n  A --> ANB(\"<b>T-<\/b>\");\n  NA --> NAB(\"<b>T+<\/b>\");\n  NA --> NANB(\"<b>T-<\/b>\");\n  AB --- IAB(\"<b>VP<\/b>\");\n  ANB --- IANB(\"<b>FN<\/b>\");\n  NAB --- INAB(\"<b>FP<\/b>\");\n  NANB --- INANB(\"<b>VN<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 7 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 8 stroke:#0AD, fill:#0AD, anything;\n  linkStyle 9 stroke:#0AD, fill:#0AD, anything;\n  \n  style P fill:#fff, stroke-width:2, stroke:#000;\n  style A fill:#ff0, stroke-width:2, stroke:#000;\n  style NA fill:#ff0, stroke-width:2, stroke:#000; \n  style AB fill:#fA0, stroke-width:2, stroke:#000;\n  style ANB fill:#fA0, stroke-width:2, stroke:#000;\n  style NAB fill:#fA0, stroke-width:2, stroke:#000;\n  style NANB fill:#fA0, stroke-width:2, stroke:#000;\n  style IAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style IANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INAB stroke:#0AD, stroke-width:2, fill:#0AD;\n  style INANB stroke:#0AD, stroke-width:2, fill:#0AD;\n  "},"evals":[],"jsHooks":[]}</script>
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Malades &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Sains &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Total &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T+ &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP+FP &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T- &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN+VN &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP+FN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP+VN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+.pull-right[
+
+__Vrais Positifs :__ malades pour lesquels le test est positif.
+
+__Faux Négatifs :__ malades pour lesquels le test est négatif.
+
+__Sensibilité :__ capacité du test à identifier les malades.
+`$$Se = P(T+|Malade) = \frac{VP}{VP+FN}$$`
+
+__Faux Positifs :__ non-malades pour lesquels le test est positif.
+
+__Vrais Négatifs :__ non-malades pour lesquels le test est négatif.
+
+__Spécificité :__ capacité du test à identifier les non-malades
+
+`$$Sp = P(T-|Sain) = \frac{VN}{FP+VN}$$`
+]
+---
+
+## **Fiche 2 : Performances d'un test de dépistage**
+### f2.1. En situation de terrain
+
+On ne connaît pas à l'avance (a priori) qui est malade ou non : c'est la raison pour laquelle on effectue le test.
+
+Ce que l'on connaît, en principe, c'est la __prévalence de la maladie__ dans la population considérée, c'est-à-dire la probabilité d'avoir la maladie sachant que l'on appartient à une certaine population.
+
+Il y a deux situations d'application distinctes :
+
+- le médecin qui effectue un __diagnostic__ pour un patient avec certains symptômes
+
+- l'épidémiologiste qui effectue un __dépistage__ dans une certaine population.
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Objectifs &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Diagnostic &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Dépistage &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Acteurs &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Praticien &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Epidémiologiste &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Cible &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Individu &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Population &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Etat de santé &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Symptomatiques &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Symptomatiques, asymptomatiques et sains &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Données sur le patient &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Nombreuses &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Limitées &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Prévalence de la maladie &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Elevée &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; Faible &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+
+## **Fiche 2 : Performances d'un test de dépistage**
+### f2.1. En situation de terrain
+
+.pull-left[
+__Si le résultat du test est positif :__
+
+__- diagnostic :__ quelle est la __probabilité__ pour que le sujet soit malade ?
+
+__- dépistage :__ parmi l'ensemble des tests positifs, quelle est la __proportion__ qui correspond à de vrais malades ?
+
+]
+.pull-right[
+__Si le résultat du test est négatif :__
+
+__- diagnostic :__ quelle est la __probabilité__ pour que le sujet ne soit
+pas malade ?
+
+__- dépistage :__ parmi I'ensemble des tests négatifs, quelle est la
+__proportion__ qui correspond à des sujets non-malades ?
+
+]
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Malades &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Sains &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Total &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T+ &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP+FP &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T- &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN+VN &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP+FN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP+VN &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+.pull-left[
+Quelle est la __Valeur Prédictive Positive (VPP)__, la probabilité d'être malade sachant que le test est positif ?
+
+`$$\begin{align}
+VPP &amp;= P(malade|T+) \\
+ &amp;= \frac{VP}{VP+FP}
+\end{align}$$`
+]
+.pull-right[
+Quelle est la __Valeur Prédictive Négative (VPN)__, la probabilité d'être sain sachant que le test est négatif ?
+
+`$$\begin{align}
+VPN &amp;= P(sain|T-) \\
+ &amp;= \frac{VN}{VN+FN}
+\end{align}$$`
+]
+
+Mais ces dernières formules ne sont pas applicables en situation de terrain, car on ne connaît pas le nombre de malades dans la population considérée.
+
+---
+
+## **Fiche 2 : Performances d'un test de dépistage**
+### f2.1. En situation de terrain
+
+Ce que l'on connaît en situation de terrain, ce sont :
+
+- le __nombre d'individu__ dans la population considérée, `\(N\)`.
+
+- la __prévalence__ de la maladie, `\(P\)`.
+
+- les paramètres du test utilisé, sa __sensibilité__ `\(Se\)` et sa __spécificité__ `\(Sp\)`.
+
+On peut dès lors calculer les `\(VP\)`, `\(FP\)`, `\(FN\)`, `\(VN\)`, et finalement les `\(VPP\)` et `\(VPN\)` :
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Malades &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Sains &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Total &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T+ &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP = Se.N.P &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP = (1-Sp).N.(1-P) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP+FP &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T- &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN = (1-Se).N.P &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VN = Sp.N.(1-P) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN+VN &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N.P &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N.(1-P) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+.pull-left[
+`$$\begin{align}
+VPP &amp;= P(malade|T+) \\
+ &amp;= \frac{VP}{VP+FP} \\
+ &amp;= \frac{SeP}{SeP+(1-Sp)(1-P)}
+\end{align}$$`
+]
+.pull-right[
+`$$\begin{align}
+VPN &amp;= P(sain|T-) \\
+ &amp;= \frac{VN}{VN+FN} \\
+ &amp;= \frac{Sp(1-P)}{Sp(1-P)+(1-Se)P}
+\end{align}$$`
+]
+
+On remarque que __les valeurs prédictives dépendent de la prévalence__.
+
+---
+
+## **Fiche 2 : Performances d'un test de dépistage**
+### f2.3. Exemple de diagnostic : Mammographie chez une gynécologue
+
+__Données :__
+
+Pour une série de 500 femmes venues consulter pour une "boule" dans le sein, la prévalence du cancer du sein chez cette gynécologue était de 20%.
+
+La mammographie utilisée a une sensibilité de 98% et une spécificité de 90%.
+
+__Question :__ Quelles sont les valeurs prédictives de cette mammographie ?
+
+__Calculs :__
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Malades &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Sains &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Total &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Valeurs prédictives &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T+ &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP = 98%.100 = 98 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP = 400 - 360 = 40 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 138 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VPP = 98/138 = 71,0% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T- &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN = 100 - 98 = 2 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VN = 90%.400 = 360 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 362 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VPN = 360/362 = 99,4% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 20%.500 = 100 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 500 - 100 = 400 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N = 500 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+__Interprétations :__
+
+Si une femme a une mammographie positive, elle a une probabilité de 71% d'avoir un cancer du sein.
+
+Si une femme a une mammographie négative, elle a une probabilité de 99,4% de ne pas avoir un cancer du sein.
+---
+
+## **Fiche 2 : Performances d'un test de dépistage**
+### f2.4. Exemple de dépistage : dépistage du cancer du sein
+
+__Données :__
+
+Pour une population générale de 5000 femmes âgées de 50 à 69 ans, la prévalence du cancer du sein est de 1%.
+
+La mammographie utilisée a toujours une sensibilité de 98% et une spécificité de 90%.
+
+__Question :__ Quelles sont les valeurs prédictives ?
+
+__Calculs :__
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Malades &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Sains &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Total &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: black !important;background-color: yellow !important;"&gt; Valeurs prédictives &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T+ &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VP = 98%.50 = 49 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FP = 4950 - 4455 = 495 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 544 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VPP = 49/544 = 9,0% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; T- &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; FN = 50 - 49 = 1 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VN = 90%.4950 = 4455 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 4456 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; VPN = 4455/4456 = 99,98% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;background-color: orange !important;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 1%.5000 = 50 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; 5000 - 50 = 4950 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; N = 5000 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+__Interprétations :__
+
+Si une femme a une mammographie positive, elle a une probabilité de 9% d'avoir un cancer du sein.
+
+Si une femme a une mammographie négative, elle a une probabilité de 99,98% de ne pas avoir un cancer du sein.
+
+__Conclusion :__ On remarque que __la VPP dépend fortement de la prévalence__ de la maladie dans la population considérée.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

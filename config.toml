@@ -1,14 +1,14 @@
 # hugo server --minify --themesDir ... --baseURL=http://0.0.0.0:1313/theme/hugo-book/
 
 baseURL = 'https://somakino.netlify.app'
-title = 'somakino'
+title = 'infodata'
 theme = "hugo-book"
 defaultContentLanguage = "fr"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 
 # Book configuration
 disablePathToLower = true
-enableGitInfo = true
+enableGitInfo = false
 
 # Needed for mermaid/katex shortcodes
 [markup]
@@ -29,11 +29,6 @@ enableGitInfo = true
   weight = 1
 
 [menu]
-[[menu.before]]
-  name = "Accueil"
-  url = "/index.html"
-  weight = 10
-  
 [[menu.after]]
   name = "Contact"
   url = ""
@@ -47,11 +42,11 @@ enableGitInfo = true
   # (Optional, default true) Controls table of contents visibility on right side of pages.
   # Start and end levels can be controlled with markup.tableOfContents setting.
   # You can also specify this parameter per page in front matter.
-  BookToC = true
+  BookToC = false
 
   # (Optional, default none) Set the path to a logo for the book. If the logo is
   # /static/logo.png then the path would be logo.png
-  BookLogo = 'somakino.png'
+  BookLogo = ''
 
   # (Optional, default none) Set leaf bundle to render as side menu
   # When not specified file structure and weights will be used

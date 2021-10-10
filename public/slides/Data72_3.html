@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Traitement des Données</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Pascal Houba" />
+    <link href="Data72_3_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="Data72_3_files/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+    <script src="Data72_3_files/d3-3.3.8/d3.min.js"></script>
+    <script src="Data72_3_files/dagre-0.4.0/dagre-d3.min.js"></script>
+    <link href="Data72_3_files/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+    <script src="Data72_3_files/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+    <link href="Data72_3_files/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="Data72_3_files/chromatography-0.1/chromatography.js"></script>
+    <script src="Data72_3_files/DiagrammeR-binding-1.0.6.9000/DiagrammeR.js"></script>
+    <script src="Data72_3_files/pymjs-1.3.2/pym.v1.min.js"></script>
+    <script src="Data72_3_files/kePrint-0.0.1/kePrint.js"></script>
+    <link href="Data72_3_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Data72.css" type="text/css" />
+    <link rel="stylesheet" href="Data72-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, title-slide
+
+# Traitement des Données
+## 2020-2021
+### Pascal Houba
+### <strong>Chapitre 3 : Les régressions</strong>
+
+---
+
+
+
+class:middle
+
+### **Introduction : L’intelligence artificielle et les données**
+### **Chapitre 1 : Les probabilités simples**
+### **Fiche 1 : Les tableurs**
+### **Chapitre 2 : Les probabilités conditionnelles**
+### **Fiche 2 : Performances d'un test de dépistage**
+### Chapitre 3 : Les régressions
+### **Fiche 3 : Applications à l'astronomie**
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.1. Introduction
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/6nMsLMC0LdQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.1. Introduction
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/x9_DiDRr2Wc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+## **Chapitre 3 : Les régressions**
+### 3.1. Introduction
+
+Nous suivrons la démarche de la chaîne _YouTube_ __Machine Learnia__ :
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/watch?v=EUD07IiviJg&amp;list=PLO_fdPEVlfKqUF5BPKjGSh7aV9aBshrpY&amp;index=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.1. Introduction
+<div id="htmlwidget-d6d62bbe1ab9a6023f61" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-d6d62bbe1ab9a6023f61">{"x":{"diagram":"\n  graph LR;\n\n  IA(\"<b>Intelligence<br>Artificielle<\/b>\") --> ML(\"<b>Machine<br>Learning<\/b>\");\n  \n  ST(\"<b>Statistiques<\/b>\") --> ML;\n  \n  ML -- \"Données<br>étiquetées<br>(labeled)\" --> SL(\"<b>Apprentissage<br>supervisé<\/b>\");\n  \n  ML -- \"Données<br>non-étiquetées<br>(unlabeled)\" --> UL(\"<b>Apprentissage<br>non-supervisé<\/b>\");\n\n  SL -- \"Données<br>continues\" --> REG(\"<b>Régression<\/b>\");\n  SL -- \"Données<br>discrètes\" -->  CLA(\"<b>Classification<\/b>\");\n  \n  UL --> CLU(\"<b>Regroupement<br>(Clustering)<\/b>\");\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  \n  style IA fill:#fff, stroke-width:2, stroke:#000;\n  style ST fill:#fff, stroke-width:2, stroke:#000;\n  style ML fill:#ff0, stroke-width:2, stroke:#000;\n  style SL fill:#fa0, stroke-width:2, stroke:#000; \n  style UL fill:#fa0, stroke-width:2, stroke:#000;\n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style CLA fill:#f60, stroke-width:2, stroke:#000;\n  style CLU fill:#f60, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.1. Introduction
+
+<div id="htmlwidget-f59a20e9a20ecb87b74a" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-f59a20e9a20ecb87b74a">{"x":{"diagram":"\n  graph LR;\n  \n  REG(\"<b>Régressions<\/b>\") -- \"Une variable<br>indépendante\" --> SREG(\"<b>Simples<\/b>\");\n  REG -- \"Plusieurs variables<br>indépendantes\" --> MREG(\"<b>Multiples<\/b>\");\n  \n  SREG --> SLR(\"<b>Linéaires<\/b>\");\n  SREG --> SNLR(\"<b>Non-linéaires<\/b>\");\n  SNLR --> SPR(\"<b>Polynomiales<\/b>\");\n  \n  MREG --> MLR(\"<b>Linéaires<\/b>\");\n  MREG --> MNLR(\"<b>Non-linéaires<\/b>\");\n  MNLR --> MPR(\"<b>Polynomiales<\/b>\");\n  \n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  linkStyle 6 stroke:#fff, fill:#0AD, anything;\n  linkStyle 7 stroke:#fff, fill:#0AD, anything;\n  \n  style REG fill:#f60, stroke-width:2, stroke:#000;\n  style SREG fill:#fa0, stroke-width:2, stroke:#000;\n  style MREG fill:#fa0, stroke-width:2, stroke:#000;\n  style SLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style SPR fill:#ff0, stroke-width:2, stroke:#000;\n  style MLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MNLR fill:#ff0, stroke-width:2, stroke:#000;\n  style MPR fill:#ff0, stroke-width:2, stroke:#000;\n  \n  \n  "},"evals":[],"jsHooks":[]}</script>
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.2. Rappels d'analyse mathématique
+
+#### a) Fonction affine
+
+`$$f(x) = a.x + b$$`
+
+Elle est représentée par une __droite__, dont `\(a\)` est la __pente__ et `\(b\)` __l'ordonnée à l'origine__.
+.center[
+&lt;img src="images/Linear_functions2.PNG" style="width:50%"/&gt;
+]
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.2. Rappels d'analyse mathématique
+
+#### b) Dérivée
+
+La pente de la tangente est égale à la dérivée de la fonction au point marqué.
+
+.center[
+&lt;img src="images/Tangent_to_a_curve.svg.png" style="width:50%"/&gt;
+]
+
+Pour une fonction affine `\(f(x) = a.x + b\)`, la pente est égale à `\(a\)` en tout point :
+
+$$ \frac{df}{dx} = a$$
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.2. Rappels d'analyse mathématique
+
+#### c) Gradient
+
+Le __gradient__ est la généralisation à plusieurs variables de la dérivée d'une fonction d'une seule variable.
+
+C'est un vecteur dont les composantes sont les __dérivées partielles__ de la fonction par rapport aux différents variables.
+
+Le gradient d'une fonction `\(f(x_1,x_2, ..., x_n)\)` est le vecteur de composantes
+
+`$$\frac{\partial f}{\partial x_i}$$`
+
+pour `\(i=1,2, ..., n\)`.
+
+On le note
+
+$$
+\nabla f =
+`\begin{bmatrix}
+\frac{\partial f}{\partial x_1} \\
+\vdots \\
+\frac{\partial f}{\partial x_n}
+\end{bmatrix}`
+$$
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.2. Rappels d'analyse mathématique
+
+#### d) Points critiques
+
+Un __point critique__ d'une fonction de plusieurs variables est un point d'annulation de son gradient.
+
+Il peut s'agir d'un __extremum__ (minimum ou maximum) local de cette fonction, d'un __point d'inflexion__ ou, lorsqu'il y a plus d'une dimension, de __points-selles__.
+
+.pull-left[
+&lt;img src="images/Extrema_of_a_function.gif"/&gt;
+]
+.pull-right[
+&lt;img src="images/Saddle_point.png"/&gt;
+]
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.3. Les étapes de l'apprentissage supervisé
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/watch?v=K9z0OD22My4&amp;list=PLO_fdPEVlfKqUF5BPKjGSh7aV9aBshrpY&amp;index=2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.3. Les étapes de l'apprentissage supervisé
+
+#### a) Dataset
+
+Il s'agit de l'ensemble des données à partir desquelles va s'effectuer l'apprentissage.
+
+&lt;table class="table" style="font-size: 16px; width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: white !important;background-color: #0AD !important;"&gt; Target &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: white !important;background-color: #0AD !important;"&gt;  &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: white !important;background-color: #0AD !important;"&gt; Features &lt;/th&gt;
+   &lt;th style="text-align:left;font-weight: bold;color: white !important;background-color: #0AD !important;"&gt;  &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #ff0 !important;background-color: #fa0 !important;"&gt; \(y\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #ff0 !important;"&gt; \(x_1\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #ff0 !important;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: #ff0 !important;"&gt; \(x_n\) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #fa0 !important;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(y^{(1)}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(x_1^{(1)}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(x_n^{(1)}\) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #fa0 !important;font-weight: bold;color: black !important;background-color: white !important;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; ... &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: #fa0 !important;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(y^{(m)}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(x_1^{(m)}\) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: black !important;background-color: white !important;"&gt; \(x_n^{(m)}\) &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Il est constitué de `\(m\)` __exemples__ (les lignes du tableau) pour lesquelles on considère que les données d'une des colonnes, représentant la __variable dépendante__ ou _target_, évolue en fonction des données des `\(n\)` autres colonnes, représentant les __variables indépendantes__ ou _features_.
+
+L'apprentissage consiste à prédire, sur la base de ces données exemples (ce qui en fait un __apprentissage supervisé__), de nouvelles valeurs de la _target_ correspondant à de nouvelles valeurs des _features_.
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.3. Les étapes de l'apprentissage supervisé
+
+#### b) Modèle
+
+Il permet de __prédire__ les valeurs de la _target_ `\(y\)` en fonction des _features_ `\(x_i\)` :
+
+`$$\hat{y} = f(x_1,...,x_n)$$`
+
+.pull-left[.right[
+Linéaire :
+]]
+.pull-right[
+`\(f(x) = a.x + b\)`
+]
+.pull-left[.right[
+Quadratique :  
+]]
+.pull-right[
+`\(f(x) = a.x^2 + b.x + c\)`
+]
+.pull-left[.right[
+Polynômial :  
+]]
+.pull-right[
+`\(f(x) = a.x^k + ... + p.x + q\)`
+]
+.pull-left[.right[
+Vecteur des paramètres :
+]]
+.pull-right[
+`\(\Theta = (a, b, ..., q)\)`
+]
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.3. Les étapes de l'apprentissage supervisé
+
+#### c) Fonction coût
+
+Elle mesure les __écarts ou erreurs__ entre les prédictions du modèles et les valeurs correspondantes du _dataset_.
+
+On peut utiliser l'__Erreur Quadratique Moyenne__ (_Mean Squared Error_) :
+
+$$ J(\Theta) = \frac{1}{2m}\sum_{i=1}^m ( f(x^{(i)}) - y^{(i)})^2$$
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.3. Les étapes de l'apprentissage supervisé
+
+#### d) Algorithme de minimisation
+
+Il permet de __minimiser la fonction coût__, et donc d'améliorer les prédictions du modèle, en déterminant les __valeurs optimales des paramètres du modèle__.
+
+
+On peut utiliser la méthode des __moindres carrés__ :
+
+$$ \frac{\partial J(a,b)}{\partial a} = 0$$
+$$ \frac{\partial J(a,b)}{\partial b} = 0$$
+ou l'algorithme de la __descente de grandient__ :
+
+$$ a_{i+1} = a_i + \alpha \frac{\partial J(a,b)}{\partial a}$$
+
+où l'hyperparamètre `\(\alpha\)`, le __taux d'apprentissage__ (_learning rate_), est toujours positif et doit être ajusté pour assurer la bonne convergence de l'algorithme.
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.4. La régression linéaire simple
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/watch?v=wg7-roETbbM&amp;list=PLO_fdPEVlfKqUF5BPKjGSh7aV9aBshrpY&amp;index=3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+## **Chapitre 3 : Les régressions**
+### 3.4. La régression linéaire simple
+
+__a) Dataset :__ `\((x,y)\)` avec `\(m\)` exemples.
+
+__b) Modèle :__ `\(f(x) = a.x + b\)`
+
+__c) Fonction coût :__
+
+`$$J(a,b) = \frac{1}{2m}\sum_{i=1}^m ( a.x^{(i)} + b - y^{(i)})^2$$`
+
+__d) Gradients :__
+
+$$ \frac{\partial J(a,b)}{\partial a} = \frac{1}{m}\sum_{i=1}^m x^{(i)}( a.x^{(i)} + b - y^{(i)})^2$$
+
+$$ \frac{\partial J(a,b)}{\partial b} = \frac{1}{m}\sum_{i=1}^m ( a.x^{(i)} + b - y^{(i)})^2$$
+
+__e) Descente de gradient :__
+.pull-left[
+$$ a_{i+1} = a_i + \alpha \frac{\partial J(a,b)}{\partial a}$$
+]
+.pull-right[
+$$ b_{i+1} = b_i + \alpha \frac{\partial J(a,b)}{\partial b}$$
+]
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.4. La régression linéaire simple
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/watch?v=rcl_YRyoLIY&amp;list=PLO_fdPEVlfKqUF5BPKjGSh7aV9aBshrpY&amp;index=4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.5. Ecriture matricielle
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/watch?v=a3wYV2qXcMY&amp;list=PLO_fdPEVlfKqUF5BPKjGSh7aV9aBshrpY&amp;index=5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.5. Ecriture matricielle
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/watch?v=8Y3r7F47Xfo&amp;list=PLO_fdPEVlfKqUF5BPKjGSh7aV9aBshrpY&amp;index=6" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.5. Ecriture matricielle
+
+Dataset de `\(m\)` exemples et `\(n\)` variables indépendantes
+
+.pull-left[
+__a) Dataset :__
+
+$$
+\underset{m \times (n+1)}{X} = 
+`\begin{bmatrix}
+x_1^{(1)} &amp; \dots &amp; x_n^{(1)} &amp; 1 \\
+\vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+x_1^{(m)} &amp; \dots &amp; x_n^{(m)}  &amp; 1 
+\end{bmatrix}`
+$$
+]
+.pull-right[
+__b) Modèle :__
+
+`$$\underset{m \times 1}{F} = \underset{m \times (n+1)}{X}.\underset{(n+1) \times 1}{\Theta}$$`
+
+$$
+\underset{(n+1) \times 1}{\Theta} =
+`\begin{bmatrix}
+a \\
+b
+\end{bmatrix}`
+$$
+]
+.pull-left[
+__c) Fonction coût :__
+
+`$$\underset{1 \times 1}{J(\Theta)} = \frac{1}{m}\sum ( X \Theta - Y)^2$$`
+]
+.pull-right[
+__e) Descente de gradient :__
+
+$$ \underset{(n+1) \times 1}{\frac{\partial J(\Theta)}{\partial \Theta}} = \frac{1}{m}\sum \underset{(n+1) \times m}{X^T} \underset{m \times 1}{(X \Theta - Y)}$$
+]
+
+__e) Descente de gradient :__
+
+$$ \Theta = \Theta + \alpha \frac{\partial J(\Theta)}{\partial \Theta}$$
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.6. L'algorithme de la régression linéaire en _Python_
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/watch?v=vG6tDQc86Rs&amp;list=PLO_fdPEVlfKqUF5BPKjGSh7aV9aBshrpY&amp;index=8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+Le code est accessible sur _GitHub_ :
+
+https://github.com/MachineLearnia/Regression-lineaire-numpy 
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.7. Régressions polynomiales et multiples
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/watch?v=cpltYCNLIt0&amp;list=PLO_fdPEVlfKqUF5BPKjGSh7aV9aBshrpY&amp;index=9" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.8. Régression et Classification avec un réseau de neurones
+
+&lt;iframe width="800" height="450" src="https://www.youtube.com/embed/dh704s5hijM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+## **Chapitre 3 : Les régressions**
+### 3.9. Rappels de statistiques
+
+.center[
+&lt;iframe width="450" height="250" src="https://www.youtube.com/embed/iUlfsefFNFk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+&lt;BR&gt;
+
+.center[
+&lt;iframe width="450" height="250" src="https://www.youtube.com/embed/2k-1Yi40ZSw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.9. Rappels de statistiques
+
+#### 1. Paramètres de _position_ d'une distribution
+
+__a) Tendance centrale :__
+
+- __Moyenne__ : la moyenne arithmétique de la distribution,
+`\(\overline{x} = \frac{1}{n}\sum_{i=1}^n x_i\)`
+
+- __Médiane__ : la valeur divisant la distribution en deux groupes de même taille
+
+- __Mode__ : la valeur la plus fréquente
+
+__b) Quantiles :__ les valeurs qui divisent la distribution en intervalles contenant le même nombre de données.
+
+Il y a donc un quantile de moins que le nombre de groupes créés.
+
+Ainsi la __médiane__ est le quantile qui sépare la distribution en deux groupes de taille égale.
+
+Les __quartiles__ sont les trois quantiles qui divisent la distribution en quatre groupes de taille égale.
+
+Les __centiles__, ou __percentiles__, séparent la distribution en 100 groupes de taille égale. 
+
+Ainsi, le __5&lt;sup&gt;ème&lt;/sup&gt; centile__, très important pour les __tests statistiques__, partage la distribution en 5 % des données sous lui, et les 95 % restant au-dessus de lui.
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.9. Rappels de statistiques
+
+#### 2. Paramètres de _dispersion_ d'une distribution
+
+- __Variance__ : la moyenne des carrés des écarts à la moyenne.
+
+`$$Var(x) = \frac{1}{n}\sum_{i=1}^n \left(x_i - \overline{x}\right)^2$$`
+
+La variance est un indicateur de dispersion des valeurs, c’est-à-dire qu’elle est toujours positive, ne s’annule que pour une distribution dont tous les termes ont la même valeur, elle est d’autant plus grande que les valeurs sont étalées.
+
+- __Ecart-type__ (_standard deviation_) : la racine carrée de la variance.
+
+`$$s = \sigma = \sqrt{V} = \sqrt{\frac{1}{n}\sum_{i=1}^n (x_i-\overline{x})^2}$$`
+
+L'intérêt de l'écart-type par rapport à la variance est qu'il se mesure avec la même unité que les valeurs de la distribution et peut donc facilement être comparé à ces derniers.
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.9. Rappels de statistiques
+
+.center[
+&lt;iframe width="450" height="250" src="https://www.youtube.com/embed/nchH22qmtmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+&lt;BR&gt;
+
+.center[
+&lt;iframe width="450" height="250" src="https://www.youtube.com/embed/aKd6bjXG03w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.9. Rappels de statistiques
+
+#### 3. Mesures des relations entre deux variables quantitatives
+
+- La __covariance__ : `\(\hat{\sigma}_{XY} =\frac{1}{n}{\sum_{i=1}^n (x_i - \bar x)\cdot(y_i - \bar y)}\)`
+
+La covariance entre deux variables est un nombre permettant de quantifier leurs écarts conjoints par rapport à leurs moyennes respectives.
+
+- Le __coefficient de corrélation de Pearson__ : `\(r = \frac{\operatorname{Cov}(X,Y)}{\sigma_X \sigma_Y}\)`
+
+Un coefficient de corrélation calcule dans quelle mesure deux variables tendent à changer ensemble. Le coefficient décrit l'importance et le sens de la relation.
+
+La corrélation de Pearson évalue la relation linéaire entre deux variables continues. Une relation est dite linéaire lorsqu'une modification de l'une des variables est associée à une modification proportionnelle de l'autre variable.
+
+- Le __coefficient de détermination__ : `\(R^2 = 1-\frac{\sum_{i=1}^n(y_i-\hat{y_i})^2}{\sum_{i=1}^n(y_i-\bar y)^2}\)`
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.9. Rappels de statistiques
+
+
+```python
+import numpy as np
+np.random.seed(3) # Permet de reproduire la même distribution à chaque exécution
+dist = np.random.randint(low = 0, high = 100, size=120) # Distribution uniforme
+normal_dist = np.random.normal(loc=50, scale=25, size=500) # Distribution normale
+print(dist)
+```
+
+```
+## [24  3 56 72  0 21 19 74 41 10 21 38 96 20 44 93 39 14 26 81 90 22 66  2
+##  63 60  1 51 90 69 97 29 24 62  7 43 33 79 48 37 20 94 49 21 78 28 54  0
+##  64 18 63 37 56 56 71 37 46 33  1 85 74 99 91 16 80 32 16 18 75 55 96 95
+##  13 37 30 48 61 33 52  2 28 36 90 44 48 59 74 54 91 21 56 39 29 32 48  9
+##  33 60 88 55 11 84 10 80 76 68 44 44 19 16 98 39 50 65 35 45 52  1 18 63]
+```
+.pull-left[
+
+```python
+print("Moyenne:",np.mean(dist))
+```
+
+```
+## Moyenne: 46.75833333333333
+```
+
+```python
+print("Médiane:",np.median(dist))
+```
+
+```
+## Médiane: 44.5
+```
+
+```python
+from scipy import stats
+print("Mode:",stats.mode(dist))
+```
+
+```
+## Mode: ModeResult(mode=array([21]), count=array([4]))
+```
+]
+.pull-right[
+
+```python
+print("Moyenne:",dist.mean())
+```
+
+```
+## Moyenne: 46.75833333333333
+```
+]
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.9. Rappels de statistiques
+
+
+```python
+print(np.sort(dist))
+```
+
+```
+## [ 0  0  1  1  1  2  2  3  7  9 10 10 11 13 14 16 16 16 18 18 18 19 19 20
+##  20 21 21 21 21 22 24 24 26 28 28 29 29 30 32 32 33 33 33 33 35 36 37 37
+##  37 37 38 39 39 39 41 43 44 44 44 44 45 46 48 48 48 48 49 50 51 52 52 54
+##  54 55 55 56 56 56 56 59 60 60 61 62 63 63 63 64 65 66 68 69 71 72 74 74
+##  74 75 76 78 79 80 80 81 84 85 88 90 90 90 91 91 93 94 95 96 96 97 98 99]
+```
+
+```python
+print("Premier quartile (= 25ème percentile):",np.percentile(dist,25))
+```
+
+```
+## Premier quartile (= 25ème percentile): 23.5
+```
+
+```python
+print("Cinquième percentile:",np.percentile(dist,5))
+```
+
+```
+## Cinquième percentile: 2.0
+```
+.pull-left[
+
+```python
+print("Variance:",np.var(dist))
+```
+
+```
+## Variance: 757.7999305555555
+```
+
+```python
+print("Ecart-type:",np.std(dist))
+```
+
+```
+## Ecart-type: 27.52816613135636
+```
+]
+.pull-right[
+
+```python
+print("Variance:",dist.var())
+```
+
+```
+## Variance: 757.7999305555555
+```
+
+```python
+print("Ecart-type:",dist.std())
+```
+
+```
+## Ecart-type: 27.52816613135636
+```
+]
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.9. Rappels de statistiques
+
+__Visualisation d'une seule variable en nuage de points__
+
+.pull-left[
+
+```python
+import matplotlib.pyplot as plt
+plt.style.use('seaborn-whitegrid')
+plt.figure(figsize=(4,3.5));
+x = np.arange(dist.size)
+plt.scatter(x, dist, c='black');
+plt.axhline(np.mean(dist), c='r');
+plt.show()
+```
+
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-1.png" width="384" /&gt;
+]
+.pull-right[
+
+```python
+import matplotlib.pyplot as plt
+x = [1]*dist.size
+plt.scatter(x, dist, c='black');
+plt.axhline(np.mean(dist), c='r');
+plt.show()
+```
+
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-3.png" width="384" /&gt;
+]
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.9. Rappels de statistiques
+
+__Visualisation d'une distribution en histogramme__
+
+.pull-left[
+
+```python
+import matplotlib.pyplot as plt
+# Distribution uniforme
+plt.figure(figsize=(4,3.2));
+n, bins, patches = plt.hist(dist,
+  bins=100, range=(0,100),
+  color='b', alpha=0.5)
+plt.axvline(np.mean(dist), c='r');
+plt.axvline(np.median(dist), c='g')
+```
+
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-5.png" width="384" /&gt;
+]
+.pull-right[
+
+```python
+import scipy.stats as st
+# Distribution normale
+plt.figure(figsize=(4,3));
+n, bins, patches = plt.hist(normal_dist,
+  bins=20, range=(0,100), density=True)
+x = np.arange(100)
+plt.plot(x,st.norm.pdf(x,
+  np.mean(dist), np.std(dist)))
+```
+
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-7.png" width="384" /&gt;
+]
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+Basé sur l'article ["Simple and multiple linear regression with Python"](https://towardsdatascience.com/simple-and-multiple-linear-regression-with-python-c9ab422ec29c) par Amanda Iglesias Moreno (ouvrir dans une fenêtre privée en cas d'accès restreint)
+
+Dataset Kaggle : [Weight-Height](https://www.kaggle.com/mustafaali96/weight-height)
+
+Notebook Kaggle : [Simple and multiple linear regression with Python](https://www.kaggle.com/pascalhouba/simple-and-multiple-linear-regression-with-python/)
+
+#### Importation du dataset
+
+
+```python
+import os
+for dirname, _, filenames in os.walk('/kaggle/input'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+        
+import pandas as pd
+df = pd.read_csv(os.path.join(dirname, filename))
+```
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+Dans cette présentation, plutôt que d'utiliser le _dataset Kaggle_, nous allons générer les données aléatoirement sur la base des mêmes paramètres statistiques : __moyennes__ (`loc`) et __écarts-type__ (`scale`).
+
+Pour illustrer notre propos, nous générerons deux jeux de données similaires :
+
+- `df0`, pour lequel il n'y aura __pas de relation entre hauteurs et poids__ (correspondant à l'hypothèse `\(H_0\)` d'un test statistique).
+
+- `df`, pour lequel nous créerons une __relation linéaire__ entre eux (hypothèse `\(H_1\)`).
+
+
+```python
+import pandas as pd
+import numpy as np
+male_gender = np.array(["Male"]*5000)
+female_gender = np.array(["Female"]*5000)
+male_height = np.random.normal(loc=69.026346, scale=2.863362, size=5000)
+male_weight = np.random.normal(loc=187.020621, scale=19.781155, size=5000)
+female_height = np.random.normal(loc=63.708774, scale=2.696284, size=5000)
+female_weight = np.random.normal(loc=135.860093, scale=19.022468, size=5000)
+gender = np.hstack((male_gender, female_gender))
+height = np.hstack((male_height, female_height))
+weight0 = np.hstack((male_weight, female_weight))
+weight1 = np.hstack((5.96*male_height - 224.5 + male_weight - 187.020621,
+                     5.99*female_height-246.01 + female_weight - 135.860093))
+df0 = pd.DataFrame({'Gender': pd.Series(gender),
+                    'Height': pd.Series(height), 'Weight': pd.Series(weight0)})
+df = pd.DataFrame({'Gender': pd.Series(gender),
+                   'Height': pd.Series(height), 'Weight': pd.Series(weight1)})
+```
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Affichage de la distribution d'une des variables__
+
+
+```python
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+# histogram of the height
+df.Height.hist(color='purple', edgecolor='black', figsize=(11,5));
+plt.title('Distribution of Height', size=24);
+plt.xlabel('Height (inches)', size=18);
+plt.ylabel('Frequency', size=18)
+```
+
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-9.png" width="1056" /&gt;
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Affichage des distributions selon les catégories__
+
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-11.png" width="1056" /&gt;
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Affichage des distributions selon les catégories__
+
+
+```python
+# males and females dataframes
+df_males = df[df['Gender'] == 'Male']
+df_females = df[df['Gender'] == 'Female']
+
+# histogram of the height - males and females
+df_males.Height.hist(color='blue', edgecolor='black', alpha=0.5, figsize=(10, 7));
+df_females.Height.plot(kind='hist', color='magenta', edgecolor='black', alpha=0.5,
+                       figsize=(11, 7));
+plt.legend(labels=['Males', 'Females']);
+plt.title('Distribution of Height', size=24);
+plt.xlabel('Height (inches)', size=18);
+plt.ylabel('Frequency', size=18)
+```
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Affichage des nuages de points et des droites de régressions__
+
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-13.png" width="1056" /&gt;
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Affichage des nuages de points et des droites de régressions__
+
+
+```python
+# Best fit polynomials (linear : degree = 1)
+male_fit = np.polyfit(df_males.Height, df_males.Weight, 1)
+female_fit = np.polyfit(df_females.Height, df_females.Weight, 1)
+
+# Scatter plots
+ax1 = df_males.plot(kind='scatter', x='Height', y='Weight', color='blue',
+                    alpha=0.2, figsize=(11, 7));
+df_females.plot(kind='scatter', x='Height', y='Weight', color='magenta',
+                alpha=0.2, figsize=(11, 7), ax=ax1);
+
+# Regression lines
+plt.plot(df_males.Height, male_fit[0] * df_males.Height + male_fit[1],
+         color='darkblue', linewidth=2);
+plt.plot(df_females.Height, female_fit[0] * df_females.Height + female_fit[1],
+         color='deeppink', linewidth=2);
+
+# Legend, title and labels with regression equations
+plt.legend(labels=['Males : y={:.2f}+{:.2f}*x'.format(male_fit[1], male_fit[0]),
+                   'Females : y={:.2f}+{:.2f}*x'.format(female_fit[1],
+                   female_fit[0])], fontsize = 16);
+plt.title('Relationship between Height and Weight', size=24);
+plt.xlabel('Height (inches)', size=18);
+plt.ylabel('Weight (pounds)', size=18);
+plt.show()
+```
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Variation des droites de régression selon l'échantillonnage__
+
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-15.png" width="1056" /&gt;
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Variation des droites de régression selon l'échantillonnage__
+
+
+```python
+# Samples from the female population
+sample1 = df_females.sample(25)
+sample2 = df_females.sample(25)
+# Best fit polynomials (linear : degree = 1)
+sample1_fit = np.polyfit(sample1.Height, sample1.Weight, 1)
+sample2_fit = np.polyfit(sample2.Height, sample2.Weight, 1)
+# Scatter plots
+ax1 = sample1.plot(kind='scatter', x='Height', y='Weight', color='purple',
+                   figsize=(11, 7))
+ax2 = sample2.plot(kind='scatter', x='Height', y='Weight', color='deeppink',
+             figsize=(11, 7), ax=ax1)
+df_females.plot(kind='scatter', x='Height', y='Weight', color='magenta',
+                alpha=0.05, figsize=(11, 7), ax=ax2)
+# Regression lines
+plt.plot(df_females.Height, sample1_fit[0] * df_females.Height + sample1_fit[1],
+         color='purple', linewidth=1)
+plt.plot(df_females.Height, sample2_fit[0] * df_females.Height + sample2_fit[1],
+         color='deeppink', linewidth=1)
+plt.plot(df_females.Height, female_fit[0] * df_females.Height + female_fit[1],
+         color='magenta', linewidth=3)
+# Legend, title and labels
+plt.legend(labels=['Sample 1','Sample 2','All females'])
+plt.title('Relationship between Height and Weight\nfor two samples of 25 females',
+          size=20)
+plt.xlabel('Height (inches)', size=18)
+plt.ylabel('Weight (pounds)', size=18)
+```
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Variation des droites de régression selon l'échantillonnage (version `Seaborn`)__
+
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-17.png" width="1056" /&gt;
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Variation des droites de régression selon l'échantillonnage (version `Seaborn`)__
+
+
+```python
+import seaborn as sns
+
+# Regression plot using seaborn
+fig = plt.figure(figsize=(11, 7))
+sns.regplot(x=sample1.Height, y=sample1.Weight, color='purple', ci=95,
+            scatter_kws={'alpha':0.50});
+sns.regplot(x=sample2.Height, y=sample2.Weight, color='deeppink', ci=95,
+            scatter_kws={'alpha':0.50});
+sns.regplot(x=df_females.Height, y=df_females.Weight, color='magenta', ci=95,
+            scatter_kws={'alpha':0.01}, line_kws={'color':'grey'});
+
+# Legend, title and labels
+plt.legend(labels=['Sample 1','Sample 2','All females'])
+plt.title('Relationship between Height and Weight\nfor two samples of 25 females',
+          size=20)
+plt.xlabel('Height (inches)', size=18)
+plt.ylabel('Weight (pounds)', size=18)
+```
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Graphe des résidus (version `Seaborn`)__
+
+&lt;img src="Data72_3_files/figure-html/unnamed-chunk-4-19.png" width="1056" /&gt;
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Graphe des résidus (version `Seaborn`)__
+
+
+```python
+import seaborn as sns
+
+# dataframe containing only females
+df_females_sample = df_females.sample(500)
+
+# residual plot 500 females
+fig = plt.figure(figsize = (11, 7))
+sns.residplot(data=df_females_sample, x='Height', y='Weight', color='magenta')
+
+# title and labels
+plt.title('Residual plot 500 females', size=24)
+plt.xlabel('Height (inches)', size=18)
+plt.ylabel('Weight (pounds)', size=18)
+```
+
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Transformation d'une variable catégorielle en variable numérique__
+
+.pull-left[
+
+```python
+df.head(3)
+```
+
+```
+##   Gender     Height      Weight
+## 0   Male  68.798064  207.654201
+## 1   Male  71.549473  192.673056
+## 2   Male  67.440737  179.855804
+```
+]
+.pull-right[
+
+```python
+df.tail(3)
+```
+
+```
+##       Gender     Height      Weight
+## 9997  Female  62.111736  152.860699
+## 9998  Female  62.529152  123.943150
+## 9999  Female  66.348581  151.828788
+```
+]
+
+
+```python
+df_dummy = pd.get_dummies(df)
+df_dummy.head(3)
+```
+
+```
+##       Height      Weight  Gender_Female  Gender_Male
+## 0  68.798064  207.654201              0            1
+## 1  71.549473  192.673056              0            1
+## 2  67.440737  179.855804              0            1
+```
+
+```python
+df_dummy.tail(3)
+```
+
+```
+##          Height      Weight  Gender_Female  Gender_Male
+## 9997  62.111736  152.860699              1            0
+## 9998  62.529152  123.943150              1            0
+## 9999  66.348581  151.828788              1            0
+```
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Transformation d'une variable catégorielle en variable numérique__
+
+
+```python
+# drop female column
+df_dummy.drop('Gender_Female', axis=1, inplace=True)
+
+# rename Gender_Male column
+df_dummy.rename(columns={'Gender_Male': 'Gender'}, inplace=True)
+
+# df_dummy dataframe first and last 5 columns
+df_dummy.head()
+```
+
+```
+##       Height      Weight  Gender
+## 0  68.798064  207.654201       1
+## 1  71.549473  192.673056       1
+## 2  67.440737  179.855804       1
+## 3  71.935940  208.986857       1
+## 4  64.709811  143.939667       1
+```
+
+```python
+df_dummy.tail()
+```
+
+```
+##          Height      Weight  Gender
+## 9995  61.182970  115.346701       0
+## 9996  62.823192  107.952331       0
+## 9997  62.111736  152.860699       0
+## 9998  62.529152  123.943150       0
+## 9999  66.348581  151.828788       0
+```
+---
+
+## **Chapitre 3 : Les régressions**
+### 3.10. Exemple d'une régression linéaire simple et multiple
+
+__Régressions simples et régression multiple avec `scikit-Learn`__
+
+
+```python
+from sklearn.linear_model import LinearRegression
+lr_males = LinearRegression().fit(df_males[['Height']], df_males['Weight'])
+print('Male Weight =',lr_males.intercept_,'+',lr_males.coef_[0],'x Height')
+```
+
+```
+## Male Weight = -227.16308842161502 + 5.998808789149494 x Height
+```
+
+```python
+lr_females = LinearRegression().fit(df_females[['Height']], df_females['Weight'])
+print('Female Weight =',lr_females.intercept_,'+',lr_females.coef_[0],'x Height')
+```
+
+```
+## Female Weight = -241.87478531643362 + 5.925912521664382 x Height
+```
+
+```python
+mlr = LinearRegression().fit(df_dummy[['Height', 'Gender']], df_dummy['Weight'])
+print('Weight =',mlr.intercept_,'+',mlr.coef_[0],'x Height','+',mlr.coef_[1],
+      'x Gender\n',
+      '  Male Weight =',mlr.intercept_+mlr.coef_[1],'+',mlr.coef_[0],'x Height\n',
+      'Female Weight =',mlr.intercept_,'+',mlr.coef_[0],'x Height')
+```
+
+```
+## Weight = -244.3097520055488 + 5.96409904596281 x Height + 19.539425516440822 x Gender
+##    Male Weight = -224.770326489108 + 5.96409904596281 x Height
+##  Female Weight = -244.3097520055488 + 5.96409904596281 x Height
+```
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

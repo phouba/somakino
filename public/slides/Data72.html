@@ -5,8 +5,17 @@
     <meta charset="utf-8" />
     <meta name="author" content="Pascal Houba" />
     <link href="Data72_files/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link rel="stylesheet" href="custom.css" type="text/css" />
-    <link rel="stylesheet" href="custom-fonts.css" type="text/css" />
+    <script src="Data72_files/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+    <script src="Data72_files/d3-3.3.8/d3.min.js"></script>
+    <script src="Data72_files/dagre-0.4.0/dagre-d3.min.js"></script>
+    <link href="Data72_files/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+    <script src="Data72_files/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+    <link href="Data72_files/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="Data72_files/chromatography-0.1/chromatography.js"></script>
+    <script src="Data72_files/DiagrammeR-binding-1.0.6.9000/DiagrammeR.js"></script>
+    <script src="Data72_files/pymjs-1.3.2/pym.v1.min.js"></script>
+    <link rel="stylesheet" href="Data72.css" type="text/css" />
+    <link rel="stylesheet" href="Data72-fonts.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -20,140 +29,180 @@ class: left, middle, title-slide
 
 class:middle
 
-### **Introduction : L’intelligence artificielle et les données**
-### Chapitre 1 : Les probabilités simples
-### Fiche 1 : Les tableurs
-### **Chapitre 2 : Les probabilités conditionnelles**
-
----
-
-## **Chapitre 1 : Les probabilités simples**
-### 1.1. La notion de probabilité
-La probabilité d'un événement caractérise la possibilité qu'il se produise.
---
-`$$\textrm{Probabilité d'un événement} = \frac{\textrm{nombre d'éventualités de l'événement}}{\textrm{nombre total d'éventualités}}$$`
---
-Attention : on suppose que toutes les éventualités sont équiprobables (ont la même probabilité d’arriver).
-On appelle _Univers_ l’ensemble de toutes les éventualités et on le note `\(\Omega\)`￼.
-
-Le _cardinal_ d’un ensemble est le nombre de ses éléments.
-
-Si A est le nom d‘un l’événement (qui peut regrouper plusieurs éventualités), la probabilité que A se réalise est donnée par la formule suivante :
-`$$P(A) = \frac{card(A)}{card(\Omega)}$$`
-
-La probabilité d'un événement est un nombre compris entre 0 et 1 et peut s'écrire sous forme de pourcentage.
-
----
-
-## **Fiche 1 : Les tableurs**
-### f1.1. Généralités
-Un **tableur** (ie. Microsoft Excel, Google Sheets, Apple Numbers, …) organise les données en cellules (**cells**) disposées en lignes (**rows**) et colonnes (**columns**) qui peuvent être réparties sur plusieurs feuilles (**sheets**).
-
-Chaque cellule peut contenir une **valeur** de **type** numérique, devise (€, $, …), alphanumérique, date, etc.
-
-Cette valeur peut résulter de l’évaluation d’une **formule** qui utilisent des **fonctions** (mathématiques ou autres).
-
-Chaque cellule possède une **adresse** correspondant aux lettres de sa ligne suivie de son numéro de colonne.
-Par exemple : `\(A6\)` ou `\(AQ18\)`. &lt;br&gt;Celles-ci peuvent être utilisées dans les formules.
-
-Chaque indice (lettre de ligne ou numéro de colonne) de ces adresses peut être, soit **relatif**, soit **absolu** (indiquée par un signe $ avant l’indice), par rapport à l’adresse de la cellule où se fait l’évaluation de la formule.
-
-Chaque cellule (ou ensemble de cellules) peut être **mise en forme** selon divers styles graphiques.
-
-On peut facilement continuer une **numérotation automatique** en faisant glisser le curseur pour agrandir la **plage** (_range_ ; ensemble de cellules) contenant un début de numérotation.
-
-On peut garder certaines lignes et/ou colonnes fixes même quand on déplace la vue de la fenêtre en positionnant des **volets** horizontaux et/ou verticaux.
-
----
-
-## **Fiche 1 : Les tableurs**
-### f1.2. Quelques fonctions courantes
-
-**SUM, MIN, MAX, AVERAGE, MOD, COUNT** : Calcule respectivement la somme, le minimum, le maximum, la moyenne, le modulo, le compte des valeurs numériques d’une plage de cellules.
-
-**RANDBETWEEN **_(début, fin)_ : Calcule un nombre aléatoire compris entre les valeurs _début_ et _fin_.
-Attention : A chaque changement du fichier, les valeurs de toutes les cellules liées à cette fonction sont recalculées.
-
-**ROW, COLUMN** : Calcule le numéro de la ligne ou de la colonne de la cellule passée en paramètre.
-
-**IF** _(condition; siVrai; siFaux)_ : renvoie la valeur _siVrai_ si la _condition_ est remplie, et _siFaux_ sinon.
-
-**RANK.EQ** _(cellule; plage)_ : renvoie le rang (numéro d’ordre) du la valeur de la _cellule_ au sein de la liste ordonnée _plage_.
-
-**CONCAT** _(texte1; texte2)_ : la concaténation est la fusion de deux ou plusieurs chaînes de caractères (textes).
-
-**COUNTIF** _(plage; cellule)_ : compte le nombre de cellules qui répondent à un critère donné dans une plage.
-
-**SUMIF** _(plage1; condition; plage2)_ : calcule la somme des valeurs de la _plage2_ correspondant aux valeurs de la _plage1_ répondant à la _condition_.
-
----
-
-## **Fiche 1 : Les tableurs**
-### f1.3. Défauts des tableurs par rapport aux alternatives
-
-**Difficile à relire**, surtout par quelqu’un qui n’a pas créé le document.
-
-Le nom des cellules sont obscures comparé à des **noms de variables ou de champs**.
-
-Les valeurs en entrée, en sortie et les formules sont toutes contenues dans des cellules et il n’est pas toujours facile de les identifier rapidement.
-&lt;br&gt;Dans un programme, on peut **séparer clairement les données, les résultats et les procédures de calcul**.
-
-Un code peut facilement produire des documents en **différents formats** (_HTML_, _PDF_, _EXCEL_, …).
-C’est moins facile à partir d’un tableur.
-
-Les langages de programmation sont **extensibles** et peuvent étendre fortement leurs fonctionnalités. Les tableurs ont des fonctionnalités limitées à celles prévues par leurs éditeurs.
-
-Les langages de programmation comme _Java_, _Python_, _R_ sont **Open Source** et gratuits, ce qui n’est pas le cas des tableurs (certains sont gratuits mais pas _Open Source_).
-
-Il est très difficile de gérer les versions et de suivre les changements des documents créés avec les tableurs.
-C’est très facile avec les fichiers de code (cf. _Github_, la plateforme la plus connue de **gestion de versions**).
-
----
-class:middle
-
-### **Introduction : L’intelligence artificielle et les données**
+### Introduction : L’intelligence artificielle et les données
 ### **Chapitre 1 : Les probabilités simples**
 ### **Fiche 1 : Les tableurs**
-### Chapitre 2 : Les probabilités conditionnelles
+### **Chapitre 2 : Les probabilités conditionnelles**
+### **Fiche 2 : Performances d'un test de dépistage**
 
 ---
 
-## **Chapitre 2 : Les probabilités conditionnelles**
-### 2.1. La notion de probabilité conditionnelle
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.1. Qui a peur de l'IA ?
 
-Mathématiquement, deux événements `\(A\)` et `\(B\)` sont **indépendants** si `$$P(A \cap B) = P(A) . P(B)$$`
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/oZUWa1rf1fY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
-Dans ce cas, on peut utiliser les formules des **probabilités simples**. Sinon, on doit utiliser les formules des **probabilités conditionnelles**.
+Il y a toujours un malentendu sur le terme d'intelligence artificielle.
 
-Une **probabilité conditionnelle** est la probabilité d'un événement **sachant** qu'un autre événement a eu lieu.
+Beaucoup de gens imaginent que c’est une espèce de fantasmagorie : l’idée qu’une machine va tout d'un coup être animée d’intelligence mais ce n'est pas ça !
 
-On note `\(P(A|B)\)` la probabilité conditionnelle que A se réalise sachant que B a eu lieu. Attention, l’ordre est important : `\(P(A|B) \neq P(B|A)\)`.
-
-La **formule** de la probabilité conditionnelle de `\(A\)` sachant `\(B\)` est : `$$P(A|B) = \frac{P(A \cap B)}{P(B)}$$`
-
-On peut donc calculer `\(P(A \cap B)\)` de deux manières : `$$P(A \cap B) = P(A|B).P(B) = P(B|A).P(A)$$`
-
-Cela donne le **théorème de Bayes** : `\(P(A|B) = \frac{P(B|A).P(A)}{P(B)}\)`.
+L’intelligence artificielle c’est une discipline scientifique.
 
 ---
 
-## **Fiche 2 : Visualisation des probabilités conditionnelles**
-### f2.1. La représentation en arbre
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.2. Qu'est-ce que l'IA ?
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/s76oTtyw8Q8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+L'informatique a pour objet le traitement de l'**infor**mation de manière auto**matique**.
+
+Elle s'appuie sur des **machines** capables de **traiter des données** grâce à des **algorithmes**.
+
+Un **algorithme** est une série d'instructions à suive dans un certain ordre pour effectuer une tâche de manière __automatique__ (sans avoir besoin de comprendre ou de réfléchir).
+
+Une fois cet algorithme traduit dans un langage compréhensible par l'ordinateur, on obtient un __programme informatique__.
 
 ---
 
-## **Fiche 2 : Visualisation des probabilités conditionnelles**
-### f2.2. La représentation en tableau
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.2. Qu'est-ce que l'IA ?
+
+Pour simuler l'intelligence humaine, il faut pouvoir reproduire les différentes __fonctions cognitives__ à l'oeuvre dans le fonctionnement de la pensée (la perception, le langage, la motricité, la  mémoire, le raisonnement, l'abstraction, et la créativité).
+
+Pour y arriver, il y a __deux approches complémentaires__ :
+  - __L'approche symbolique__ essaie d'imiter comment l'humain raisonne logiquement en utilisant un ensemble de connaissances, de règles, de procédures.
+
+  Cette approche a donné les __systèmes experts__ qui tentent de reproduire le raisonnement d'un spécialiste, comme un médecin ou un juriste, pour résoudre un problème.
+
+- __L'approche numérique ou connexionniste__ tente d'imiter comment l'humain apprend par essais et erreurs à partir de ses expériences, pour lesquels il est beaucoup plus difficile d'expliquer comment on s'y prend (faire du vélo, reconnaître un chat).
+
+  Cette approche est à l'oeuvre dans l'__apprentissage machine (machine learning)__ et les __réseaux de neurones (neural networks)__.
+
+La spécificité de l'intelligence humaine est d'être une __intelligence générale__, alors que les intelligences artificielles sont techniques et spécifiques : elles ne peuvent effectuer que la tâche pour laquelle elles ont été programmées ou paramétrées.
+
 
 ---
 
-## **Fiche 2 : Visualisation des probabilités conditionnelles**
-### f2.3. La représentation en diagramme de Venn
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.3. Quelques repères dans l'histoire de l'IA
+
+***
+
+__Référence :__ Russell, Stuart J., Peter Norvig, et Ernest Davis. __Artificial Intelligence: A Modern Approach__ (3rd ed.), Prentice Hall, 2010.
+
+***
+
+__I. Les fondations__
+
+__1936__ - Alan Turing publie l'article où il décrit la __machine de Turing__.
+
+__1943__ - Le premier article à la base de l'approche des __réseaux de neurones artificiels__ est publié, initiant ___l'approche connexionniste___.
+
+__1948__ - Alan Turing décrit, sur la base du modèle des réseaux de neurones, une __machine inorganisée__ capable d'apprendre par elle-même.
+
+__1950__ - Alan Turing publie l'article où il décrit le __test de Turing__, censé ne pouvoir être réussi que par une machine intelligente imitant un être humain.
+
+__1951__ - Marvin Minsky et Dean Edmonds construisent une première machine à réseau neuronal.
+
+__1956__ - La __conférence de Dartmouth__, a été le moment-clé où l'intelligence artificielle a été appelée comme telle, a défini ses objectifs, a concrétisé ses premières réussites et a réuni ses acteurs importants. Cette conférence est largement considérée comme le __moment fondateur de l'intelligence artificielle__ en tant que domaine de recherche autonome.
+
+Un premier programme capable de démontrer automatiquement des théorèmes mathématiques y est présenté, marquant le début de ___l'approche symbolique___.
 
 ---
 
-## **Chapitre 3 : Les tests d’hypothèses**
-### 3.1. Lady Tasting Tea
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.3. Quelques repères dans l'histoire de l'IA
+
+__II. Des hauts et des bas__
+
+__1956−1974__ - Les années qui suivent la conférence de Dartmouth sont une ère de découverte : des ordinateurs résolvent des problèmes algébriques, démontrent des théorèmes et apprennent à parler anglais. Les chercheurs font preuve alors d'un optimisme intense : ils prédisent qu'une machine complètement intelligente sera construite dans les 20 ans à venir. Les agences gouvernementales investissent massivement dans ce nouveau domaine.
+
+__1974-1980 : le premier hiver de l'IA__ - L'intelligence artificielle subit critiques et revers budgétaires, car les chercheurs en intelligence artificielle n'ont pas une vision claire des difficultés des problèmes auxquels ils sont confrontés. Leur immense optimisme a engendré une attente excessive et quand les résultats promis ne se matérialisent pas, les investissements consacrés à l'intelligence artificielle s'étiolent.
+
+__1980-1987__ - Des programmes d'IA appelés « __systèmes experts__ » sont adoptés par les entreprises et la connaissance devient le sujet central de la recherche en IA. Un système expert est un programme qui répond à des questions ou résout des problèmes dans un domaine de connaissance donné, à l'aide de règles logiques dérivées de la connaissance des experts humains de ce domaine.
+
+__1987−1993 : le second hiver de l'IA__ - Finalement, les premiers systèmes experts ont un coût de maintenance trop élevé, sont difficiles à mettre à jour, ne peuvent pas apprendre, peuvent faire des erreurs grotesques quand les paramètres sortent des valeurs habituelles, et s'empêtrent dans des problèmes. Les systèmes experts se sont révélés utiles, mais uniquement dans des contextes très spécifiques.
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.3. Quelques repères dans l'histoire de l'IA
+
+__III. Vers l'orthodoxie scientifique__
+
+Les chercheurs en intelligence artificielle développent et utilisent des outils mathématiques sophistiqués comme jamais auparavant.
+
+__Dès 1985,__ des algorithmes dits de __rétro-propagation (backpropagation)__, essentiels pour le développement du __machine learning__ dans les années 2000, sont mis au points.
+
+__En 1988,__ le livre-charnière de Judea Pearl intègre les probabilités et la théorie de la décision avec les __réseaux bayésiens__.
+
+__Le 11 mai 1997__, _Deep Blue_ est devenu le premier système informatique de jeu d'échecs à battre le champion du monde en titre, Garry Kasparov.
+
+__Le 15 mars 2016__, le programme _AlphaGo_ développé par Google remporte un tournoi de go face au champion Lee Sedol, marquant une avancée significative des techniques d'apprentissage automatique.
+
+__A partir de 2011__ - L'accès à de grandes quantités de données (__big data__) ainsi qu'à de grandes capacités de stockage et de puissance de calcul se généralise.
+
+Parallèlement, de nouveaux algorithmes d'apprentissage de type connexioniste sont développés sous le nom de __machine learning (ML)__ et ensuite de __deep learning (DL)__.
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.4. Du machine learning et des données
+
+&lt;iframe width="500" height="240" src="https://www.youtube.com/embed/wPiMSsz_Dnw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+Le but de __l'apprentissage automatique (machine learning)__ est de développer des algorithmes qui peuvent apprendre à apprendre.
+
+Il y a deux techniques d'apprentissage principales :
+
+  - __L'apprentissage supervisé__ qui procède en deux phases :
+  
+  Dans la __phase d'entraînement__, les données sont étiquetées par des humains.
+
+  Dans la __phase de prédiction__, l'algorithme effectue une prédiction sur la base de données qu'il n'a jamais vues.
+
+  - __L'apprentissage par renforcement__ où l'algorithme apprend en étant plongé dans un environnement, et où il va ajuster ses paramètres en fonction de la réaction positive ou négative qui suit chacune de ses actions.
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.4. Du machine learning et des données
+
+__L'apprentissage profond (deep learning)__ est une méthode d'apprentissage machine qui s'appuie sur des __réseaux de neurones artificiels__.
+
+Les neurones biologiques sont des cellules connectées les unes aux autres.
+
+Quand un neurone reçoit des signaux d'autres neurones, il les combine et peut alors transmettre ou non le signal à d'autres.
+
+Les neurones artificiels imitent le fonctionnement des neurones biologiques sur la base d'un modèle mathématique.
+
+Cette méthode date des années 50 mais ce n'est que récemment que la puissance de calcul, l'augmentation des volumes de données et le perfectionnement des algorithmes ont permis d'atteindre une nouvelle étape, appelée apprentissage profond (deep learning), caractérisée par une répartition du réseau en plusieurs couches hiérarchisées, ce qui signifie que les entrées d'une couche sont fonction des sorties de la couche précédente.
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.4. Du machine learning et des données
+
+&lt;img src="images/ai-point-of-view_v8-s5.jpg" /&gt;
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.4. Du machine learning et des données
+
+&lt;img src="images/main-qimg-8c6615d4d47732f2668b455713d6fd23.png" /&gt;
+
+---
+
+## **Introduction : L’intelligence artificielle et les données**
+### Intro.4. Du machine learning et des données
+.center[
+<div id="htmlwidget-6ab6796cf55bb59ae302" style="width:720px;height:360px;" class="DiagrammeR html-widget"></div>
+<script>HTMLWidgets.pymChild = new pym.Child();HTMLWidgets.addPostRenderHandler(function(){
+                                setTimeout(function(){HTMLWidgets.pymChild.sendHeight();},100);
+                            });</script>
+<script type="application/json" data-for="htmlwidget-6ab6796cf55bb59ae302">{"x":{"diagram":"\n  graph LR;\n\n  IA(\"<b>Intelligence<br>Artificielle<\/b>\") -- \"Approche<br>symbolique\" --> SE(\"<b>Systèmes<br>experts<\/b>\");\n  \n  IA -- \"Approche<br>numérique\" --> ML(\"<b>Machine<br>Learning<\/b>\");\n  \n  IA -- \"Approche<br>connexionniste\" --> RN(\"<b>Réseaux<br>neuronaux<\/b>\");\n  \n  RN --> DL(\"<b>Deep<br>Learning<\/b>\");\n  \n  ML --> DL\n  \n  ST(\"<b>Statistiques<\/b>\") --> ML;\n\n  linkStyle 0 stroke:#fff, fill:#0AD, anything;\n  linkStyle 1 stroke:#fff, fill:#0AD, anything;\n  linkStyle 2 stroke:#fff, fill:#0AD, anything;\n  linkStyle 3 stroke:#fff, fill:#0AD, anything;\n  linkStyle 4 stroke:#fff, fill:#0AD, anything;\n  linkStyle 5 stroke:#fff, fill:#0AD, anything;\n  \n  style IA fill:#fff, stroke-width:2, stroke:#000;\n  style ST fill:#fff, stroke-width:2, stroke:#000;\n  style SE fill:#ff0, stroke-width:2, stroke:#000;\n  style ML fill:#ff0, stroke-width:2, stroke:#000; \n  style RN fill:#ff0, stroke-width:2, stroke:#000;\n  style DL fill:#fA0, stroke-width:2, stroke:#000;\n  "},"evals":[],"jsHooks":[]}</script>
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
